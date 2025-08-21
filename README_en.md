@@ -58,7 +58,7 @@ A quick estimate using Gemini with a USD 10 usage budget:
 
 | Property                  | 2.5 Pro | 2.5 Flash | Flash-Lite |
 | :------------------------ | :-----: | :-------: | :--------: |
-| Input limit (approx.)     | ~8M     | ~33.3M    | ~100M      |
+| Input limit (OR)     | ~8M     | ~33.3M    | ~100M      |
 | Output limit              | ~1M     | ~4M       | ~25M       |
 | Cost = input tokens × unit price + output tokens × unit price |
 
