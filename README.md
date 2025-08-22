@@ -117,7 +117,9 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 例子： Qwen3 GGUF 量化尺寸与推荐显存（llama.cpp）
 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
+
 > 爆显存（即超过显存大小导致占用内存）会大幅降低速度</br>
+
 > 理论上模型参数越大，翻译质量越高；不同系列难以对比
 
 #### Qwen3-8B（GGUF）
