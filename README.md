@@ -74,13 +74,33 @@ LLM（大语言模型）相较传统神经机器翻译（NMT，通常指专门�
   - Anthropic (Claude 4)</br>
   同系列模型之间参数越大，能力越强 （gemini2.5 pro>flash>lite)
 
-- **审查**
+- **审查**  
 闭源模型普遍存在较严格的安全审查机制（也很合理）
 
 审查机制由弱到强为</br>
 grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series < openai第三方api <<< openai(难以绕过）
 1. Gemini 2.5 free tier审查疑似更严重
 2. 各模型网页/客户端Chat版本审核强于api
+
+- **跨语言/多语言能力**  
+领先的闭源模型通常有强大的跨语言能力
+
+| 模型 | 可核实数量 | 依据（范围） | 备注 |
+|---|---:|---|---|
+| **xAI Grok-3** | **27** | 官方清单（模型） | 厂商列出的文本语言列表。 |
+| **xAI Grok-4** | — | — | **未披露**（无官方数据）。 |
+| **OpenAI GPT-4** | **26** | 评测覆盖（翻译版 MMLU） | 评测含 26 种语言；评测≠能力上限。 |
+| **OpenAI GPT-4o** | **超过GPT-4** | 官方宣称 |   |
+| **OpenAI GPT-5** | — | — | **未披露**（无官方数据）。 |
+| **Google Gemini 2.5 Pro** | **37** / **40+** | 开发者提示语言 / Web 应用 UI | 两套口径：开发者清单 37；Web 应用 UI 为 40+。 |
+| **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | 官方评测覆盖 / 产品/UI 语言 | 评测：英语+14 种非英语（共 15）；UI 语言：11。 |
+> Grok3: English（英语）、Spanish（西班牙语）、French（法语）、Afrikaans（南非荷兰语）、Arabic（阿拉伯语）、Bengali（孟加拉语）、Welsh（威尔士语）、German（德语）、Greek（希腊语）、Indonesian（印尼语）、Icelandic（冰岛语）、Italian（意大利语）、Japanese（日语）、Korean（韩语）、Latvian（拉脱维亚语）、Marathi（马拉地语）、Nepali（尼泊尔语）、Punjabi（旁遮普语）、Polish（波兰语）、Russian（俄语）、Swahili（斯瓦希里语）、Telugu（泰卢固语）、Thai（泰语）、Turkish（土耳其语）、Ukrainian（乌克兰语）、Urdu（乌尔都语）、Chinese（中文） </br>
+
+> GPT-4：English（英语）、Italian（意大利语）、Afrikaans（南非荷兰语）、Spanish（西班牙语）、German（德语）、French（法语）、Indonesian（印尼语）、Russian（俄语）、Polish（波兰语）、Ukrainian（乌克兰语）、Greek（希腊语）、Latvian（拉脱维亚语）、Mandarin（中文）、Arabic（阿拉伯语）、Turkish（土耳其语）、Japanese（日语）、Swahili（斯瓦希里语）、Welsh（威尔士语）、Korean（韩语）、Icelandic（冰岛语）、Bengali（孟加拉语）、Urdu（乌尔都语）、Nepali（尼泊尔语）、Thai（泰语）、Punjabi（旁遮普语）、Marathi（马拉地语）、Telugu（泰卢固语） </br>
+
+> Gemini: 阿拉伯语、孟加拉语、保加利亚语、中文（简体/繁体）、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、波斯语、芬兰语、法语、德语、希腊语、古吉拉特语、希伯来语、印地语、匈牙利语、印尼语、意大利语、日语、卡纳达语、韩语、拉脱维亚语、立陶宛语、马拉雅拉姆语、马拉地语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语、斯洛伐克语、斯洛文尼亚语、西班牙语、斯瓦希里语、瑞典语、泰米尔语、泰卢固语、泰语、土耳其语、乌克兰语、乌尔都语、越南语
+
+> Claude: English（英语，基线）、Spanish（西班牙语）、Portuguese（Brazil）（巴西葡萄牙语）、Italian（意大利语）、French（法语）、Indonesian（印尼语）、German（德语）、Arabic（阿拉伯语）、Chinese（Simplified）（简体中文）、Korean（韩语）、Japanese（日语）、Hindi（印地语）、Bengali（孟加拉语）、Swahili（斯瓦希里语）、Yoruba（约鲁巴语）
 
 
 ### 本地开放权重/开源模型
