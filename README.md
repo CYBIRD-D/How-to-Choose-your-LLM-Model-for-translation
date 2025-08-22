@@ -111,7 +111,8 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   - 模型规模×数据×算力越大，通常效果越好(scaling law)
     - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
-这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio布置）（MLX类似）</br>
+
+这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio等平台布置）（MLX类似）</br>
 例子： Qwen3 GGUF 量化尺寸与推荐显存（llama.cpp）
 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
