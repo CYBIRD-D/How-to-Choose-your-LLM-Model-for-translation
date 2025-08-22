@@ -23,12 +23,12 @@ Compared with traditional Neural Machine Translation (NMT, usually sequence-to-s
 ## How to choose an LLM?
 Your choice depends on the following trade-offs. A brief overview is below; detailed categories follow.
 
-- **Speed/Price**
+- **Speed/Price/quality**
   - “Cuda out of money, pls charge💸 ”
   - Whether local models or online APIs, there are cost trade-offs. Local models require a GPU; online APIs charge per use. Costs correlate with parameter size.</br>
-Bigger models/faster speeds = more VRAM + more CUDA cores = higher API prices.
+Bigger models/faster speeds = better quality = more VRAM + more CUDA cores = higher API prices.
 
-  - Google does provide free APIs on AI Studio, but with quota limits. Bigger models = stricter limits.</br>
+  - Google does provide free APIs on AI Studio, and Gemini 2.0 Flash is generally stronger than ~70% of small open-source models, but with quota limits. Bigger models = stricter limits.</br>
     - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose Google AI Studio.
  
 - **Privacy/Moderation**
@@ -90,13 +90,16 @@ Grok 3/4 (easy to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 seri
 [Hugging Face](https://huggingface.co/)
 
 - **How to choose a suitable parameter size**
-
+  - The larger the product of model size × data × compute, the better the performance tends to be (scaling law)
+    - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
+  - Typical open-source model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B+   
+                                                                              
 This section only discusses GGUF models supported by llama.cpp (can be deployed with ollama/LM Studio).</br>
 Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
 
 > Note: “Recommended VRAM” is a conservative estimate of “model file size + ~1 GB headroom”; longer context or putting the KV cache in VRAM requires more VRAM.</br>
 > Overflowing VRAM (spilling into system RAM) can drastically reduce speed.</br>
-> In theory, the more parameters a model has, the higher the translation quality.
+> In theory, the more parameters a model has, the higher the translation quality; models from different series are hard to compare.
 
 ### Qwen3-8B (GGUF)
 
