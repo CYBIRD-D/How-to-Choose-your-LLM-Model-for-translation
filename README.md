@@ -17,12 +17,12 @@ LLM（大语言模型）相较传统神经机器翻译（NMT，通常指专门�
 
 ## 如何选择LLM？
 如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍，后文有细致分类：
-- **速度/价格**
+- **速度/价格/性能**
   - "Cuda out of money, pls charge💸 "
   - 无论是本地模型还是在线api，都有价格取舍的问题。本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小</br>
-更大的模型/更快的速度=更多的显存+更多的cuda core=更贵的api价格
+更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
 
-  - 谷歌确实在aistudio提供免费的api，但有额度限制 更大的模型=更多的限制</br>
+  - 谷歌确实在aistudio提供免费的api，且gemini 2.0flash已通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
     - 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），建议选择google aistudio 
  
 - **隐私/审查**
@@ -82,13 +82,15 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 [Huggingface](https://huggingface.co/)
 
 - **如何选择适合的模型参数大小**
-
-这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio布置）</br>
+  - 模型规模×数据×算力越大，通常效果越好(scaling law)
+    - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
+  - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
+这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio布置）（MLX类似）</br>
 例子： Qwen3 GGUF 量化尺寸与推荐显存（llama.cpp）
 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
 > 爆显存（即超过显存大小导致占用内存）会大幅降低速度</br>
-> 理论上模型参数越大，翻译质量越高
+> 理论上模型参数越大，翻译质量越高；不同系列难以对比
 
 ### Qwen3-8B（GGUF）
 
