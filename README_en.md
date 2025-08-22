@@ -159,6 +159,8 @@ Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
 | **Q4_0** | ≈ 4.0 | Medium–Low | Only for compatibility/comparison | Legacy method; generally no longer recommended* |
 | **Q3_K_M** | 3.4375 | Low | Extreme memory or edge-device trade-offs | Noticeable quality drop; not recommended |
 
+Technical article https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+
 \* *bpw (bits per weight) uses approximate or exact values from official/docs; some legacy methods (e.g., Q4_0/Q5_0) don’t clearly state extra overhead, hence “≈”.*</br>
 \* *Special case: Gemma 3 12B Instruct QAT is q4_0, but Quantization-Aware Training (QAT) makes its quality far above a typical q4 tier.* 
 
