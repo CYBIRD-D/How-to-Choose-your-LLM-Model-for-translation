@@ -101,7 +101,7 @@ Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
 > Overflowing VRAM (spilling into system RAM) can drastically reduce speed.</br>
 > In theory, the more parameters a model has, the higher the translation quality; models from different series are hard to compare.
 
-### Qwen3-8B (GGUF)
+#### Qwen3-8B (GGUF)
 
 | Quantization | Model file size | Recommended VRAM (weights + headroom) |
 |---|---:|---:|
@@ -111,7 +111,7 @@ Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
 | Q6_K | 6.73 GB | ≥ 8 GB |
 | Q8_0 | 8.71 GB | ≥ 10 GB |
 
-### Qwen3-14B (GGUF)
+#### Qwen3-14B (GGUF)
 
 | Quantization | Model file size | Recommended VRAM (weights + headroom) |
 |---|---:|---:|
@@ -144,12 +144,16 @@ Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
 
 - **Which models are better to use?**
   - **In most cases, the newer the better** (except llama 4). Newer models mean new training techniques/more data and are usually stronger for multilingual tasks.</br>
+  - **Bigger parameter counts are better**: Within your **VRAM-supported range**, more parameters are better.
+    - Comparison across parameter sizes and quantizations? For translation tasks only, **Q5_K_M** and above show no obvious quality loss, so **Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M**.
+    - For translation, **Q8** precision is generally unnecessary; **Q6_K** has no virtual quality loss.
   - **Language fine-tuning**: most models are best at English (most data). Quality in other languages depends on data quantity/quality and training methods/techniques.</br>
     Community fine-tunes (e.g., suffix “-JP”) use Japanese data, which significantly strengthens EN↔JP but usually weakens other languages.
   - **Uncensored**: if your content would be blocked by safety filters, you’ll need uncensored models.</br>
     For example: Josiefied-Qwen3-8B-abliterated-v1. Terms like abliterated; uncensored; NSFW usually indicate “safety-filter removed” fine-tunes (depending on techniques/skills, these models may degrade in quality).
-    
-- **Speed optimization**
+
+
+#### Local model speed optimization
 
 Using LM STUDIO as an example:
 <p align="center">
