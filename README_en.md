@@ -85,6 +85,26 @@ Grok 3/4 (easy to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 seri
 1. Gemini 2.5 free tier appears stricter.  
 2. Web/client “Chat” versions are usually stricter than APIs.
 
+- **Multilingua ablility**
+
+| Model | Verifiable count | Basis (scope) | Notes |
+|---|---:|---|---|
+| **xAI Grok-3** | **27** | Official list (model) | Vendor-provided language list. |
+| **xAI Grok-4** | — | — | **Undisclosed** by vendor. |
+| **OpenAI GPT-4** | **26** | Evaluation coverage (translated MMLU) | 26 languages evaluated; evaluation ≠ hard limit. |
+| **OpenAI GPT-4o** | Better Than GPT-4 | Openai offical claim | |
+| **OpenAI GPT-5** | — | — | **Undisclosed** by vendor. |
+| **Google Gemini 2.5 Pro** | **37** / **40+** | Dev prompt languages / Web app UI | Two vendor baselines: developer list (37) and UI availability (40+). |
+| **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | Evaluation coverage / Product/UI languages | Eval≠ hard limit: EN + 14 non-EN; UI languages: 11. |
+> Grok3: English, Spanish, French, Afrikaans, Arabic, Bengali, Welsh, German, Greek, Indonesian, Icelandic, Italian, Japanese, Korean, Latvian, Marathi, Nepali, Punjabi, Polish, Russian, Swahili, Telugu, Thai, Turkish, Ukrainian, Urdu, Chinese. </br>
+
+> GPT4: English, Italian, Afrikaans, Spanish, German, French, Indonesian, Russian, Polish, Ukrainian, Greek, Latvian, Mandarin, Arabic, Turkish, Japanese, Swahili, Welsh, Korean, Icelandic, Bengali, Urdu, Nepali, Thai, Punjabi, Marathi, Telugu.</br>
+
+> Gemini： Arabic, Bengali, Bulgarian, Chinese (Simplified/Traditional), Croatian, Czech, Danish, Dutch, English, Estonian, Persian, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kannada, Korean, Latvian, Lithuanian, Malayalam, Marathi, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Vietnamese.
+
+> Claude：English, Spanish, Portuguese (Brazil), Italian, French, Indonesian, German, Arabic, Chinese (Simplified), Korean, Japanese, Hindi, Bengali, Swahili, Yoruba.
+
+
 ### Local open-weights / open-source models
 - **Where to find open-source models?**  
 [Hugging Face](https://huggingface.co/)
