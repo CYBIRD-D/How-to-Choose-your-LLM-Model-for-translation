@@ -98,7 +98,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 > 爆显存（即超过显存大小导致占用内存）会大幅降低速度</br>
 > 理论上模型参数越大，翻译质量越高；不同系列难以对比
 
-### Qwen3-8B（GGUF）
+#### Qwen3-8B（GGUF）
 
 | 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
 |---|---:|---:|
@@ -108,7 +108,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q6_K | 6.73 GB | ≥ 8 GB |
 | Q8_0 | 8.71 GB | ≥ 10 GB |
 
-### Qwen3-14B（GGUF）
+#### Qwen3-14B（GGUF）
 
 | 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
 |---|---:|---:|
@@ -148,6 +148,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
     社区微调模型（例如尾缀带-JP）一般是用日语数据进行微调，会显著加强EN-JP能力，但通常会削弱其他语言的能力
   - **无审查**：如果你需要翻译的内容会被模型安全审核，则需要找无审查模型。</br>
     例如：Josiefied-Qwen3-8B-abliterated-v1，其中abliterated;uncensored;NSFW等都代表去安全审核微调（取决于技术和能力，这些模型可能会有质量下降）。
+
 
     
 #### 优化本地模型速度
