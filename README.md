@@ -179,7 +179,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
     社区微调模型（例如尾缀带-JP）一般是用日语数据进行微调，会显著加强EN-JP能力，但通常会削弱其他所有语言的能力
   - **无审查**：如果你需要翻译的内容会被模型安全审核，则需要找无审查模型。</br>
     例如：Josiefied-Qwen3-8B-abliterated-v1，其中abliterated;uncensored;NSFW等都代表去安全审核微调（取决于技术和能力，这些模型可能会有质量下降）。
-
+-----------
     
 #### 优化本地模型速度
 
