@@ -51,6 +51,7 @@ For example, [SakuraLLM](https://github.com/SakuraLLM/SakuraLLM) continues pretr
 - **Thinking models / chain of thought**
   - Thinking models strengthen understanding of context and instructions; in theory they do better on whole-document translation than non-thinking mode.
   - But they take longer to think, and chains of thought consume tokens.
+----------
 
 ### Closed-source models
 - **Price**  
@@ -78,6 +79,8 @@ The latest closed-source models outperform open-source ones in many areas (as of
   - Anthropic (Claude 4)</br>
   Within a series, more parameters generally mean stronger capability (Gemini 2.5 Pro > Flash > Lite).
 
+benchmark can be checked on [Kaggle](https://www.kaggle.com/benchmarks)
+
 - **Moderation**
 Closed-source models generally have stricter safety moderation (which is reasonable).
 
@@ -104,23 +107,27 @@ Grok 3/4 (easy to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 seri
 > Gemini： Arabic, Bengali, Bulgarian, Chinese (Simplified/Traditional), Croatian, Czech, Danish, Dutch, English, Estonian, Persian, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kannada, Korean, Latvian, Lithuanian, Malayalam, Marathi, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Vietnamese.
 
 > Claude：English, Spanish, Portuguese (Brazil), Italian, French, Indonesian, German, Arabic, Chinese (Simplified), Korean, Japanese, Hindi, Bengali, Swahili, Yoruba.
-
+-----------
 
 ### Local open-weights / open-source models
 - **Where to find open-source models?**  
 [Hugging Face](https://huggingface.co/)
 
 - **How to choose a suitable parameter size**
+  - GPU VRAM > Model file size + context (or offload to CPU)  
   - The larger the product of model size × data × compute, the better the performance tends to be (scaling law)
     - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
   - Typical open-source model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B+   
                                                                               
-This section only discusses GGUF models supported by llama.cpp (can be deployed with ollama/LM Studio).</br>
-Example: Qwen3 GGUF quantization sizes and recommended VRAM (llama.cpp)
-
 > Note: “Recommended VRAM” is a conservative estimate of “model file size + ~1 GB headroom”; longer context or putting the KV cache in VRAM requires more VRAM.</br>
+
 > Overflowing VRAM (spilling into system RAM) can drastically reduce speed.</br>
+
 > In theory, the more parameters a model has, the higher the translation quality; models from different series are hard to compare.
+
+This section only discusses GGUF models supported by llama.cpp (can be deployed with ollama/LM Studio).</br>
+
+**Example**: Qwen3 GGUF quantization sizes and recommended VRAM
 
 #### Qwen3-8B (GGUF)
 
@@ -174,7 +181,7 @@ Technical article https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e
     Community fine-tunes (e.g., suffix “-JP”) use Japanese data, which significantly strengthens EN↔JP but usually weakens other languages.
   - **Uncensored**: if your content would be blocked by safety filters, you’ll need uncensored models.</br>
     For example: Josiefied-Qwen3-8B-abliterated-v1. Terms like abliterated; uncensored; NSFW usually indicate “safety-filter removed” fine-tunes (depending on techniques/skills, these models may degrade in quality).
-
+-----------
 
 #### Local model speed optimization
 
@@ -222,6 +229,7 @@ Selects the precision/quantization format of the attention K-cache (implementati
 13. **V Cache Quantization Type (experimental)** </br>
 Same as above but for the V-cache (`type_v`). Paired with K-cache quantization for long context or low-VRAM cards to expand context/trim usage.
 > In general, RoPE and the KV cache can stay at defaults; some models are prone to errors.
+-----------
 
 - **Translation tools** </br>
 You can create game patches or translation files yourself.
