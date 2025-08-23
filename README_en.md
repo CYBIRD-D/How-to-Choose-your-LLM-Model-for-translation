@@ -29,7 +29,7 @@ Your choice depends on the following trade-offs. A brief overview is below; deta
 Bigger models/faster speeds = better quality = more VRAM + more CUDA cores = higher API prices.
 
   - Google does provide free APIs, and Gemini 2.0 Flash is generally stronger than ~70% of small open-source models, but with quota limits. Bigger models = stricter limits.</br>
-    - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose Google AI Studio.
+    - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose Google free API (can be found in google ai studio).
     - I haven't used the AMD AI Max+ 395 series. Not sure about its compatibility or performance. Its design is similar to the unified memory of Mac, but with a smaller bandwidth.
  
 - **Privacy/Moderation**
