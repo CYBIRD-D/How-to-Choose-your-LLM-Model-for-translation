@@ -49,6 +49,7 @@ LLM（大语言模型）相较传统神经机器翻译（NMT，通常指专门�
 - **思维模型/思维链**
   - thinking模型因理解上下文和用户指令能力进一步加强，理论上对于整篇的翻译会优于non-thinking mode
   - 但思考时间长，且思维链也需要消耗token 
+---------
 
 ### 闭源模型
 - **价格**  
@@ -67,13 +68,15 @@ LLM（大语言模型）相较传统神经机器翻译（NMT，通常指专门�
   2.5 Flash：约 6,450 次调用</br>
   2.5 Flash-Lite 或 2.0 Flash：约 33,000 次调用</br>
   
-- **能力**</br>
+- **性能**</br>
 新闭源模型能力多方面优于开源模型，代表为（截至2025/08）
   - xai（grok 4）
   - Openai （GPT-5)
   - Google (Gemini 2.5pro)
   - Anthropic (Claude 4)</br>
   同系列模型之间参数越大，能力越强 （gemini2.5 pro>flash>lite)
+
+多项测评（benchmark）可在[Kaggle](https://www.kaggle.com/benchmarks)查看
 
 - **审查**  
 闭源模型普遍存在较严格的安全审查机制（也很合理）
@@ -103,7 +106,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 
 > Claude: English（英语，基线）、Spanish（西班牙语）、Portuguese（Brazil）（巴西葡萄牙语）、Italian（意大利语）、French（法语）、Indonesian（印尼语）、German（德语）、Arabic（阿拉伯语）、Chinese（Simplified）（简体中文）、Korean（韩语）、Japanese（日语）、Hindi（印地语）、Bengali（孟加拉语）、Swahili（斯瓦希里语）、Yoruba（约鲁巴语）
 
-
+-------
 ### 本地开放权重/开源模型
 - **哪里寻找开源模型？**
 [Huggingface](https://huggingface.co/)
@@ -112,6 +115,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   - 模型规模×数据×算力越大，通常效果越好(scaling law)
     - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
+    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找测试 
 
 这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio等平台布置）（MLX类似）</br>
 例子： Qwen3 GGUF 量化尺寸与推荐显存（llama.cpp）
@@ -176,7 +180,6 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   - **无审查**：如果你需要翻译的内容会被模型安全审核，则需要找无审查模型。</br>
     例如：Josiefied-Qwen3-8B-abliterated-v1，其中abliterated;uncensored;NSFW等都代表去安全审核微调（取决于技术和能力，这些模型可能会有质量下降）。
 
-
     
 #### 优化本地模型速度
 
@@ -212,7 +215,7 @@ RoPE 的缩放因子；改变位置编码的“粒度”，常与上项配合，
 13. **V Cache Quantization Type（V 缓存量化类型，实验性）** </br>
 同上，但作用于 V（Value）缓存（实现字段 type_v）。与 K 缓存配合量化常用于长上下文或小显存卡以扩大可用窗口/降低占用。
 > 一般情况下RoPE；kv cache可保持默认状态，部分模型容易出错。
-
+---------
 
 - **翻译工具？** </br>
 可自制游戏补丁或翻译文件
