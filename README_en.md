@@ -28,14 +28,14 @@ Your choice depends on the following trade-offs. A brief overview is below; deta
   - Whether local models or online APIs, there are cost trade-offs. Local models require a GPU; online APIs charge per use. Costs correlate with parameter size.</br>
 Bigger models/faster speeds = better quality = more VRAM + more CUDA cores = higher API prices.
 
-  - Google does provide free APIs on AI Studio, and Gemini 2.0 Flash is generally stronger than ~70% of small open-source models, but with quota limits. Bigger models = stricter limits.</br>
+  - Google does provide free APIs, and Gemini 2.0 Flash is generally stronger than ~70% of small open-source models, but with quota limits. Bigger models = stricter limits.</br>
     - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose Google AI Studio.
     - I haven't used the AMD AI Max+ 395 series. Not sure about its compatibility or performance. Its design is similar to the unified memory of Mac, but with a smaller bandwidth.
  
 - **Privacy/Moderation**
   - **Local models**: generally no privacy-leak concerns because everything runs locally. The main issue is moderation (you can choose fine-tuned models to avoid it).
 
-  - **google aistudio (free)**: also no privacy concerns—because there’s no privacy (lol). Google clearly states free-tier data may be used for training, and there’s no opt-out.
+  - **google api free tier**: also no privacy concerns—because there’s no privacy (lol). Google clearly states free-tier data may be used for training, and there’s no opt-out.
 
   - **Paid APIs**: by nature, true E2EE isn’t currently feasible, and the closest alternative (TEE) is usually not offered to regular users.</br>
 Most providers only do transport + storage encryption; plaintext is visible on the server. They promise to protect and regularly delete your data and usually offer an opt-out from training.</br>
@@ -70,7 +70,25 @@ A quick estimate using Gemini with a USD 10 usage budget:
 2.5 Pro: about 1,600 calls</br>
 2.5 Flash: about 6,450 calls</br>
 2.5 Flash-Lite or 2.0 Flash: about 33,000 calls</br>
-  
+
+
+  -  **Free API**
+> Google provides a **free tier (API)**,  
+> but it is subject to rate limits such as Requests per Minute (RPM), Tokens per Minute (TPM), and Requests per Day (RPD).  
+> Daily quotas reset at midnight Pacific Time (PT).  
+
+| Model                | Official API Free Tier Quota (Baseline) | AI Studio Common / Hover Observed Quota |
+|-----------------------|----------------------------------------|-----------------------------------------|
+| Gemini 2.5 Pro        | 5 RPM / 250k TPM / 100 RPD             | Not consistently shown                  |
+| Gemini 2.5 Flash      | 10 RPM / 250k TPM / 250 RPD            | Often 10 RPM / 500 RPD; reduced to 250 RPD in some cases since 2025-06 |
+| Gemini 2.5 Flash-Lite | 15 RPM / 250k TPM / 1000 RPD           | Often 15 RPM / 500 RPD                  |
+| Gemini 2.0 Flash      | 15 RPM / 1M TPM / 200 RPD              | Often 15 RPM / 1500 RPD                 |
+| Gemini 2.0 Flash-Lite | 30 RPM / 1M TPM / 200 RPD              | Often 30 RPM / 1500 RPD                 |
+
+\*AI Studio vs API: AI Studio usage is always free, but its interface limits do not always match the API documentation tables.  
+Google may adjust these quotas periodically (e.g., Gemini 2.5 Flash RPD observed dropping from 500 to 250).
+
+
 - **Capabilities**</br>
 The latest closed-source models outperform open-source ones in many areas (as of 2025/08):
   - xAI (Grok 4)
