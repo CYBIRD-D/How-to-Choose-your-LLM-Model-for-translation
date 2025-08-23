@@ -135,6 +135,7 @@ Grok 3/4 (easy to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 seri
   - GPU VRAM > Model file size + context (or offload to CPU)  
   - The larger the product of model size × data × compute, the better the performance tends to be (scaling law)
     - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
+      - Model less than 4B may have poor quality in tranlation; pls try by yourself see if works for you.
   - Typical open-source model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B+   
                                                                               
 > Note: “Recommended VRAM” is a conservative estimate of “model file size + ~1 GB headroom”; longer context or putting the KV cache in VRAM requires more VRAM.</br>
