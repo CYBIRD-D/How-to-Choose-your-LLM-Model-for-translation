@@ -1,6 +1,6 @@
 ## 小于2-4B的小模型一般对于CPU有优化，可以纯用CPU跑试试 <br> Small models less than 2-4B are generally optimized for the CPU, try offload to cpu to test speed.
 
-## Gemma-270M（GGUF）
+## Gemma3-270M（GGUF）
 
 | 量化<br>Quantization | 模型文件大小<br>Model file size | 推荐显存（仅权重+余量）<br>Recommended VRAM (weights + headroom) |
 |---|---:|---:|
