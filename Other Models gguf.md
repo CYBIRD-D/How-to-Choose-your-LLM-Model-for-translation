@@ -53,7 +53,7 @@
 | Q4_K_M | 19.8 GB | ≥ 24 GB |
 | Q5_K_M | 23.2 GB | ≥ 32* GB |
 | Q6_K | 26.9 GB | ≥ 32 GB |
-| Q8_0 | 34.8 GB | ≥ Work Station/工作站GPU/MAC/AMD AI MAX |
+| Q8_0 | 34.8 GB | ≥ Work Station/工作站GPU/Mac/AMD AI MAX |
 
 \* NO single card GPU Between 24-32GB (Till August 2025); only 5090 (32GB)*
 
