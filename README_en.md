@@ -168,6 +168,8 @@ This section only discusses GGUF models supported by llama.cpp (can be deployed 
 | Q6_K | 12.1 GB | ≥ 16 GB |
 | Q8_0 | 15.7 GB | ≥ 20 GB |
 
+Check other size of models here: | [Other Models GGUF](OtherModels_gguf.md)     
+
 \* *On Apple Mac (M1 and above), unified memory = RAM + VRAM. After subtracting the reserved 8 GB, the remainder can be roughly treated as usable “VRAM” (many optimizations require more memory).* </br>
 \* *For MOE (Mixture of Experts) models (e.g., Qwen3-30B-A3B), the model size is 30B and must all be loaded into VRAM; A3B only denotes the active parameters.*</br>
 
