@@ -166,7 +166,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q6_K | 12.1 GB | ≥ 16 GB |
 | Q8_0 | 15.7 GB | ≥ 20 GB |
 
-在此可查看其他不同大小模型例子[Other Models GGUF](Other Models gguf.md)    
+在此可查看其他不同大小模型例子 [English](Other Models gguf.md) 
 \* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除8G剩余可近似看为显存（多数优化方式需更多内存）。*</br>
 \* *MOE（混合专家）（例如Qwen3-30b-A3b）其大小为30b, 需全部装入显存，A3b只为活跃参数</br>
 
