@@ -1,4 +1,4 @@
-## 小于2~4B的小模型一般对于CPU有优化，可以纯用CPU跑试试 <br> Small models less than 2~4B are generally optimized for the CPU, try offload to cpu to test speed.
+## 小于2-4B的小模型一般对于CPU有优化，可以纯用CPU跑试试 <br> Small models less than 2-4B are generally optimized for the CPU, try offload to cpu to test speed.
 
 ## Gemma-270M（GGUF）
 
