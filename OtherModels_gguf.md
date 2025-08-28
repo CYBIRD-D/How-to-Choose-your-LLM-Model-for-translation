@@ -5,8 +5,8 @@
 | 量化<br>Quantization | 模型文件大小<br>Model file size | 推荐显存（仅权重+余量）<br>Recommended VRAM (weights + headroom) |
 |---|---:|---:|
 | Q8_0 | 292 MB | ≥ 1 GB |
-| Q8_K_XL | 471 GB | ≥ 1 GB |
-| Q8_0 | 543 GB | ≥ 1 GB |
+| Q8_K_XL | 471 MB | ≥ 1 GB |
+| F16 | 543 MB | ≥ 1 GB |
 
 ## LFM2-700M (GGUF)
 
@@ -23,7 +23,7 @@
 |---|---:|---:|
 | Q5_K_M | 843 MB | ≥ 2 GB |
 | Q6_K | 963 MB | ≥ 2 GB |
-| Q8 | 1.25 MB | ≥ 2 GB |
+| Q8 | 1.25 GB | ≥ 2 GB |
 | F16 | 2.34 GB | ≥ 3 GB |
 
 ## Qwen3-4B（GGUF）
@@ -44,7 +44,7 @@
 | Q5_K_M | 19.3 GB | ≥ 24 GB |
 | Q6_K | 22.2 GB | ≥ 24 GB |
 | Q8_0 | 28.7 GB | ≥ 32 GB |
-> gemma-3-27b-it-qat-q4_0 (17.2 GB) >>> 4bit version.
+> gemma-3-27b-it-qat-q4_0 (17.2 GB) （better）>>> usual 4bit version.
 
 ## Qwen3-32B（GGUF）
 
