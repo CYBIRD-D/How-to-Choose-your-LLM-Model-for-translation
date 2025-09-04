@@ -4,7 +4,10 @@ This post helps beginners choose an LLM that suits their needs.
 ### English | [中文-Simplified Chinese](README.md)
 This article is intended to give beginners a preliminary understanding of using LLMs for translation, with visual novel (VN) translation as the primary scenario. Because the principles are similar, other translation tasks can also use it for reference.
 
-Recommended: [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
+Recommended: 
+- [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
+- [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
+- [AiNiee](https://github.com/NEKOparapa/AiNiee) 
 
 
 ## What are the advantages of LLMs?
