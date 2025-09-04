@@ -5,7 +5,11 @@ This is a post for beginners to choose the LLM Models suit themselves.
 ### 简体中文  | [English](README_en.md)
 此文为了帮助初学者对于LLM model翻译有一个初步的了解，主要场景为翻译visual novel（vn）。当然因为原理相同别的翻译任务也可参考。
 
-在此推荐[LunaTranslator](https://github.com/HIllya51/LunaTranslator)
+在此推荐
+- [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
+- [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
+- [AiNiee](https://github.com/NEKOparapa/AiNiee) 
+
 
 
 ## LLM的优势？
