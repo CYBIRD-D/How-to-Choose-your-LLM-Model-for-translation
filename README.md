@@ -1,4 +1,4 @@
-# How-to-Choose-your-LLM-Model-for-translation
+# How to Choose your LLM？
 **如何选择适合你的大语言模型 （用于翻译）**  
 This is a post for beginners to choose the LLM Models suit themselves. 
 
