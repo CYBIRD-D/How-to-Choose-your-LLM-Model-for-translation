@@ -206,7 +206,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
     例如：Josiefied-Qwen3-8B-abliterated-v1，其中abliterated;uncensored;NSFW等都代表去安全审核微调（取决于技术和能力，这些模型可能会有质量下降）。
 -----------
     
-#### | [优化本地模型速度](Model_Speed.md) </br>
+#### [优化本地模型速度](Model_Speed.md) </br>
 这里仅作简单介绍，详细请查看上面链接  
 这里以LM STUDIO为例
 <p align="center">
