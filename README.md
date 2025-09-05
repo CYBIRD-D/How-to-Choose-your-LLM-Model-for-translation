@@ -207,7 +207,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 -----------
     
 #### | [优化本地模型速度](Model_Speed.md) </br>
-这里仅作简单介绍，详细请查看上面链接
+这里仅作简单介绍，详细请查看上面链接  
 这里以LM STUDIO为例
 <p align="center">
   <img src="./LM%20STUDIO.png" width="800" alt="LM Studio 截图">
