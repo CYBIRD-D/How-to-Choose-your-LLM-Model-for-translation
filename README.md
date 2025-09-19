@@ -8,7 +8,8 @@ This is a post for beginners to choose the LLM Models suit themselves.
 在此推荐
 - [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
-- [AiNiee](https://github.com/NEKOparapa/AiNiee) 
+- [AiNiee](https://github.com/NEKOparapa/AiNiee)
+- [Free API](Freellmapi.md)
 
 
 
@@ -28,7 +29,7 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
 
   - 谷歌提供免费层api，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
-    - 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），建议选择[Free Api](freellmapi.md)
+    - 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），建议选择[Free API](Freellmapi.md)
       - cn内也有类似第三方平台提供一定的免费token服务
     - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能，其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
 
@@ -41,7 +42,7 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
  
 - **隐私/审查**
   -  **本地模型**：一般不用担心隐私泄露，都是在本地跑，唯一的问题是审查（可选择微调模型避免）。  
-  -  **google ai studio/免费层api** 也不用担心隐私泄露，因为没有隐私（笑）。谷歌明确free tier的数据会用于模型训练，没有关闭的选项。
+  -  **google ai studio/免费层[API](Freellmapi.md)** 也不用担心隐私泄露，因为没有隐私（笑）。谷歌明确free tier的数据会用于模型训练，没有关闭的选项。
   -  **付费api**：因为其性质暂时无法做到E2EE端到端加密，相对接近的TEE（CC-ON/机密计算）需看云服务商是否提供。
       - 绝大多数服务商只做传输加密与存储加密，服务端可见明文。承诺保护你的数据并定时删除，且有关闭数据用于训练的选项。
       - 审查存在.一般越新的模型越严格（安全审查更先进）,官方api一般比第三方托管严格
