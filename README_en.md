@@ -7,7 +7,8 @@ This article is intended to give beginners a preliminary understanding of using 
 Recommended: 
 - [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
-- [AiNiee](https://github.com/NEKOparapa/AiNiee) 
+- [AiNiee](https://github.com/NEKOparapa/AiNiee)
+- [Free API](Freellmapi.md)
 
 
 ## What are the advantages of LLMs?
@@ -32,13 +33,13 @@ Your choice depends on the following trade-offs. A brief overview is below; deta
 Bigger models/faster speeds = better quality = more VRAM + more CUDA cores = higher API prices.
 
   - Google does provide free APIs, and Gemini 2.0 Flash is generally stronger than ~70% of small open-source models, but with quota limits. Bigger models = stricter limits.</br>
-    - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose Google free API (can be found in google ai studio).
+    - If you don’t have a GPU with ≥8 GB VRAM (absolute minimum 6 GB) (Mac needs 16 GB unified memory), it’s recommended to choose [Free API](Freellmapi.md) .
     - I haven't used the AMD AI Max+ 395 series. Not sure about its compatibility or performance. Its design is similar to the unified memory of Mac, but with a smaller bandwidth.
  
 - **Privacy/Moderation**
   - **Local models**: generally no privacy-leak concerns because everything runs locally. The main issue is moderation (you can choose fine-tuned models to avoid it).
 
-  - **google api free tier**: also no privacy concerns—because there’s no privacy (lol). Google clearly states free-tier data may be used for training, and there’s no opt-out.
+  - **google [API](Freellmapi.md) free tier**: also no privacy concerns—because there’s no privacy (lol). Google clearly states free-tier data may be used for training, and there’s no opt-out.
 
   - **Paid APIs**: by nature, true E2EE isn’t currently feasible, and the closest alternative (TEE) is usually not offered to regular users.</br>
 Most providers only do transport + storage encryption; plaintext is visible on the server. They promise to protect and regularly delete your data and usually offer an opt-out from training.</br>
@@ -76,7 +77,7 @@ A quick estimate using Gemini with a USD 10 usage budget:
 
 
   -  **Free API**
-> Google provides a **free tier (API)**,  
+> Google provides a **free tier [API](Freellmapi.md)**,  
 > but it is subject to rate limits such as Requests per Minute (RPM), Tokens per Minute (TPM), and Requests per Day (RPD).  
 > Daily quotas reset at midnight Pacific Time (PT).  
 
