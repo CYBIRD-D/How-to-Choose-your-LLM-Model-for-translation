@@ -141,7 +141,8 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   - 模型规模×数据×算力越大，通常效果越好(scaling law)
     - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
-    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找测试 
+    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找测试
+    - Moe架构模型以总参数为准 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
 
 > 爆显存（即超过显存大小导致占用内存）会大幅降低速度（统一内存架构除外） </br>
@@ -156,8 +157,8 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
 |---|---:|---:|
 | Q4_K_M | 5.03 GB | ≥ 6 GB |
-| Q5_0 | 5.72 GB | ≥ 8 GB |
-| Q5_K_M | 5.85 GB | ≥ 8 GB |
+| Q5_0 | 5.72 GB | ≥ 7/8 GB |
+| Q5_K_M | 5.85 GB | ≥ 7/8 GB |
 | Q6_K | 6.73 GB | ≥ 8 GB |
 | Q8_0 | 8.71 GB | ≥ 10 GB |
 
@@ -168,12 +169,12 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q4_K_M | 9.00 GB | ≥ 12 GB |
 | Q5_0 | 10.3 GB | ≥ 12 GB |
 | Q5_K_M | 10.5 GB | ≥ 12 GB |
-| Q6_K | 12.1 GB | ≥ 16 GB |
-| Q8_0 | 15.7 GB | ≥ 20 GB |
+| Q6_K | 12.1 GB | ≥ 14/16 GB |
+| Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
 在此可查看其他不同大小模型例子 | [Other MODEL GGUF](OtherModels_gguf.md)   
-\* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除8G剩余可近似看为显存（多数优化方式需更多内存）。*</br>
-\* *MOE（混合专家）（例如Qwen3-30b-A3b）其大小为30b, 需全部装入显存，A3b只为活跃参数</br>
+\* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除6/8G剩余可近似看为显存（多数优化方式需更多内存）。*</br>
+\* *MOE（混合专家）例如Qwen3-30b-A3b：其总参数大小为30b, 需全部装入显存，A3b只为活跃参数</br>
 
 - **GGUF 量化类型与相对质量（llama.cpp）**
 
