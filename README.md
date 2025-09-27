@@ -23,44 +23,62 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 
 ## 如何选择LLM？
 如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍，后文有细致分类：
-- **速度/价格/性能**
-  - "Cuda out of money, pls charge💸 "
-  - 无论是本地模型还是在线api，都有价格取舍的问题。本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小</br>
+<details>
+  <summary>速度/价格/性能</summary>  
+  "Cuda out of money, pls charge💸 "
+本地托管模型取决于显卡显存带宽/显存大小/算力
+  
+- 无论是本地模型还是在线api，都有价格取舍的问题。本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小</br>
 更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
 
-  - 谷歌提供免费层api，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
+- 谷歌提供免费层api，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
     - 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），建议选择[Free API](Freellmapi.md)
       - cn内也有类似第三方平台提供一定的免费token服务
     - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能，其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
 
-  - 目前（2025/08）最大的非商业服务器单体设备应为
+- 目前（2025/08）最大的非商业服务器单体设备应为
     - M3 ULTRA （最大512G统一内存）
     - 单卡显存
       - RTX PRO 6000（Blackwell） 96G
       - Nvidia H200 141GB
       - AMD MI300X 192GB
- 
-- **隐私/审查**
+ </details>
+
+ <details>
+  <summary>隐私/审查</summary>  
+
   -  **本地模型**：一般不用担心隐私泄露，都是在本地跑，唯一的问题是审查（可选择微调模型避免）。  
   -  **google ai studio/免费层[API](Freellmapi.md)** 也不用担心隐私泄露，因为没有隐私（笑）。谷歌明确free tier的数据会用于模型训练，没有关闭的选项。
   -  **付费api**：因为其性质暂时无法做到E2EE端到端加密，相对接近的TEE（CC-ON/机密计算）需看云服务商是否提供。
       - 绝大多数服务商只做传输加密与存储加密，服务端可见明文。承诺保护你的数据并定时删除，且有关闭数据用于训练的选项。
       - 审查存在.一般越新的模型越严格（安全审查更先进）,官方api一般比第三方托管严格
   - **第三方托管开源模型**：因为可选模型缘故，用户可选择已经过微调的模型来避免模型审查（托管方/平台是否有审查 笔者不能确定）
+</details>
 
-- **多语言能力**
-  - 多语言能力取决于基础模型训练的语料/模型大小/技术能力
+ <details>
+  <summary>多语言/跨语言能力</summary>  
+   
+  - 多语言能力取决于基础模型训练的语料/模型大小/训练技术能力
     - 特定的微调模型相比其基础模型会在特定领域进一步加强</br>
-例如[SakuraLLM](https://github.com/SakuraLLM/SakuraLLM) 针对通用日文语料与轻小说/Galgame等领域的中日语料上进行继续预训练与微调，但在其他领域和语系能力会显著下降，且失去基础模型（Qwen2.5）其余的大部分能力，仅能用于翻译任务
+      - 例如[SakuraLLM](https://github.com/SakuraLLM/SakuraLLM) 针对通用日文语料与轻小说/Galgame等领域的中日语料上进行继续预训练与微调，但在其他领域和语系能力会显著下降，且失去基础模型（Qwen2.5）其余的大部分能力，仅能用于翻译任务
+</details>
 
-- **思维模型/思维链**
-  - thinking模型因理解上下文语境和用户指令能力进一步加强，理论上对于整篇文字的翻译会优于未开启时的结果（non-thinking mode）
-  - 但思考时间长，且思维链也需要消耗token，不适合实时翻译
+<details> 
+  <summary>思维模型</summary>  
+  - 思维模型（Thinking）因理解上下文语境和用户指令能力进一步加强，理论上在需要上下文关联的情况下对于整篇文字的翻译会优于未开启时的结果（non-thinking mode）
+    - 其文本质量同样取决于训练语料
+  - 但思考时间长，且思维链也需要消耗大量token，通常不适合实时翻译
+  
+</details>
+
 ---------
 
 ### 闭源模型
-- **价格**  
+
+<details> 
+  <summary>价格</br>
 不同模型的价格不同</br>
+  </summary>  
 以gemini官方api 10USD使用量为例做一个快速的估算：
 
 | 特性         | 2.5 Pro | 2.5 Flash | 2.5 Flash-Lite |
@@ -92,9 +110,12 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 | Gemini 2.0 Flash-Lite | 30 RPM / 1M TPM / 200 RPD     | 常见 30 RPM / 1500 RPD |
 
 \*AI Studio vs API：AI Studio页面的使用永久免费，但其界面内的限额与 API 文档表格不总是完全一致；Google 会不定期调整（例如 2.5 Flash 的 RPD 曾被观察到从 500 降到 250）
+</details>
   
-- **性能**</br>
-新闭源模型能力多方面优于开源模型，代表为（截至2025/08）
+<details> 
+  <summary>性能</br>  
+新闭源模型能力多方面优于开源模型</summary>  
+代表为（截至2025/08）
   - xai（grok 4）
   - Openai （GPT-5)
   - Google (Gemini 2.5pro)
@@ -103,16 +124,22 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 
 多项测评（benchmark）可在[Kaggle](https://www.kaggle.com/benchmarks)查看
 
-- **审查**  
-闭源模型普遍存在较严格的安全审查机制（也很合理）
+</details>
+
+<details> 
+  <summary>审查</br>    
+闭源模型普遍存在较严格的安全审查机制（也很合理）</summary> 
 
 审查机制由弱到强为</br>
 grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series < openai第三方api <<< openai(难以绕过）
 1. Gemini 2.5 free tier审查疑似更严重
 2. 各模型网页/客户端Chat版本审核强于api
+</details>
 
-- **跨语言/多语言能力**  
-领先的闭源模型通常有强大的跨语言能力
+
+<details>
+  <summary>多语言/跨语言能力</br>   
+领先的闭源模型通常有强大的跨语言能力</summary> 
 
 | 模型 | 可核实数量 | 依据（范围） | 备注 |
 |---|---:|---|---|
@@ -123,13 +150,31 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | **OpenAI GPT-5** | — | — | **未披露**（无官方数据）。 |
 | **Google Gemini 2.5 Pro** | **37** / **40+** | 开发者提示语言 / Web 应用 UI | 两套口径：开发者清单 37；Web 应用 UI 为 40+。 |
 | **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | 官方评测覆盖 / 产品/UI 语言 | 评测：英语+14 种非英语（共 15）；UI 语言：11。 |
-> Grok3: English（英语）、Spanish（西班牙语）、French（法语）、Afrikaans（南非荷兰语）、Arabic（阿拉伯语）、Bengali（孟加拉语）、Welsh（威尔士语）、German（德语）、Greek（希腊语）、Indonesian（印尼语）、Icelandic（冰岛语）、Italian（意大利语）、Japanese（日语）、Korean（韩语）、Latvian（拉脱维亚语）、Marathi（马拉地语）、Nepali（尼泊尔语）、Punjabi（旁遮普语）、Polish（波兰语）、Russian（俄语）、Swahili（斯瓦希里语）、Telugu（泰卢固语）、Thai（泰语）、Turkish（土耳其语）、Ukrainian（乌克兰语）、Urdu（乌尔都语）、Chinese（中文） </br>
+<details> 
+  <summary> Grok3 </summary> 
+  
+> English（英语）、Spanish（西班牙语）、French（法语）、Afrikaans（南非荷兰语）、Arabic（阿拉伯语）、Bengali（孟加拉语）、Welsh（威尔士语）、German（德语）、Greek（希腊语）、Indonesian（印尼语）、Icelandic（冰岛语）、Italian（意大利语）、Japanese（日语）、Korean（韩语）、Latvian（拉脱维亚语）、Marathi（马拉地语）、Nepali（尼泊尔语）、Punjabi（旁遮普语）、Polish（波兰语）、Russian（俄语）、Swahili（斯瓦希里语）、Telugu（泰卢固语）、Thai（泰语）、Turkish（土耳其语）、Ukrainian（乌克兰语）、Urdu（乌尔都语）、Chinese（中文） </br>
+  
+</details>
 
-> GPT-4：English（英语）、Italian（意大利语）、Afrikaans（南非荷兰语）、Spanish（西班牙语）、German（德语）、French（法语）、Indonesian（印尼语）、Russian（俄语）、Polish（波兰语）、Ukrainian（乌克兰语）、Greek（希腊语）、Latvian（拉脱维亚语）、Mandarin（中文）、Arabic（阿拉伯语）、Turkish（土耳其语）、Japanese（日语）、Swahili（斯瓦希里语）、Welsh（威尔士语）、Korean（韩语）、Icelandic（冰岛语）、Bengali（孟加拉语）、Urdu（乌尔都语）、Nepali（尼泊尔语）、Thai（泰语）、Punjabi（旁遮普语）、Marathi（马拉地语）、Telugu（泰卢固语） </br>
+<details> 
+  <summary> GPT-4 </summary> 
+  
+> English（英语）、Italian（意大利语）、Afrikaans（南非荷兰语）、Spanish（西班牙语）、German（德语）、French（法语）、Indonesian（印尼语）、Russian（俄语）、Polish（波兰语）、Ukrainian（乌克兰语）、Greek（希腊语）、Latvian（拉脱维亚语）、Mandarin（中文）、Arabic（阿拉伯语）、Turkish（土耳其语）、Japanese（日语）、Swahili（斯瓦希里语）、Welsh（威尔士语）、Korean（韩语）、Icelandic（冰岛语）、Bengali（孟加拉语）、Urdu（乌尔都语）、Nepali（尼泊尔语）、Thai（泰语）、Punjabi（旁遮普语）、Marathi（马拉地语）、Telugu（泰卢固语） </br>
+</details>
 
-> Gemini: 阿拉伯语、孟加拉语、保加利亚语、中文（简体/繁体）、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、波斯语、芬兰语、法语、德语、希腊语、古吉拉特语、希伯来语、印地语、匈牙利语、印尼语、意大利语、日语、卡纳达语、韩语、拉脱维亚语、立陶宛语、马拉雅拉姆语、马拉地语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语、斯洛伐克语、斯洛文尼亚语、西班牙语、斯瓦希里语、瑞典语、泰米尔语、泰卢固语、泰语、土耳其语、乌克兰语、乌尔都语、越南语
+<details> 
+  <summary> Gemini </summary>  
+> 阿拉伯语、孟加拉语、保加利亚语、中文（简体/繁体）、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、波斯语、芬兰语、法语、德语、希腊语、古吉拉特语、希伯来语、印地语、匈牙利语、印尼语、意大利语、日语、卡纳达语、韩语、拉脱维亚语、立陶宛语、马拉雅拉姆语、马拉地语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语、斯洛伐克语、斯洛文尼亚语、西班牙语、斯瓦希里语、瑞典语、泰米尔语、泰卢固语、泰语、土耳其语、乌克兰语、乌尔都语、越南语
+</details>
 
-> Claude: English（英语，基线）、Spanish（西班牙语）、Portuguese（Brazil）（巴西葡萄牙语）、Italian（意大利语）、French（法语）、Indonesian（印尼语）、German（德语）、Arabic（阿拉伯语）、Chinese（Simplified）（简体中文）、Korean（韩语）、Japanese（日语）、Hindi（印地语）、Bengali（孟加拉语）、Swahili（斯瓦希里语）、Yoruba（约鲁巴语）
+<details> 
+  <summary> Claude </summary> 
+  
+> English（英语，基线）、Spanish（西班牙语）、Portuguese（Brazil）（巴西葡萄牙语）、Italian（意大利语）、French（法语）、Indonesian（印尼语）、German（德语）、Arabic（阿拉伯语）、Chinese（Simplified）（简体中文）、Korean（韩语）、Japanese（日语）、Hindi（印地语）、Bengali（孟加拉语）、Swahili（斯瓦希里语）、Yoruba（约鲁巴语）
+</details>
+
+</details>
 
 -------
 ### 本地开放权重/开源模型
