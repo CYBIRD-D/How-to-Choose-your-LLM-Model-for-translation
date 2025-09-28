@@ -115,6 +115,7 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 <details> 
   <summary>性能</br>  
 新闭源模型能力多方面优于开源模型</summary>  
+  
 代表为（截至2025/08）
   - xai（grok 4）
   - Openai （GPT-5)
