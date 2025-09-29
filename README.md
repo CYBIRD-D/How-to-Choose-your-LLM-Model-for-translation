@@ -181,22 +181,28 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 ### 本地开放权重/开源模型
 - **哪里寻找开源模型？**
 [Huggingface](https://huggingface.co/)
+  - CN平台例如ModelScope(魔搭社区)
 
-- **如何选择适合的模型参数大小**
+<details> 
+  <summary> 如何选择适合的模型参数大小 </summary> 
+  
   - 通常GPU显存 > 模型文件大小 + 上下文占用
   - 模型规模×数据×算力越大，通常效果越好(scaling law)
     - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
     - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找测试
-    - Moe架构模型以总参数为准 
+    - Moe架构模型以**总参数**为准 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
 
 > 爆显存（即超过显存大小导致占用内存）会大幅降低速度（统一内存架构除外） </br>
 
 > 理论上模型参数越大，翻译质量越高；不同系列难以对比
 
+<details> 
+  <summary> 量化与GPU显存对照举例 </summary> 
+  
+以Qwen3 GGUF 量化尺寸与推荐显存为例（llama.cpp）</br>
 这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio等平台布置）（MLX类似）</br>
-例子： 以Qwen3 GGUF 量化尺寸与推荐显存为例（llama.cpp）
 
 #### Qwen3-8B（GGUF）
 
@@ -212,19 +218,22 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 
 | 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
 |---|---:|---:|
-| Q4_K_M | 9.00 GB | ≥ 12 GB |
+| Q4_K_M | 9.00 GB | ≥ 11/12 GB |
 | Q5_0 | 10.3 GB | ≥ 12 GB |
 | Q5_K_M | 10.5 GB | ≥ 12 GB |
 | Q6_K | 12.1 GB | ≥ 14/16 GB |
 | Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
 在此可查看其他不同大小模型例子 | [Other MODEL GGUF](OtherModels_gguf.md)   
-\* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除6/8G剩余可近似看为显存（多数优化方式需更多内存）。*</br>
+\* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除6~8G系统&程序需求剩余可近似看为显存（多数优化方式需更多内存）。*</br>
 \* *MOE（混合专家）例如Qwen3-30b-A3b：其总参数大小为30b, 需全部装入显存，A3b只为活跃参数</br>
+</details>
 
-- **GGUF 量化类型与相对质量（llama.cpp）**
+<details> 
+  <summary> GGUF 量化类型与相对质量 </summary> 
 
-> 注：质量为**相对 FP16 的总体逼近**与社区常用基准（如困惑度/客观评测）综合判断的**经验级**分档；同一量化在不同模型/任务上可能有差异。`_K` 为更先进的 K 类量化；`_S/_M` 为不同“混合策略”，一般 `_M` 质量高于 `_S`。
+> 注：质量为**相对 FP16 的总体逼近**与社区常用基准（如困惑度/客观评测）综合判断的**经验级**分档；
+> 同一量化在不同模型/任务上可能有差异。`_K` 为更先进的 K 类量化；`_S/_M` 为不同“混合策略”，一般 `_M` 质量高于 `_S`。
 
 | 量化类型 | 理论 bpw* | 相对质量（对比 FP16） | 典型使用场景 / 建议 | 备注 |
 |---|---:|---|---|---|
@@ -240,24 +249,44 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 具体技术文章 https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
 
 \* *bpw（bits per weight）为官方/文档给出的近似或精确数值；部分旧法（如 Q4_0/Q5_0）不明确给出额外开销，表中以“≈”表示。*</br>
-\* *特殊情况：Gemma 3 12B Instruct QAT 虽为q4_0量化，但量化感知训练（Quantization-Aware Training, QAT）使其质量和速度远超q4档位 
+\* *特殊情况：Gemma 3 12B Instruct QAT 虽为q4_0量化，但量化感知训练（Quantization-Aware Training, QAT）使其质量和速度远超q4档位</br> 
+</details>
 
-- **哪些模型更适合使用？**
-  - **大多数情况下，越新越好**： （除了llama4）新模型意味着新训练技术/更多语料，在多语言方面通常更强。</br>
+</details>
+
+<details> 
+  <summary> 哪些模型更适合使用？ </summary> 
+
+  - **大多数情况下，越新越好**： 新模型通常意味着新训练技术/更多语料，在多语言方面一般更强。</br>
   - **模型参数越大越好**： 在你的**显存可支持范围内**，参数越大越好
-    - 不同参数不同量化之间对比？仅针对翻译任务而言，**Q5_K_M**及以上级别量化不会有明显质量损失，所以 Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M
+    - 不同参数但不同量化之间对比？    
+      仅针对翻译任务而言，**Q5_K_M**及以上级别量化不会有明显质量损失，所以 Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M
+      - QAT （Quantization-Aware Training），例如Gemma 3 12B Instruct QAT q4其质量和速度一般超过传统q4量化
     - 针对翻译和指令遵循一般无需**Q8**精度，**Q6_K**及以上基本无质量损失。
   
   - **语言微调**：大部分模型对于英文支持最好（英文数据最多），别的语言质量则取决于训练数据数量与质量/训练方式与技术。</br>
     社区微调模型（例如尾缀带-JP）一般是用日语数据进行微调，会显著加强EN-JP能力，但针对性微调通常会削弱其他所有语言的能力
+    > 因其训练语料在不同语言上的不均衡及模型容量/分词问题，基底模型多语言语料越少，模型越小，这种现象越明显
     
   - **无审查**：如果你需要翻译的内容会被模型安全审核，则需要找无审查模型。</br>
-    例如：Josiefied-Qwen3-8B-abliterated-v1，其中abliterated; uncensored; NSFW; amoral等都代表去安全审核微调（取决于技术和能力，这些模型可能会有质量下降）。
+    例如：
+    - Qwen3-8B-abliterated
+    - gemma-3-27b-it-abliterated
+    - Llama-3-70b-Uncensored
+    - Dhanishtha-nsfw
+    - amoral-gemma3-12B </br>   
+    其中abliterated; uncensored; NSFW; amoral等都代表去安全审核微调，其他还有意义相近的诸如evil等</br>
+    取决于技术和能力，这些模型可能会有质量下降</br>
+
+</details>
+
 -----------
     
-#### [优化本地模型速度](Model_Speed.md) </br>
-这里仅作简单介绍，详细请查看上面链接  
-这里以LM STUDIO为例
+### [优化本地模型速度](Model_Speed.md) </br>
+<details> 
+  <summary>这里仅作简单介绍，详细请查看上面链接  </summary>   </br>
+    
+以LM STUDIO为例
 <p align="center">
   <img src="./LM%20STUDIO.png" width="800" alt="LM Studio 截图">
 </p>
@@ -292,10 +321,16 @@ RoPE 的缩放因子；改变位置编码的“粒度”，常与上项配合，
 Speculative Decoding（推测/投机解码）用一个更小更快的“草稿模型”先并行起草一串候选 token，再让更大的“主模型”快速验证并只接受那些与它本来会生成的结果一致的 token，从而在不牺牲输出分布/质量的前提下提升生成速度.
 > 一般情况下RoPE；kv cache可保持默认状态，部分模型容易出错。
 
+
+</details>   
+
 ---------
 
-- **翻译工具？** </br>
-可自制游戏补丁或翻译文件
+<details> 
+  <summary> 翻译工具？ </br>
+  
+可自制游戏补丁或翻译文件</summary> 
+
   - [LunaTranslator](https://github.com/HIllya51/LunaTranslator) —— 面向视觉小说/galgame 的一体化翻译器。支持文本抓取（HOOK/OCR/剪贴板/语音识别/文件翻译）、多种在线/本地翻译引擎、预翻译与缓存、Python 扩展；并提供 TTS 合成、日语分词与假名注音、词典查词（MDICT/在线）、Anki 生词卡、加载 Yomitan 等插件。
 
   - [AiNiee](https://github.com/NEKOparapa/AiNiee) —— 一键式 AI 长文本翻译工具。适配常见游戏文本工作流（MTool、Ren’Py、Translator++ 等）与多格式（i18next、EPUB/TXT、SRT/VTT/LRC、Word/PDF/Markdown）；支持自动识别文件与语种、上下文一致性与术语表、AI 润色/排版/术语提取，在线与本地模型接口可配置。
@@ -304,4 +339,35 @@ Speculative Decoding（推测/投机解码）用一个更小更快的“草稿�
 
   - [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator) —— 面向漫画/条漫的深度学习辅助翻译与排版工具。支持一键机翻、所见即所得的文本编辑（查找替换、批量样式）、图像编辑与修复（掩膜/修复画笔）、OCR 文本检测；可用 Windows 打包版或 Python 源码运行，兼容多种机翻/LLM 与离线模型。
 
-    
+</details>    
+
+-----------
+### 部署本地模型
+以部署量化模型为例（llama.cpp) </br>
+下面介绍最为常见且好用的平台
+
+
+**可选择平台** 
+- **LM Studio**  </br>
+  一体化集成，本地 LLM 桌面应用 + OpenAI 兼容本地服务；部署简单快速（装了就能用） </br>
+  自带模型发现/下载（Huggingface)；支持局域网共享</br>
+  带RAG、MCP 集成与多后端 GPU Runtime（CUDA/Metal/Vulkan/ROCm） </br>
+
+
+- **Kobold.Cpp**  </br>
+  重点服务写作/角色扮演与同人创作工作流；内置 KoboldAI Lite UI（记忆、世界观设定、角色卡、作者注、场景等写作工具），支持多对话模式（chat/adventure/instruct/storywriter）</br>
+  除文本外，还内置 TTS/ASR 与 Stable Diffusion 图像生成，并提供多种兼容 API（含 OpenAI/Ollama 兼容）</br>
+  提供 OpenAI/Ollama/Kobold 等多种兼容 API 端点</br>
+
+- **Ollama** </br>
+  类“Docker 管模型”的本地/局域网推理引擎与 CLI/REST API，支持 Modelfile 自定义与模型管理</br>
+  2025 推出官方 GUI（Win/mac）降低纯命令行的门槛，并提供云与本地一体化选项。
+
+
+
+**模型大小/量化规格选择**  </br>
+见上文 **量化与GPU显存对照举例** 或 其他模型 [Other MODEL GGUF](OtherModels_gguf.md) 
+
+
+ **模型更适合我？** </br>
+ 见上文 **哪些模型更适合使用？**
