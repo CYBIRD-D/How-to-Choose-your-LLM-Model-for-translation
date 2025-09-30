@@ -28,23 +28,23 @@ LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为�
 <details>
   <summary>速度/价格/性能</summary>  
   
-  "Cuda out of money, pls charge💸 "
+  "Cuda out of money, pls charge💸 "</br>
+  
 本地托管模型取决于 **显卡显存带宽/显存大小/算力**
   
-- 无论是本地模型还是在线api，都有价格取舍的问题。本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小</br>
+- 无论是**本地模型**还是**在线api**，都有价格取舍的问题。本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小</br>
 更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
+  - 谷歌提供**免费层api**，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
 
-- 谷歌提供**免费层api**，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
-    - 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），建议选择[Free API](Freellmapi.md)
-      - cn内也有类似第三方平台提供一定的免费token服务
-    - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能，其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
+- 如果没有8G及以上显卡（最低条件6G）（Mac为16G统一内存），**建议选择**[**Free API**](Freellmapi.md)
+  - cn内也有类似第三方平台提供一定的免费token服务
+    - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能
+    - 其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
 
-- 目前（2025/08）最大的非商业服务器单卡设备应为
-    - M3 ULTRA （最大512G统一内存）
-    - 单卡显存
-      - RTX PRO 6000（Blackwell） 96G
-      - Nvidia H200 141GB
-      - AMD MI300X 192GB
+- 6G及以上显存显卡可选择本地部署大模型
+    - 详细请看下文 **本地开放权重/开源模型 ——量化与GPU显存对照举例**
+      - **6G以下VRAM**请额外查看 [**Other Model GGUF**](OtherModels_gguf.md)
+
  </details>
 
  <details>
@@ -355,31 +355,31 @@ Speculative Decoding（推测/投机解码）用一个更小更快的“草稿�
 
 **可选择平台** 
 - [**LM Studio**](https://lmstudio.ai/)  </br>
-  一体化集成，本地 LLM 桌面应用 + OpenAI 兼容本地服务；部署简单快速（装了就能用） </br>
-  自带模型发现/下载（Huggingface)；支持局域网共享</br>
-  带RAG、MCP 集成与多后端 GPU Runtime（CUDA/Metal/Vulkan/ROCm） </br>
+  - 一体化集成，本地 LLM 桌面应用 + OpenAI 兼容本地服务；部署简单快速（装了就能用） </br>
+  - 自带模型发现/下载（Huggingface)；支持局域网共享</br>
+  - 带RAG、MCP 集成与多后端 GPU Runtime（CUDA/Metal/Vulkan/ROCm） </br>
 
 
 - [**Koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
-  重点服务写作/角色扮演与同人创作工作流；内置 KoboldAI Lite UI（记忆、世界观设定、角色卡、作者注、场景等写作工具），支持多对话模式（chat/adventure/instruct/storywriter）</br>
-  除文本外，还内置 TTS/ASR 与 Stable Diffusion 图像生成，并提供多种兼容 API（含 OpenAI/Ollama 兼容）</br>
-  提供 OpenAI/Ollama/Kobold 等多种兼容 API 端点</br>
+  - 重点服务写作/角色扮演与同人创作工作流；内置 KoboldAI Lite UI（记忆、世界观设定、角色卡、场景等写作工具），支持多对话模式（chat/adventure/instruct/storywriter）</br>
+  - 除文本外，还内置 TTS/ASR 与 Stable Diffusion 图像生成，并提供多种兼容 API（含 OpenAI/Ollama 兼容）</br>
+  - 提供 OpenAI/Ollama/Kobold 等多种兼容 API 端点</br>
 
 - [**Ollama**](https://ollama.com/) </br>
-  类“Docker 管模型”的本地/局域网推理引擎与 CLI/REST API，支持 Modelfile 自定义与模型管理</br>
-  2025 推出官方 GUI（Win/mac）降低纯命令行的门槛，并提供云与本地一体化选项。
+  - 类“Docker 管模型”的本地/局域网推理引擎与 CLI/REST API，支持 Modelfile 自定义与模型管理</br>
+  - 2025 推出官方 GUI（Win/mac）降低纯命令行的门槛，并提供云与本地一体化选项。
 
 
 
 **模型大小/量化规格选择**  </br>
-见上文 
-- **量化与GPU显存对照举例** </br>
-及 其他模型 [Other Model GGUF](OtherModels_gguf.md) 
+见上文： 
+- **“本地开放权重/开源模型 —— 量化与GPU显存对照举例”**
+- 及其他模型 [**Other Model GGUF**](OtherModels_gguf.md) 
 
 
  **应该选择什么模型？** </br>
- 见上文 
- - **如何选择LLM**？
- - **本地开放权重/开源模型**--**哪些模型更适合使用？** </br>
+ 见上文： 
+ - **“如何选择LLM”**？
+ - **“本地开放权重/开源模型**——**哪些模型更适合使用？”** </br>
  
 
