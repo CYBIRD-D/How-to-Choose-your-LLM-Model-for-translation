@@ -2,7 +2,7 @@
 **如何选择适合你的大语言模型 （用于翻译）**  
 This is a post for beginners to choose the LLM Models suit themselves. 
 
-### 简体中文  | [English](README_en.md)
+### 简体中文  | [ENGLISH](README_en.md)
 此文为了帮助初学者对于LLM model翻译有一个初步的了解，主要场景为翻译visual novel（vn）。当然因为原理相同别的翻译任务也可参考。
 
 在此推荐
@@ -12,17 +12,19 @@ This is a post for beginners to choose the LLM Models suit themselves.
 - [Free API](Freellmapi.md)
 
 
-
 ## LLM的优势？
 LLM（大语言模型）相较传统神经机器翻译NMT（通常指专门为翻译训练的序列到序列/Transformer 系统）并非在所有指标上全面碾压，但在若干关键方面具有明显优势，尤其是上下文，术语表与跨语言能力等
-- **更强的上下文能力** LLM 的长上下文窗口与“上下文感知提示”，有助于保持篇章连贯、指代/省略消解、术语一致
+- **更强的上下文能力**</br>
+  LLM 的长上下文窗口与“上下文感知提示”，有助于保持篇章连贯、指代/省略消解、术语一致
 
-- **术语表** LLM 能理解指令化约束（术语/语域/语气/代词），在vn翻译上体验会远高于传统神经机器翻译
+- **术语表**</br>
+  LLM 能理解指令化约束（术语/语域/语气/代词），在vn翻译（或需要上下文理解）上体验整体超过传统神经机器翻译
 
-- **跨语言能力** 因为LLM的特性（LLM 预训练的跨语言迁移与多域泛化能力强），较新的模型更容易支持多语言
+- **跨语言能力**</br>
+  因为LLM的特性（LLM 预训练的跨语言迁移与多域泛化能力强），较新的模型更容易支持多语言
 
 ## 如何选择LLM？
-如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍，后文有细致分类：
+如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍：
 <details>
   <summary>速度/价格/性能</summary>  
   
@@ -142,7 +144,6 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 3. 第三方托管通常审查弱于官方api
 
 </details>
-
 
 <details>
   <summary>多语言/跨语言能力</br>   
@@ -323,10 +324,9 @@ RoPE 的缩放因子；改变位置编码的“粒度”，常与上项配合，
 选择注意力中 K（Key）缓存的存储精度/量化格式（对应实现里的 type_k/ggml 类型）。量化 KV 缓存可明显降低内存/显存占用以换取极小精度损失或在部分场景带来速度收益；可用格式与稳定性依实现与硬件而异。
 13. **V Cache Quantization Type（V 缓存量化类型，实验性）** </br>
 同上，但作用于 V（Value）缓存（实现字段 type_v）。与 K 缓存配合量化常用于长上下文或小显存卡以扩大可用窗口/降低占用。
-14. **Speculative Decoding（推测/投机解码）** | [LM STUDIO官方介绍](https://lmstudio.ai/blog/lmstudio-v0.3.10) </br>
+14. **Speculative Decoding（推测/投机解码）** | [**LM STUDIO官方介绍**](https://lmstudio.ai/blog/lmstudio-v0.3.10) </br>
 Speculative Decoding（推测/投机解码）用一个更小更快的“草稿模型”先并行起草一串候选 token，再让更大的“主模型”快速验证并只接受那些与它本来会生成的结果一致的 token，从而在不牺牲输出分布/质量的前提下提升生成速度.
 > 一般情况下RoPE；kv cache可保持默认状态，部分模型容易出错。
-
 
 </details>   
 
@@ -354,26 +354,32 @@ Speculative Decoding（推测/投机解码）用一个更小更快的“草稿�
 
 
 **可选择平台** 
-- **LM Studio**  </br>
+- [**LM Studio**](https://lmstudio.ai/)  </br>
   一体化集成，本地 LLM 桌面应用 + OpenAI 兼容本地服务；部署简单快速（装了就能用） </br>
   自带模型发现/下载（Huggingface)；支持局域网共享</br>
   带RAG、MCP 集成与多后端 GPU Runtime（CUDA/Metal/Vulkan/ROCm） </br>
 
 
-- **Kobold.Cpp**  </br>
+- [**Koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
   重点服务写作/角色扮演与同人创作工作流；内置 KoboldAI Lite UI（记忆、世界观设定、角色卡、作者注、场景等写作工具），支持多对话模式（chat/adventure/instruct/storywriter）</br>
   除文本外，还内置 TTS/ASR 与 Stable Diffusion 图像生成，并提供多种兼容 API（含 OpenAI/Ollama 兼容）</br>
   提供 OpenAI/Ollama/Kobold 等多种兼容 API 端点</br>
 
-- **Ollama** </br>
+- [**Ollama**](https://ollama.com/) </br>
   类“Docker 管模型”的本地/局域网推理引擎与 CLI/REST API，支持 Modelfile 自定义与模型管理</br>
   2025 推出官方 GUI（Win/mac）降低纯命令行的门槛，并提供云与本地一体化选项。
 
 
 
 **模型大小/量化规格选择**  </br>
-见上文 **量化与GPU显存对照举例** 或 其他模型 [Other MODEL GGUF](OtherModels_gguf.md) 
+见上文 
+- **量化与GPU显存对照举例** </br>
+及 其他模型 [Other Model GGUF](OtherModels_gguf.md) 
 
 
- **模型更适合我？** </br>
- 见上文 **哪些模型更适合使用？**
+ **应该选择什么模型？** </br>
+ 见上文 
+ - **如何选择LLM**？
+ - **本地开放权重/开源模型**--**哪些模型更适合使用？** </br>
+ 
+
