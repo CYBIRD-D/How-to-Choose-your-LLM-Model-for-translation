@@ -2,7 +2,7 @@
 **How to choose the right large language model (for translation)**  </br>
 This post helps beginners pick an LLM that suits them.
 
-### Simplified Chinese | [ENGLISH](README_en.md)
+### English | [中文-Simplified Chinese](README.md)
 This article is meant to give beginners a first understanding of using LLMs for translation, with a primary scenario of translating visual novels (VN). Because the principles are the same, you can also apply it to other translation tasks.
 
 Recommended:
