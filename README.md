@@ -424,4 +424,5 @@ Speculative Decoding（推测/投机解码）用一个更小更快的“草稿�
  - **“如何选择LLM”**？
  - **“本地开放权重/开源模型**——**哪些模型更适合使用？”** </br>
  
-
+----------
+## [AI时间线](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg)
