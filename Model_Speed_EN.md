@@ -82,7 +82,7 @@ Selects the storage precision/quantization format for the K (Key) cache in atten
 Same idea but for the V (Value) cache (implementation field `type_v`). Quantizing both K and V caches is often used for long contexts or small-VRAM GPUs to expand the usable window and lower memory.
 - Because model quantization is involved, **if you’re not sure, don’t touch this**.
 ---------
-### Speculative Decoding (推测/投机解码) [LM STUDIO Intro](https://lmstudio.ai/blog/lmstudio-v0.3.10)  
+### Speculative Decoding (推测/投机解码) [LM Studio Article](https://lmstudio.ai/blog/lmstudio-v0.3.10)  
 In LM Studio, Speculative Decoding accelerates inference by running two models: a smaller, faster **draft model** first proposes a span of candidate tokens in parallel, then the larger **main model** quickly verifies them and accepts only those that match what it would have generated anyway—thus **improving speed without changing the output distribution/quality**.
 - The draft model predicts several upcoming tokens at once; the main model computes distributions at those positions in parallel. If they match, the whole span is accepted; otherwise it rolls back to the first mismatch and continues normal decoding. After accepting the last draft token, the main model emits **one extra token** to ensure an unbiased distribution.
   - **Compatibility**: the draft model should share a sufficiently consistent vocabulary/tokenizer with the main model. LM Studio auto-checks this and indicates valid pairings in the UI.
