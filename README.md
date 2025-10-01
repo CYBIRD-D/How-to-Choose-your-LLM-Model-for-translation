@@ -243,11 +243,11 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 <details> 
   <summary> 如何选择适合的模型参数大小 </summary> 
   
-  - 通常GPU显存 > 模型文件大小 + 上下文占用
+  - 通常需GPU显存 ≥ 模型文件大小 + 上下文占用
   - 模型规模×数据×算力越大，通常效果越好(scaling law)
     - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
-    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找测试
+    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找微调版测试
     - Moe架构模型以**总参数**为准 
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
 
