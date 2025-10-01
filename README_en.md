@@ -410,10 +410,10 @@ Below are common, practical platforms:
 
 **Model size / quantization spec choices**  </br>
 See above: 
-- **“Open-weight/Open-source locally — Quantization & VRAM guide”**
+- **“Open-weight/Open-source local models——Quantization & VRAM guide”**
 - And other models: [**Other Model GGUF**](OtherModels_gguf.md) 
 
 **Which model should I pick?** </br>
 See above: 
  - **“How to choose an LLM?”**
- - **“Open-weight/Open-source — Which models are better to use?”** </br>
+ - **“Open-weight/Open-source local models——Which models are better to use?”** </br>
