@@ -1,4 +1,6 @@
+简体中文  | [ENGLISH](README_en.md)
 这里以LM STUDIO为例
+
 <p align="center">
   <img src="./LM%20STUDIO.png" width="800" alt="LM Studio 截图">
 </p>
