@@ -223,7 +223,7 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
   - **2507**: time tag (2025/07), often minor updates.
   
   - **abliterated**: a style of “de-safety-filtered” fine-tune; typically means moderation is removed.
-    - You’ll also see uncensored, NSFW, amoral, etc.
+    - You’ll also see **uncensored, NSFW, amoral**, etc.
    
   - **Q8_0 (gguf)**: a llama.cpp quantization type. See:
     - **Quantization & VRAM guide**
