@@ -417,3 +417,6 @@ See above:
 See above: 
  - **“How to choose an LLM?”**
  - **“Open-weight/Open-source local models——Which models are better to use?”** </br>
+
+--------
+## [AI Timeline](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg)
