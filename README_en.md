@@ -6,10 +6,10 @@ This post helps beginners pick an LLM that suits them.
 This article is meant to give beginners a first understanding of using LLMs for translation, with a primary scenario of translating visual novels (VN). Because the principles are the same, you can also apply it to other translation tasks.
 
 Recommended:
-- [LunaTranslator](https://github.com/HIllya51/LunaTranslator)
+- [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
 - [AiNiee](https://github.com/NEKOparapa/AiNiee)
-- [Free API](Freellmapi.md)
+- [**Free API**](Freellmapi.md)
 
 
 ## What are LLMs good at?
