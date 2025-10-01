@@ -9,8 +9,11 @@ Use LM STUDIO as an example
 ### **Context Length** </br>
 “Context length” means the maximum number of **tokens** the model can “see” in a single forward/decoding pass (input + intermediate cache + generated history).
 
-A token ≠ a character/word. A rough rule of thumb in English: 1 token ≈ 4 characters ≈ 0.75 words (varies by language). Going over the limit will result in truncation or an error.
-- The larger the number, the longer the text it can handle; but it significantly increases VRAM/RAM and compute. Exceeding the model’s trained or implemented maximum window may also lead to abnormal outputs.
+- A token ≠ a character/word. A rough rule of thumb in English: 
+  - **1 token ≈ 4 characters ≈ 0.75 words** (varies by language).
+- Going over the limit will result in truncation or an error.
+- The larger the number, the longer the text it can handle; but it significantly increases VRAM/RAM and compute.   
+  Exceeding the model’s trained or implemented maximum window may also lead to abnormal outputs.
 
 - The larger the model, the more VRAM/RAM the context requires; the longer the window, the more VRAM/RAM it needs. </br>
 - As the used context length increases, model capability gradually degrades; beyond the trained/supported window, capability can drop sharply.
