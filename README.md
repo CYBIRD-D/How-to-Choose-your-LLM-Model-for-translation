@@ -9,7 +9,7 @@ This is a post for beginners to choose the LLM Models suit themselves.
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
 - [AiNiee](https://github.com/NEKOparapa/AiNiee)
-- [**Free API**](Freellmapi.md)
+- [**Free LLM API**](Freellmapi.md)
 
 
 ## LLM的优势？
