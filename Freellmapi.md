@@ -33,5 +33,8 @@ https://console.groq.com/docs/rate-limits
 https://inference-docs.cerebras.ai/quickstart
 
 
-**NO FREE TIER** for Together AI now </br>
-https://support.together.ai/articles/1862638756-changes-to-free-tier-and-billing-july-2025 
+**Together AI** (free-endpoint: search in the model)</br>
+https://www.together.ai/models/llama-3-3-70b-free    
+https://www.together.ai/models/deepseek-r1-distilled-llama-70b-free   
+**NO FREE TIER** for now </br>
+https://support.together.ai/articles/1862638756-changes-to-free-tier-and-billing-july-2025
