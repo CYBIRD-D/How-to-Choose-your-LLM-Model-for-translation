@@ -19,6 +19,9 @@ https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-m
 **Mistral** </br>
 https://docs.mistral.ai/deployment/laplateforme/tier/
 
+**IBM**</br>
+https://www.ibm.com/products/watsonx-ai/pricing
+
 **Cohere** </br>
 https://docs.cohere.com/docs/rate-limits
 
