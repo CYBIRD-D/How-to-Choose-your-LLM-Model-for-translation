@@ -231,10 +231,10 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
   - **abliterated**: a style of “de-safety-filtered” fine-tune; typically means moderation is removed.
     - You’ll also see **uncensored, NSFW, amoral**, etc.
    
-  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link or above:
+  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link or below:
     - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
       - **Quantization & VRAM guide**
-      - **Quantization types & relative quality**
+      - **GGUF Quantization types & relative quality**
 
 --------
 
