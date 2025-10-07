@@ -153,4 +153,45 @@
 | Q6_K | 293 GB |
 | Q8_0 | 379 GB |
 
+---------
+## GGUF quantization types & relative quality <br> GGUF 量化类型与相对质量 
 
+> 注：质量为**相对 FP16 的总体逼近**与社区常用基准（如困惑度/客观评测）综合判断的**经验级**分档；
+> 同一量化在不同模型/任务上可能有差异。
+> `_K` 为更先进的 K 类量化；`_S/_M` 为不同“混合策略”，一般 `_M` 质量高于 `_S`。
+
+| 量化类型 | 理论 bpw* | 相对质量（对比 FP16） | 典型使用场景 / 建议 | 备注 |
+|---|---:|---|---|---|
+| **Q8_0** | ≈ 8.0 | 最高（接近 FP16） | VRAM 充足、要尽量贴近原精度或做严谨评测 | 属于“旧法（legacy）”，但质量最高的量化档，相较FP16基本没有质量下降 |
+| **Q6_K** | 6.5625 | 很高（接近 Q8_0） | 追求高质量且希望显存更省 | K-Quant，质量/体积效率优于同位数的旧法 |
+| **Q5_K_M** | 5.5 | 较高 | 5-bit 档的通用首选；综合部署的“甜点位” | `_M` 较 `_S` 更注重质量 |
+| **Q5_0** | ≈ 5.0 | 中等—较高 | 仅在兼容旧工作流时考虑(相对更高量化） | 旧法，质量通常逊于 Q5_K_ |
+| **Q4_K_M** | 4.5 | 中等（**4-bit 中**质量最佳之一） | 显存较紧张但仍需可用质量；常见平衡点 | 社区普遍认为 **4-bit**内首选|
+| **Q4_K_S** | ≈ 4.5 | 中等偏下（低于 `_M`） | 更追求速度/更小体积时的 4-bit 选项 | `_S` 为更激进混合，质量略降 |
+| **Q4_0** | ≈ 4.0 | 中等—较低 | 仅做兼容/对比用途 | 旧法（legacy），质量较低，通常不再推荐* |
+| **Q3_K_M** | 3.4375 | 较低 | 极限内存或边缘设备权衡 | 质量明显劣化，不推荐 |
+
+具体技术文章 https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+
+\* *bpw（bits per weight）为官方/文档给出的近似或精确数值；部分旧法（如 Q4_0/Q5_0）不明确给出额外开销，表中以“≈”表示。*</br>
+\* *特殊情况：Gemma 3 12B Instruct QAT 虽为q4_0量化，但量化感知训练（Quantization-Aware Training, QAT）使其质量和速度远超q4档位</br> 
+
+-------
+
+> Note: “Quality” here is an **experience-based** tiering of overall closeness to FP16 + common community metrics (e.g., perplexity/objective evals). The same quant level can vary by model/task. `_K` denotes newer K-quant; `_S/_M` are mixed strategies—`_M` is usually higher quality than `_S`.
+
+| Quantization | Theoretical bpw* | Relative quality (vs FP16) | Typical use / advice | Notes |
+|---|---:|---|---|---|
+| **Q8_0** | ≈ 8.0 | Highest (near FP16) | When VRAM is plenty and you want FP16-like fidelity or rigorous evals | “Legacy” method but the highest-quality quant; negligible drop vs FP16 |
+| **Q6_K** | 6.5625 | Very high (near Q8_0) | Aim for high quality while saving VRAM | K-Quant; better quality/size than same-bit legacy |
+| **Q5_K_M** | 5.5 | High | A great 5-bit default; deployment “sweet spot” | `_M` prioritizes quality over `_S` |
+| **Q5_0** | ≈ 5.0 | Medium–High | Consider only for old workflows | Legacy; usually worse than Q5_K_* |
+| **Q4_K_M** | 4.5 | Medium (best among many 4-bit options) | Tight VRAM yet usable quality; common balance | Often the 4-bit go-to |
+| **Q4_K_S** | ≈ 4.5 | Medium–Low (lower than `_M`) | When you need speed/smaller size in 4-bit | More aggressive mix, slight quality drop |
+| **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
+| **Q3_K_M** | 3.4375 | Low | Extreme memory/edge devices | Noticeable degradation; not recommended |
+
+Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+
+\* *bpw (bits per weight) are approximate/official numbers; some legacy formats (Q4_0/Q5_0) have extra overhead not precisely specified—shown as “≈”.*</br>
+\* *Special case: Gemma 3 12B Instruct QAT is q4_0, but quantization-aware training (QAT) makes its quality/speed far above typical q4.*</br> 
