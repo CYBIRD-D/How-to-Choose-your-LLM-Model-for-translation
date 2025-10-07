@@ -242,10 +242,10 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   - **abliterated**: 去安全审核的一种方式，通常意味着此微调模型已去审核
     - 常见还有 uncensored; NFSW; amoral（不一定为尾缀）等
    
-  - **Q8_0 (gguf)**: llama.cpp的量化方式， 具体请看下文
-    -  **量化与GPU显存对照举例**
+  - **Q8_0 (gguf)**: llama.cpp的量化方式， 具体请查看链接或下文
     - [**LLM显存使用表**](OtherModels_gguf.md)
-    - **量化类型与相对质量**
+      -  **量化与GPU显存对照举例**
+      - **GGUF量化类型与相对质量**
 
 --------
 
