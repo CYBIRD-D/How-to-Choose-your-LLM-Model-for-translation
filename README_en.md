@@ -30,6 +30,8 @@ But they have clear advantages in several key areas, especially context handling
 ## How to choose an LLM? Online vs Local
 What you choose depends on your needs and trade-offs across the following factors. Here’s a quick guide:</br>
 
+- Only Want to use local models but unsure about the usage: [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
+
 <details>
   <summary>Speed / Price / Performance  </br>
   "CUDA out of money, pls charge💸"</summary>   </br>
@@ -56,7 +58,7 @@ Bigger model / faster speed = better quality = more VRAM + more CUDA cores = hig
 
 - With a 6GB+ VRAM GPU you can try local deployment.
     - See **Open-weight/Open-source locally — Quantization & VRAM guide** below.
-      - For **<6GB VRAM**, also see [**Other Model GGUF**](OtherModels_gguf.md)
+      - For **Less or more VRAM**, also see [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
         - Usually, <4B models struggle to keep translation quality; 8B is a good “sweet spot.”
 
  </details>
@@ -227,6 +229,7 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
    
   - **Q8_0 (gguf)**: a llama.cpp quantization type. See:
     - **Quantization & VRAM guide**
+    - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
     - **Quantization types & relative quality**
 
 --------
@@ -274,7 +277,7 @@ Here we only discuss GGUF models supported by llama.cpp (deployable via Ollama /
 | Q6_K | 12.1 GB | ≥ 14/16 GB |
 | Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
-See more examples for other sizes | [**Other MODEL GGUF**](OtherModels_gguf.md)   
+See more examples for other sizes | [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)    
 \* *On Apple Mac (M1+), unified memory = RAM + VRAM. After subtracting 6–8GB for system/apps, the remainder approximates usable VRAM (many optimizations may need more memory).*</br>
 \* *For MoE (e.g., Qwen3-30B-A3B): total params = 30B, all must load; A3B are just the active params.*</br>
 </details>
@@ -411,7 +414,7 @@ Below are common, practical platforms:
 **Model size / quantization spec choices**  </br>
 See above: 
 - **“Open-weight/Open-source local models——Quantization & VRAM guide”**
-- And other models: [**Other Model GGUF**](OtherModels_gguf.md) 
+- And other models: [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
 
 **Which model should I pick?** </br>
 See above: 
