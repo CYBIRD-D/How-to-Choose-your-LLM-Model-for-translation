@@ -201,10 +201,14 @@ Leading closed-source models are typically strong across languages</summary>
 
 -------
 ### Open-weight / Open-source local models
-- **What “open-source / open-weight” means**
+
+<details> 
+  <summary>What open-source & open-weight means</summary> 
+
   - Today, “open-source models” usually means **open-weight**.  </br>
   - **Open-weight**: the model weights are released; anyone can use/modify/fine-tune/commercialize them under a license (e.g., MIT). </br>
   - **Truly open-source**: training/inference code & pipeline, model architecture, weights, and data sources are published, sufficient for full reproduction.
+</details>
 
 - **Where to find models?** </br>
 [Hugging Face](https://huggingface.co/)  
@@ -227,10 +231,10 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
   - **abliterated**: a style of “de-safety-filtered” fine-tune; typically means moderation is removed.
     - You’ll also see **uncensored, NSFW, amoral**, etc.
    
-  - **Q8_0 (gguf)**: a llama.cpp quantization type. See:
-    - **Quantization & VRAM guide**
+  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link or above:
     - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
-    - **Quantization types & relative quality**
+      - **Quantization & VRAM guide**
+      - **Quantization types & relative quality**
 
 --------
 
