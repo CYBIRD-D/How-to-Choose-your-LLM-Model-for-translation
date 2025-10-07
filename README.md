@@ -27,6 +27,9 @@ LLM相较传统神经机器翻译NMT（通常指专门为翻译训练的序列�
 
 ## 如何选择LLM？在线 VS 本地
 如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍：</br>
+
+- 只想使用本地模型但不知道大小：[**LLM显存使用表**](OtherModels_gguf.md)
+
 <details>
   <summary>速度/价格/性能  </br>
   "Cuda out of money, pls charge💸 "</summary>   </br>
@@ -53,7 +56,7 @@ LLM可以分为
 
 - 6G及以上显存显卡可选择本地部署大模型
     - 详细请看下文 **本地开放权重/开源模型 ——量化与GPU显存对照举例**
-      - **6G以下VRAM**请额外查看 [**Other Model GGUF**](OtherModels_gguf.md)
+      - **6G以下或其它VRAM**请额外查看 [**LLM显存使用表**](OtherModels_gguf.md)
         - 通常4B以下模型已难以保持翻译质量，8B为质量较好的甜点区 
 
  </details>
@@ -208,10 +211,15 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 
 -------
 ### 本地开放权重/开源模型
-- **开源/开放权重模型解释**
+
+<details> 
+  <summary> 开源/开放权重模型解释 </summary> 
+  
   - 目前开源模型一般指的是开放权重模型  </br>
   - **开放权重**：指模型权重（模型本身）发布，任何人可在一定协议下（例如MIT)使用，修改，微调，商业化等等</br>
   - **真正开源**：公布模型训练/推理代码及流程、模型结构、权重、训练数据来源且足以进行复现实验</br>
+
+</details> 
 
 - **哪里寻找开源模型？** </br>
 [Huggingface](https://huggingface.co/)
@@ -235,7 +243,8 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
     - 常见还有 uncensored; NFSW; amoral（不一定为尾缀）等
    
   - **Q8_0 (gguf)**: llama.cpp的量化方式， 具体请看下文
-    - **量化与GPU显存对照举例**
+    -  **量化与GPU显存对照举例**
+    - [**LLM显存使用表**](OtherModels_gguf.md)
     - **量化类型与相对质量**
 
 --------
@@ -250,7 +259,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   
   - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
     - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找微调版测试
-      - 在此可查看其他不同大小模型例子 | [**Other MODEL GGUF**](OtherModels_gguf.md) 
+      - 在此可查看其他不同大小模型例子 | [**LLM显存使用表**](OtherModels_gguf.md) 
     - Moe架构模型以**总参数**为准
   
 > 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
@@ -287,7 +296,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q6_K | 12.1 GB | ≥ 14/16 GB |
 | Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
-在此可查看其他不同大小模型例子 | [**Other MODEL GGUF**](OtherModels_gguf.md)   
+在此可查看其他不同大小模型例子 | [**LLM显存使用表**](OtherModels_gguf.md)  
 \* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除6~8G系统&程序需求剩余可近似看为显存（多数优化方式需更多内存）。*</br>
 \* *MOE（混合专家）例如Qwen3-30b-A3b：其总参数大小为30b, 需全部装入显存，A3b只为活跃参数</br>
 </details>
