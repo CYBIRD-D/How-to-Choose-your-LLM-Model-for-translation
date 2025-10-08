@@ -139,9 +139,9 @@ New closed-source models outperform open models in many areas</summary>
   
 Representatives (as of 2025/08):
   - xAI (Grok-4)
-  - OpenAI (GPT-5)
+  - OpenAI (GPT-5 Thinking)
   - Google (Gemini 2.5 Pro)
-  - Anthropic (Claude 4)</br>
+  - Anthropic (Claude 4/4.1)</br>
   Within a family, larger models are stronger (Gemini 2.5 Pro > Flash > Lite).
 
 See various benchmarks on [Kaggle](https://www.kaggle.com/benchmarks).
@@ -152,7 +152,7 @@ See various benchmarks on [Kaggle](https://www.kaggle.com/benchmarks).
 Closed-source models generally implement stricter safety moderation (which is reasonable)</summary> 
 
 **Rough moderation strictness (weaker → stronger):**</br>
-Grok-3/4 (easier to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 series < OpenAI third-party APIs <<< OpenAI (hard to bypass)
+Grok-3/4 (easier to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 series < OpenAI third-party APIs <<< OpenAI (newer the model, harder the bypass)
 1. Gemini 2.5 free tier appears stricter.
 2. Web/client Chat versions are stricter than APIs.
 3. Third-party hosting tends to be less strict than official APIs.
