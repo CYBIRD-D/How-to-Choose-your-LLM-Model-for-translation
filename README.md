@@ -149,7 +149,7 @@ LLM可以分为
   
 代表为（截至2025/08）
   - xai（grok 4）
-  - Openai （GPT-5)
+  - Openai （GPT-5 Thinking)
   - Google (Gemini 2.5pro)
   - Anthropic (Claude 4)</br>
   同系列模型之间参数越大，能力越强 （gemini2.5 pro>flash>lite)
