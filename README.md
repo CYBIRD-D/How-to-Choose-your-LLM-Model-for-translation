@@ -164,7 +164,7 @@ LLM可以分为
 
 
 **审查机制由弱到强为**</br>
-grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series < openai第三方api <<< openai(难以绕过）
+grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series < openai第三方api <<< openai(越新的模型越难绕过）
 1. Gemini 2.5 free tier审查疑似更严重
 2. 各模型网页/客户端Chat版本审核强于api
 3. 第三方托管通常审查弱于官方api
