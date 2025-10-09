@@ -18,7 +18,7 @@ LLMs don’t dominate on every metric. </br>
 
 But LLMs have clear advantages in several key areas, especially context handling, glossary control, and cross-lingual ability:
 
-- **Stronger context handling**</br>
+- **Context handling**</br>
   Long context windows plus “context-aware prompting” help maintain discourse coherence, resolve anaphora/ellipsis, and keep terminology consistent.
 
 - **Glossary control/GPT-DICTIONARY**</br>
