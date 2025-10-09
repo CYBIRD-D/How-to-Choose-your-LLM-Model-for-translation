@@ -189,7 +189,7 @@
 | **Q4_K_M** | 4.5 | Medium (best among many 4-bit options) | Tight VRAM yet usable quality; common balance | Often the 4-bit go-to |
 | **Q4_K_S** | ≈ 4.5 | Medium–Low (lower than `_M`) | When you need speed/smaller size in 4-bit | More aggressive mix, slight quality drop |
 | **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
-| **Q3_K_M** | 3.4375 | Low | Extreme memory/edge devices | Noticeable degradation; not recommended |
+| **Q3_K_M** | 3.4375 | Low | Low memory/edge devices | Noticeable degradation; not recommended |
 
 Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
 
