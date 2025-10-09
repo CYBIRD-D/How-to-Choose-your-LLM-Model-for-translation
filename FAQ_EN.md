@@ -90,10 +90,10 @@ In essence, it’s still a locally running model—just running on a GPU server 
 </summary>
 
 ### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#deploying-local-models) include:
-- [**LM Studio**](https://lmstudio.ai/docs/app/basics)
+- [**LM Studio Guide**](https://lmstudio.ai/docs/app/basics)
   - You can search for models directly on [huggingface](https://huggingface.co/models), copy the model name, and then download it in LM Studio.
 
-- [**Ollama**](https://docs.ollama.com/quickstart)
+- [**Ollama Guide**](https://docs.ollama.com/quickstart)
   - Requires a basic understanding of the command line/code.</br>
 
 -------
