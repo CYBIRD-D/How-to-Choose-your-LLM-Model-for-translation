@@ -1,5 +1,5 @@
 # FAQ 常见问题
-## 简体中文  | [ENGLISH](README_en.md)
+## 简体中文  | [ENGLISH](FAQ_EN.md)
 
  <details>
  <summary>  
