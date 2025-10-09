@@ -186,7 +186,7 @@
 | **Q6_K** | 6.5625 | Very high (near Q8_0) | Aim for high quality while saving VRAM | K-Quant; better quality/size than same-bit legacy |
 | **Q5_K_M** | 5.5 | High | A great 5-bit default; deployment “sweet spot” | `_M` prioritizes quality over `_S` |
 | **Q5_0** | ≈ 5.0 | Medium–High | Consider only for old workflows | Legacy; usually worse than Q5_K_* |
-| **Q4_K_M** | 4.5 | Medium (best among many 4-bit options) | Tight VRAM yet usable quality; common balance | Often the 4-bit go-to |
+| **Q4_K_M** | 4.5 | Medium (best among many 4-bit options) | Tight VRAM yet usable quality; common balance | Often the 4-bit sweet spot |
 | **Q4_K_S** | ≈ 4.5 | Medium–Low (lower than `_M`) | When you need speed/smaller size in 4-bit | More aggressive mix, slight quality drop |
 | **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
 | **Q3_K_M** | 3.4375 | Low | Low memory/edge devices | Noticeable degradation; not recommended |
