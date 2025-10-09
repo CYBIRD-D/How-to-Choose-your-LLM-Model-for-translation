@@ -22,6 +22,7 @@ But they have clear advantages in several key areas, especially context handling
 
 - **Glossary control**</br>
   LLMs understand instruction-style constraints (terminology/register/tone/pronouns). For VN translation (or any task needing context understanding), they often feel better overall than traditional NMT.
+  - It can understand your instruction (depends on the model capability) and adjust the translation
 
 - **Cross-lingual ability**</br>
   Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs more readily support multiple languages.
