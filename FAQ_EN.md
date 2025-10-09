@@ -75,7 +75,7 @@ Essentially, an online API means a service provider runs the model on their serv
 In essence, it’s still a locally running model—just running on a GPU server and served to users over the network.
 
 ### 2. Local vs. Online
-[How to choose an LLM? Online VS Local](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README.md#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9llm%E5%9C%A8%E7%BA%BF-vs-%E6%9C%AC%E5%9C%B0)
+[How to choose an LLM? Online VS Local](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#how-to-choose-an-llm-online-vs-local)
 
 
 </details>
@@ -89,7 +89,7 @@ In essence, it’s still a locally running model—just running on a GPU server 
  How to deploy local models; common deployment platforms
 </summary>
 
-### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/tree/main#%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B) include:
+### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#deploying-local-models) include:
 - [**LM Studio**](https://lmstudio.ai/docs/app/basics)
   - You can search for models directly on [huggingface](https://huggingface.co/models), copy the model name, and then download it in LM Studio.
 
