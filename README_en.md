@@ -12,6 +12,12 @@ Recommended:
 - [**Free API**](Freellmapi.md)
 
 
+### [FAQ Frequent Ask Questions](FAQ_EN.md)
+
+questions related to Models/Local VS online/deployment for beginners
+
+------
+
 ## What are LLMs good at?
 Compared with traditional Neural Machine Translation (NMT—typically sequence-to-sequence/Transformer systems trained specifically for translation),    
 LLMs don’t dominate on every metric. </br>
