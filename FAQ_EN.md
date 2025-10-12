@@ -54,8 +54,8 @@ For example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
    
   - **Q8_0 (gguf)**: A llama.cpp quantization format; see the link or section below.
     - [**LLM VRAM Usage Table**](OtherModels_gguf.md)
-      -  **Quantization vs GPU VRAM examples**
-      - **GGUF quantization types and relative quality**
+      -  **Quantization & GPU VRAM examples**
+    - **GGUF quantization types and relative quality**
  
      
 
