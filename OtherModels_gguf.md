@@ -1,5 +1,5 @@
 1. **LLM VRAM USAGE LISTS**/**LLM 显存使用表**
-2. **GGUF Quantization Types & Relative Quality**/**GGUF 量化类型与相对质量**
+2. **[GGUF Quantization Types & Relative Quality**/**GGUF 量化类型与相对质量](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/OtherModels_gguf.md#gguf-quantization-types--relative-quality--gguf-%E9%87%8F%E5%8C%96%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%9B%B8%E5%AF%B9%E8%B4%A8%E9%87%8F)**
 
 
 # LLM VRAM USAGE LISTS <br> LLM 显存使用表 
