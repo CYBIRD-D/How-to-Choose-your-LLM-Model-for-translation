@@ -1,3 +1,7 @@
+1. **LLM VRAM USAGE LISTS**/**LLM 显存使用表**
+2. **GGUF Quantization Types & Relative Quality**/**GGUF 量化类型与相对质量**
+
+
 # LLM VRAM USAGE LISTS <br> LLM 显存使用表 
 小模型一般对于**CPU有优化**，可以查看具体模型卡页面是否有优化/纯用CPU跑试试 <br> Small models are generally **optimized for the CPU**, check official model card/try offload to cpu to test speed.
 
