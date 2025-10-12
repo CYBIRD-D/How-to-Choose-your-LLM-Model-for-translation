@@ -35,6 +35,8 @@ LLM相较传统神经机器翻译-NMT（指专门为翻译训练的序列到序�
 
 关于模型/本地VS在线/部署的一些常见问答
 
+不想通读全文可先看这个
+
 --------
 
 如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍：</br>
@@ -66,7 +68,7 @@ LLM可以分为
     - 其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
 
 - 6G及以上显存显卡可选择本地部署大模型
-    - 详细请看下文 **本地开放权重/开源模型 ——量化与GPU显存对照举例**
+    - 详细请看下文 **[本地开放权重/开源模型 ——量化与GPU显存对照举例]（https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation#%E6%9C%AC%E5%9C%B0%E5%BC%80%E6%94%BE%E6%9D%83%E9%87%8D%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B）**
       - **6G以下或其它VRAM**请额外查看 [**LLM显存使用表**](OtherModels_gguf.md)
         - 通常4B以下模型已难以保持翻译质量，8B为质量较好的甜点区 
 
@@ -84,7 +86,7 @@ LLM可以分为
   -  **付费api**：因为其性质暂时无法做到E2EE端到端加密，相对接近的TEE（CC-ON/机密计算）需看云服务商是否提供。</br>
      绝大多数服务商只做传输加密与存储加密，服务端可见明文。承诺保护你的数据并定时删除，且有关闭数据用于训练的选项。
       - **审查存在**.一般**越新的模型越严格**（模型本身安全审查更先进）, 但第三方托管通常较官方api更宽松
-        - 部分服务商明确有上报协议（CSAM）
+        - 部分服务商明确有上报协议
     
   - **第三方托管开源模型**：隐私条款由托管方服务商规定</br>
     因为可选模型缘故，用户可选择已经过微调的模型来避免模型审查（托管方/平台是否有审查 笔者不能确定）
@@ -200,7 +202,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
   
 > English（英语）、Spanish（西班牙语）、French（法语）、Afrikaans（南非荷兰语）、Arabic（阿拉伯语）、Bengali（孟加拉语）、Welsh（威尔士语）、German（德语）、Greek（希腊语）、Indonesian（印尼语）、Icelandic（冰岛语）、Italian（意大利语）、Japanese（日语）、Korean（韩语）、Latvian（拉脱维亚语）、Marathi（马拉地语）、Nepali（尼泊尔语）、Punjabi（旁遮普语）、Polish（波兰语）、Russian（俄语）、Swahili（斯瓦希里语）、Telugu（泰卢固语）、Thai（泰语）、Turkish（土耳其语）、Ukrainian（乌克兰语）、Urdu（乌尔都语）、Chinese（中文） </br>
   
-</details>
+ </details>
 
 <details> 
   <summary> GPT-4 </summary> 
@@ -246,7 +248,7 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
     
   - **8B**：模型参数大小，常见为4B±；8B±；14B±；30B±；70B±；100B+
     - **MoE**架构模型（例如30B-A3B) 30B为总参数，A3B仅为活跃参数
-    - 不同参数对应显存使用量请看下文 **量化与GPU显存对照举例**
+    - 不同参数对应显存使用量请看下方 **量化与GPU显存对照举例**
       
   - **Thinking**: 模型为或具有thinking mode（思维模型），并非所有思维模型都会标注
   
