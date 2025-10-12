@@ -13,8 +13,14 @@ Recommended:
 
 
 ### [FAQ Frequent Ask Questions](FAQ_EN.md)
+</br>
 
-questions related to Models/Local VS online/deployment for beginners
+Questions related to 
+- Models
+- Local VS Online
+- Deployment for Beginners
+
+</br>
 
 ------
 
@@ -24,10 +30,10 @@ LLMs don’t dominate on every metric. </br>
 
 But LLMs have clear advantages in several key areas, especially context handling, glossary control, and cross-lingual ability:
 
-- **Context handling**</br>
+- **Context Handling**</br>
   Long context windows plus “context-aware prompting” help maintain discourse coherence, resolve anaphora/ellipsis, and keep terminology consistent.
 
-- **Glossary control/GPT-DICTIONARY**</br>
+- **Glossary Control/GPT-DICTIONARY** (Proper Noun Translation) </br>
   LLMs understand instruction-style constraints (terminology/register/tone/pronouns/explaination of dictionary).   
   For VN translation (or any task needing context understanding), they often feel better overall than traditional NMT.
   - It can understand your instruction (depends on the model capability) and adjust the translation
