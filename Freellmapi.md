@@ -10,6 +10,10 @@ https://openrouter.ai/models?q=free
 **Z.ai (GLM-4.5-Flash)** </br>
 https://docs.z.ai/guides/overview/pricing
 
+**Ollama**</br>
+https://ollama.com/cloud
+
+
 </br>
 </br>
 
@@ -45,6 +49,9 @@ https://support.together.ai/articles/1862638756-changes-to-free-tier-and-billing
 </br>
 
 **CN Model** </br>
+**ModelScope(魔搭社区）** </br>
+https://modelscope.cn/docs/model-service/API-Inference/intro
+
 **Tencent-Hunyuan 腾讯混元** </br>
 (Hunyuan-lite free; 1 M free token for other models/per account) </br>
 https://cloud.tencent.com/document/product/1729/97731
