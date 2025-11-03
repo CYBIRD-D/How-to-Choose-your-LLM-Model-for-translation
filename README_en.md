@@ -9,7 +9,7 @@ Recommended:
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
 - [AiNiee](https://github.com/NEKOparapa/AiNiee)
-- [**Free API**](Freellmapi.md)
+- [**Free LLM API**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
 
 
 ### [FAQ Frequent Ask Questions](FAQ_EN.md)
