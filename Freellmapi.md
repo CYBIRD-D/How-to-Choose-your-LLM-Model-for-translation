@@ -1,3 +1,9 @@
+## LLM FREE API PROVIDER
+For newer information and more details please check </br>
+[**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+</br>
+</br>
+
 **Google Gemini**</br>
 https://ai.google.dev/gemini-api/docs/rate-limits#free-tier   
 
