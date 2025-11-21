@@ -104,7 +104,7 @@ Llama 3.1 8B ↔ Llama 3.2 1B; Qwen 2.5 14B ↔ Qwen 2.5 0.5B
 
 - **API usage**: The local server supports this too; set the draft model in the server UI, or add a `draft_model` field in your request.
 > Why speed is **sometimes very fast** and **sometimes only moderate**:
-> 1. The smaller/faster the draft model is **relative** to the main model, the better.
+> 1. The smaller the draft model is **relative** to the main model, the better/faster.
 > 2. The draft’s **acceptance rate** for the current prompt needs to be high. Smaller draft + higher acceptance → bigger speedup.
 > 3. **Prompt-dependent**: factual/structured tasks (e.g., formulas/code) are easier for the main model to accept in long spans; open-ended creative writing branches a lot, causing more rejections and smaller gains.
 > 4. **Resource trade-off**: running two models increases VRAM/RAM and compute; if the draft is too large or acceptance is low, it can even be slower.
