@@ -3,8 +3,36 @@ Regarding a series of common questions and a simple forward of contents for the 
 
 ## ENGLISH | [简体中文](FAQ.md)
 
- <details>
+<details>
  <summary>  
+  
+ ## Concept
+Basic concept of Proper Noun。
+</summary>
+
+- **NMT**: Neural Machine Translation
+  - like google translation
+
+
+- **(Generative) LLMs**: Large Language Models
+  - Today's new AI, chatbot are usally based on this
+  - Like GPT-5; Gemini 3; Grok 4; Claude 4, etc.
+
+
+
+- **API**: Application Programming Interface
+  -  A connection between computers or between computer programs. It is a type of software interface, offering a service to other pieces of software.
+  -  For llms, it is a port provide service through a server which runs the model (could be your server and hardware if it is local llms) and send to your interface
+
+- [**What are LLMs good at?**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#what-are-llms-good-at)
+
+
+</details>
+
+------------
+
+<details>
+<summary>  
   
  ## Models
  A series of Q&As about models
