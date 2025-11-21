@@ -11,6 +11,7 @@ Recommended:
 - [AiNiee](https://github.com/NEKOparapa/AiNiee)
 - [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
 
+--------
 
 ### [FAQ Frequent Ask Questions](FAQ_EN.md)
 </br>
@@ -113,10 +114,10 @@ Bigger model / faster speed = better quality = more VRAM + more CUDA cores = hig
 
 ---------
 
-### Closed-source models
+### Online models (Closed-source models)
 
 <details> 
-  <summary>Price</br>
+  <summary>Price & Free API</br>
 Different models have different prices</summary>  
 
 Using a $10 usage budget on Gemini official API as a quick estimate:
@@ -134,7 +135,7 @@ Using a $10 usage budget on Gemini official API as a quick estimate:
 2.5 Flash: ≈ 6,450 calls</br>
 2.5 Flash-Lite or 2.0 Flash: ≈ 33,000 calls</br>
 
-> Google provides a free-tier API.  
+> Google provides a [**free-tier API**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider) (check details in the link).  
 > But it’s limited by:
 > - Requests per minute (RPM)
 > - Tokens per minute (TPM)
@@ -157,9 +158,9 @@ Using a $10 usage budget on Gemini official API as a quick estimate:
 New closed-source models outperform open models in many areas</summary>  
   
 Representatives (as of 2025/08):
-  - xAI (Grok-4)
-  - OpenAI (GPT-5 Thinking)
-  - Google (Gemini 2.5 Pro)
+  - xAI (Grok-4/4.1)
+  - OpenAI (GPT-5/5.1 Thinking)
+  - Google (Gemini 2.5 Pro/3 Pro)
   - Anthropic (Claude 4/4.1)</br>
   Within a family, larger models are stronger (Gemini 2.5 Pro > Flash > Lite).
 
@@ -219,7 +220,7 @@ Leading closed-source models are typically strong across languages</summary>
 </details>
 
 -------
-### Open-weight / Open-source local models
+### Local models (Open-weight / Open-source)
 
 <details> 
   <summary>What open-source & open-weight means</summary> 
