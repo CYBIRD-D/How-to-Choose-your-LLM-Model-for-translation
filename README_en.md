@@ -13,7 +13,7 @@ Recommended:
 
 --------
 
-### [FAQ Frequent Ask Questions](FAQ_EN.md)
+### [FAQ-Frequent Ask Questions](FAQ_EN.md)
 </br>
 
 Questions related to 
