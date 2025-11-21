@@ -27,8 +27,8 @@ Questions related to
 ------
 
 ## What are LLMs good at?
-Compared with traditional Neural Machine Translation (NMT—typically sequence-to-sequence/Transformer systems trained specifically for translation),    
-LLMs don’t dominate on every metric. </br>
+Compared with traditional **Neural Machine Translation** (NMT—typically sequence-to-sequence/Transformer systems trained specifically for translation),    
+LLMs **don’t** dominate on every metric. </br>
 
 But LLMs have clear advantages in several key areas, especially **context handling**, **glossary (noun) control**, and **cross-lingual ability**:
 
