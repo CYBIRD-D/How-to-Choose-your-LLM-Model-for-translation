@@ -50,7 +50,8 @@ But LLMs have clear advantages in several key areas, especially context handling
 ## How to choose an LLM? Online vs Local
 What you choose depends on your needs and trade-offs across the following factors. Here’s a quick guide:</br>
 
-- Only Want to use local models but unsure about the usage: [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
+- Only Want to use local models but unsure about the usage: </br>
+[**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
 
 <details>
   <summary>Speed / Price / Performance  </br>
@@ -155,9 +156,11 @@ Using a $10 usage budget on Gemini official API as a quick estimate:
   
 <details> 
   <summary>Performance</br>  
-New closed-source models outperform open models in many areas</summary>  
+New closed-source models outperform open models in many areas</summary> 
+
+Check [**Timeline**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg) here
   
-Representatives (as of 2025/08):
+Representatives (as of 2025/11):
   - xAI (Grok-4/4.1)
   - OpenAI (GPT-5/5.1 Thinking)
   - Google (Gemini 2.5 Pro/3 Pro)
