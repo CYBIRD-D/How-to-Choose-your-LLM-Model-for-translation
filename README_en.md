@@ -16,6 +16,7 @@ Recommended:
 </br>
 
 Questions related to 
+- Concept
 - Models
 - Local VS Online
 - Deployment for Beginners
