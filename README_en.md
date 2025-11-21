@@ -40,7 +40,7 @@ But LLMs have clear advantages in several key areas, especially context handling
   - It can understand your instruction (depends on the model capability) and adjust the translation
     - e.g. NMT translator cannot handle pronouns right which the issue wont handle with dictionary (since it cannot understand)    
       For LLM it can read your explaination: `James: A man's name`    
-      LLM will read the explaination of the dictionary and use it as a context
+      LLM will read the explaination of the dictionary and use it as a context while doing translation.
 
 - **Cross-lingual ability**</br>
   Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs more readily support multiple languages.
