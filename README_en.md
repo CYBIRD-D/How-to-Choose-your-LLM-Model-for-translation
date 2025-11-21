@@ -30,18 +30,20 @@ Questions related to
 Compared with traditional Neural Machine Translation (NMT—typically sequence-to-sequence/Transformer systems trained specifically for translation),    
 LLMs don’t dominate on every metric. </br>
 
-But LLMs have clear advantages in several key areas, especially context handling, glossary control, and cross-lingual ability:
+But LLMs have clear advantages in several key areas, especially **context handling**, **glossary (noun) control**, and **cross-lingual ability**:
 
 - **Context Handling**</br>
   Long context windows plus “context-aware prompting” help maintain discourse coherence, resolve anaphora/ellipsis, and keep terminology consistent.
 
 - **Glossary Control/GPT-DICTIONARY** (Proper Noun Translation) </br>
-  LLMs understand instruction-style constraints (terminology/register/tone/pronouns/explaination of dictionary).   
+  LLMs understand user instruction constraints (terminology/register/tone/pronouns/explaination of dictionary).   
   For VN translation (or any task needing context understanding), they often feel better overall than traditional NMT.
-  - It can understand your instruction (depends on the model capability) and adjust the translation
-    - e.g. NMT translator cannot handle pronouns right which the issue wont handle with dictionary (since it cannot understand)    
+  - It can understand your prompt/instruction (depends on the model capability) and adjust the translation
+    - e.g. NMT translator cannot handle pronouns right which this issue won't handle with dictionary (since it cannot understand)    
       For LLM it can read your explaination: `James: A man's name`    
-      LLM will read the explaination of the dictionary and use it as a context while doing translation.
+      LLM will read the explaination of the dictionary and use it as a context while doing translation. </br>
+      (further context shows as `he` instead of `she`)
+  - It can control the style (based on the models' ability) based on your prompt
 
 - **Cross-lingual ability**</br>
   Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs usually support multiple languages.
@@ -88,7 +90,7 @@ Bigger model / faster speed = better quality = more VRAM + more CUDA cores = hig
   <summary>Privacy / Moderation</summary>  
 
   -  **Local models**: generally no privacy leakage (runs on your machine). Only moderation remains (you can choose fine-tuned models to avoid it).
-  -  **Google AI Studio / free-tier [API](Freellmapi.md)**: privacy isn’t a concern because there’s no private data to protect here (joke). Google states free-tier data may be used for training; there’s no opt-out.
+  -  **Google AI Studio / free-tier [API](Freellmapi.md)**: privacy isn’t a concern because there’s no private at all (lol). Google states free-tier data may be used for training; there’s no opt-out.
   -  **Paid APIs**: true E2EE is not feasible yet. TEE/Confidential Computing (CC-ON) depends on the cloud provider.
       - Most providers offer transport + at-rest encryption; plaintext is visible server-side. They promise to protect and regularly delete your data, and provide opt-out from training.
       - Moderation exists. Newer models are typically stricter (more advanced safety). Official APIs are usually stricter than third-party hosts.
