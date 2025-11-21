@@ -159,7 +159,7 @@
 | Q8_0 | 379 GB |
 
 ---------
-## GGUF quantization types & relative quality <br> GGUF 量化类型与相对质量 
+## GGUF quantization types & relative quality(Eng ver down below) <br> GGUF 量化类型与相对质量 
 
 > 注：质量为**相对 FP16 的总体逼近**与社区常用基准（如困惑度/客观评测）综合判断的**经验级**分档；
 > 同一量化在不同模型/任务上可能有差异。
