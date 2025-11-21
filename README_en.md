@@ -43,7 +43,7 @@ But LLMs have clear advantages in several key areas, especially context handling
       LLM will read the explaination of the dictionary and use it as a context while doing translation.
 
 - **Cross-lingual ability**</br>
-  Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs more readily support multiple languages.
+  Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs usually support multiple languages.
 
 
 ## How to choose an LLM? Online vs Local
