@@ -18,11 +18,11 @@ Recommended:
 
 These are Questions related to 
 - Concept
-- Models
+- Models & Performance
 - Local VS Online
-- Deployment for Beginners
+- Deployment & GPU Specification
 
-And a fast guide for you to know what to check the article.
+And a fast **guide** for you to know how to check the article.
 </br>
 
 ------
