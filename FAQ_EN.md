@@ -22,7 +22,7 @@ Basic concept of Proper Noun。
 
 - **API**: Application Programming Interface
   -  A connection between computers or between computer programs. It is a type of software interface, offering a service to other pieces of software.
-  -  For llms, it is a port provide service through a server which runs the model (could be your server and hardware if it is local llms) and send to your interface
+  -  For llms, it is a port provide service through a server which runs the model (could be your server and hardware if it is local llms) and send results to your interface
 
 - [**What are LLMs good at?**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#what-are-llms-good-at)
 
