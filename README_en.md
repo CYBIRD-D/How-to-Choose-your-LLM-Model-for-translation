@@ -207,6 +207,7 @@ In theory, this means better whole-document translation when long-range context 
 </details>
 
 ---------
+</br>
 
 ### Online models (Closed-source models)
 
@@ -453,6 +454,7 @@ Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8
 </details>
 
 -----------
+</br>
     
 ### [Optimize local model speed](Model_Speed.md) </br>
 <details> 
