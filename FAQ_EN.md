@@ -16,7 +16,7 @@ Basic concept of Proper Noun。
 
 - **(Generative) LLMs**: Large Language Models
   - Today's new AI, chatbot are usally based on this
-  - Like GPT-5; Gemini 3; Grok 4; Claude 4, etc.
+    - Like GPT-5; Gemini 3; Grok 4; Claude 4, etc.
 
 
 
