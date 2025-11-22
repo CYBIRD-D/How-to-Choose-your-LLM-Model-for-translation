@@ -75,12 +75,12 @@ How big a model you can run depends on **GPU memory bandwidth / VRAM size / comp
 Bigger model / faster speed = better quality = more VRAM + more CUDA cores = higher API cost
   - Google offers a **free-tier API**. Gemini 2.0 Flash is usually stronger than ~70% of small open models, but comes with quota limits. Bigger models = tighter limits.</br>
 
-- If you don’t have an 8GB+ GPU (6GB is often the bare minimum; Mac: 16GB unified memory), **consider** [**Free API**](Freellmapi.md)
+- If you don’t have an 8GB+ GPU (6GB is often the bare minimum; Mac: 16GB unified memory), **consider** [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
   - There are similar third-party platforms in CN providing some free tokens.
-  - The author hasn’t used AMD AI Max+ 395 series, compatibility/perf unknown.
+  - I haven't used AMD AI Max+ 395 series, compatibility/perf unknown.
     - Design is similar to Mac unified memory but with lower bandwidth (vs M3) and insufficient compute to fully exploit 128GB.
 
-- With a 6GB+ VRAM GPU you can try local deployment.
+- With a 6GB+ VRAM GPU you can try local deployment [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md).
     - See **Open-weight/Open-source locally — Quantization & VRAM guide** below.
       - For **Less or more VRAM**, also see [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
         - Usually, <4B models struggle to keep translation quality; 8B is a good “sweet spot.”
@@ -91,7 +91,7 @@ Bigger model / faster speed = better quality = more VRAM + more CUDA cores = hig
   <summary>Privacy / Moderation</summary>  
 
   -  **Local models**: generally no privacy leakage (runs on your machine). Only moderation remains (you can choose fine-tuned models to avoid it).
-  -  **Google AI Studio / free-tier [API](Freellmapi.md)**: privacy isn’t a concern because there’s no private at all (lol). Google states free-tier data may be used for training; there’s no opt-out.
+  -  **Google AI Studio / free-tier [API](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)**: privacy isn’t a concern because there’s no private at all (lol). Google states free-tier data may be used for training; there’s no opt-out.
   -  **Paid APIs**: true E2EE is not feasible yet. TEE/Confidential Computing (CC-ON) depends on the cloud provider.
       - Most providers offer transport + at-rest encryption; plaintext is visible server-side. They promise to protect and regularly delete your data, and provide opt-out from training.
       - Moderation exists. Newer models are typically stricter (more advanced safety). Official APIs are usually stricter than third-party hosts.
