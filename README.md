@@ -1,6 +1,7 @@
 # How to Choose your LLM？
 **如何选择适合你的大语言模型 （用于翻译）**  </br>
-This is a post for beginners to choose the LLM Models suit themselves. (Mostly for translation)
+This is a post for beginners to choose the LLM Models suit themselves. (Mostly for translation) </br>
+if it helps, pls give a star, thanks!
 
 ### 简体中文  | [ENGLISH](README_en.md)
 此文为了帮助初学者对于LLM model翻译有一个初步的了解，主要场景为翻译visual novel（vn）。当然因为原理相同别的翻译任务也可参考。
