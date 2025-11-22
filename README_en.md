@@ -500,7 +500,9 @@ Use a small, fast “draft” model to propose tokens that the large “main” 
 ---------
 
 <details> 
-  <summary>Translation tools?</br>
+  <summary>
+   
+   ### Translation tools?</br>
   
 Make fan-patches or translation files</summary> 
 
