@@ -109,10 +109,10 @@ Bigger model / faster speed = better quality = more VRAM + more CUDA cores = hig
 <details> 
   <summary>Thinking models</summary>  
   
-  - “Thinking” mode strengthens contextual understanding and instruction following.</br>
-    In theory it yields better whole-document translation when context linkage matters (vs non-thinking mode).
-    - Quality still depends on the training corpus.
-  - But it’s slower, and chain-of-thought consumes lots of tokens—usually not ideal for real-time translation.
+  - `Thinking` mode strengthens **contextual understanding** and **instruction following**.</br>
+    In theory it means better whole-document translation when context linkage matters (vs non-thinking mode).
+    - Quality still depends on the training data.
+  - But **Thinking mode**: chain-of-thought(CoT) requires extra tokens—usually not ideal for real-time translation.
   
 </details>
 
