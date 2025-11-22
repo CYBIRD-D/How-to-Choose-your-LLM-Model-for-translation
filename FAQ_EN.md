@@ -135,6 +135,6 @@ In essence, it’s still a locally running model—just running on a GPU server 
 
 ### 3. What model size your GPU can support?
 - [**LLM VRAM Usage Table**](OtherModels_gguf.md)
-- [**Nvidia_GPU_Specification**](Nvidia_GPU_Specification.md)
+- [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md)
 
 </details>
