@@ -40,10 +40,15 @@ Basic concept of Proper Noun。
 
 ### 1. The “best” translation model? </br>
 There is **no single “best”** translation model—only the one that’s most suitable for you:
-1. Training **corpus**
- - Was the model trained on **your language**/**your source domain**?</br>
+- Training **corpus/data**
+  - Was the model trained on **your language**/**your source domain**?</br>
    German, French, Spanish, etc., and so on
-   - Is the training corpus balanced? Most models support **English** best (because there’s the most English data). Quality for other languages depends on the amount and quality of training data / training methods and techniques.
+
+  - Is the training data balanced?
+    Most models support **English** best (because there’s the most English data). Quality for other languages depends on the amount and quality of training data / training methods and techniques.
+
+- What **model** should I Choose? </br>
+  Read the section [**Local models (Open-weight / Open-source**)](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#local-models-open-weight--open-source)
 
 -------
 
