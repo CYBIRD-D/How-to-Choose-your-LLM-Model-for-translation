@@ -14,15 +14,15 @@ Recommended:
 
 --------
 
-### [FAQ-Frequent Ask Questions](FAQ_EN.md)
-</br>
+### [FAQ-Frequent Ask Questions](FAQ_EN.md) & Fast guide
 
-Questions related to 
+These are Questions related to 
 - Concept
 - Models
 - Local VS Online
 - Deployment for Beginners
 
+And a fast guide for you to know what to check the article.
 </br>
 
 ------
