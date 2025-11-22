@@ -1,12 +1,15 @@
 # How to Choose Your LLM?
 **How to choose the right large language model (for translation)**  </br>
-This post helps beginners pick an LLM that suits them. </br>
-if it helps, pls give a star, thanks!
+
+This guide is for beginners who want to use LLMs for translation.
+
+If it helps, please consider giving the repo a star. Thanks.
 
 ### English | [中文-Simplified Chinese](README.md)
-This article is meant to give beginners a first understanding of using LLMs for translation, with a primary scenario of translating visual novels (VN). Because the principles are the same, you can also apply it to other translation tasks.
+This article gives beginners a first overview of using large language models (LLMs) for translation.</br>
+The main example is translating visual novels (VN), but the same ideas work for most other translation tasks.
 
-Recommended:
+Recommended tools and resources:
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
 - [AiNiee](https://github.com/NEKOparapa/AiNiee)
@@ -17,102 +20,189 @@ Recommended:
 ### [FAQ-Frequent Ask Questions](FAQ_EN.md) & Fast guide
 
 These are Questions related to 
-- Concept
+- Basic Concept
 - Models & Performance
 - Local VS Online
 - Deployment & [**GPU Specification**](Nvidia_GPU_Specification.md)
 
-And a fast **guide** for you to know how to check the article.
+which is a fast **guide** on how to read this article.
 </br>
 
 ------
 
 ## What are LLMs good at?
-Compared with traditional **Neural Machine Translation** (NMT—typically sequence-to-sequence/Transformer systems trained specifically for translation),    
-LLMs **don’t** dominate on every metric. </br>
+Compared with traditional Neural Machine Translation (NMT — classic seq2seq / Transformer models trained only for translation),    
+LLMs are not better at everything. </br>
 
-But LLMs have clear advantages in several key areas, especially **context handling**, **glossary (noun) control**, and **cross-lingual ability**:
+But LLMs are clearly stronger in several important areas, especially: </br>
+**Context handling**, **Controlling proper nouns / glossary**, and **Cross-lingual ability**:
 
 - **Context Handling**</br>
-  Long context windows plus “context-aware prompting” help maintain discourse coherence, resolve anaphora/ellipsis, and keep terminology consistent.
+ LLMs usually have **long context windows**. With suitable prompts, they can:
+    - Keep the story or conversation coherent
+    - Resolve pronouns and omitted parts (“he / she / that person / there”)
+    - Maintain consistent terminology and style over long texts
 
-- **Glossary Control/GPT-DICTIONARY** (Proper Noun Translation) </br>
-  LLMs understand user instruction constraints (terminology/register/tone/pronouns/explaination of dictionary).   
-  For VN translation (or any task needing context understanding), they often feel better overall than traditional NMT.
-  - It can understand your prompt/instruction (depends on the model capability) and adjust the translation
-    - e.g. NMT translator cannot handle pronouns right which this issue won't handle with dictionary (since it cannot understand)    
-      For LLM it can read your explaination: `James: A man's name`    
-      LLM will read the explaination of the dictionary and use it as a context while doing translation. </br>
-      (further context shows as `he` instead of `she`)
-  - It can control the style (based on the models' ability) based on your prompt
+- **Controlling proper nouns/glossary/GPT-DICTIONARY** (Proper Noun Translation) </br>
+ LLMs are good at following user instructions, such as:
+
+    - Terminology rules
+    - Tone and style
+    - Pronouns (he / she / they)
+    - Custom dictionary explanations
+
+ For VN translation (or any task where context matters), LLMs often **feel better overall** than traditional NMT.
+
+    They can understand your prompts/instructions (depending on the model) and adjust translation accordingly.
+    
+    Traditional NMT usually cannot handle pronouns correctly even with a dictionary, because it does not truly “understand” context.
+    
+  - LLMs can read explanations like:</br>
+    `James: A man's name`
+
+  and treat that as context, so later they are more likely to use **“he”** instead of **“she”**.
+
+    You can also control style via prompt (formal, casual, cute, etc.), depending on the model’s ability.
 
 - **Cross-lingual ability**</br>
-  Thanks to pretraining (good cross-lingual transfer and multi-domain generalization), newer LLMs usually support multiple languages.
+  Because modern LLMs are pretrained on large multilingual datasets, newer models usually:
+
+  - Support more languages easier
+  - Transfer knowledge across languages
+  - Work across different domains (everyday language, games, documents, etc.)
 
 
 ## How to choose an LLM? Online vs Local
 What you choose depends on your needs and trade-offs across the following factors. Here’s a quick guide:</br>
 
-- Only Want to use local models but unsure about the usage: </br>
+- Only Want to use local models but unsure about the Vram: </br>
 [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
 
-<details>
-  <summary>Speed / Price / Performance  </br>
-  "CUDA out of money, pls charge💸"</summary>   </br>
-  
 LLMs can be:
 - **Local models**
 - **Online models**
   - **Official APIs** (online)
   - **Third-party hosted APIs** (online)
+
+---------
+
+<details>
+  <summary>Speed / Price / Performance  </br>
+  "CUDA out of money, pls charge💸"</summary>   </br>
+
   
-Local (self-hosted) means you run the LLM on your own PC/server.
+**Local (self-hosted)** means you run the LLM on your **own machine**.  
+How large a model you can run mainly depends on:
 
-How big a model you can run depends on **GPU memory bandwidth / VRAM size / compute**.
-  
-- Whether **local** or **online API**, there are cost trade-offs. </br>
-  Local needs a GPU; online APIs are pay-as-you-go. Prices depend on model size and your token usage.</br>
-Bigger model / faster speed = better quality = more VRAM + more CUDA cores = higher API cost
-  - Google offers a **free-tier API**. Gemini 2.0 Flash is usually stronger than ~70% of small open models, but comes with quota limits. Bigger models = tighter limits.</br>
+- GPU memory bandwidth
+- VRAM size
+- Compute (CUDA cores, etc.)
 
-- If you don’t have an 8GB+ GPU (6GB is often the bare minimum; Mac: 16GB unified memory), **consider** [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
-  - There are similar third-party platforms in CN providing some free tokens.
-  - I haven't used AMD AI Max+ 395 series, compatibility/perf unknown.
-    - Design is similar to Mac unified memory but with lower bandwidth (vs M3) and insufficient compute to fully exploit 128GB.
+Whether you use **local** or **online API**, there are cost considerations:
 
-- With a 6GB+ VRAM GPU you can try local deployment [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md).
-    - See **Open-weight/Open-source locally — Quantization & VRAM guide** below.
-      - For **Less or more VRAM**, also see [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
-        - Usually, <4B models struggle to keep translation quality; 8B is a good “sweet spot.”
+- **Local**: you "pay" for hardware (GPU, electricity, etc.).
+- **Online**: you "pay per token" to API providers.  
+  (Tokens ≈ pieces of text; more text → more tokens.)
+
+In general:
+
+> Bigger / newer models → better quality and/or speed → need more VRAM locally
+
+Google offers a **free-tier API**. For example, Gemini 2.0 / 2.5 Flash often performs better than most small open models, but:
+
+- Free-tier has quota limits (requests per minute/day, tokens per minute/day).
+  - Larger models usually have tighter limits.
+- newer models have more strict censorship.(explained in the next section)
+
+If you do **NOT** have an 8GB+ GPU,  
+- (6GB is often the bare minimum; on Mac no less than 16GB **unified memory** is recommended)
+  - M series, not intel CPU
+ 
+you can consider platforms like:
+
+- [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+
+Some CN platforms also provide limited free tokens （check the article above).
+
+With a **6GB+ VRAM GPU**, you may try local deployment. See:
+
+- [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md)
+- [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)
+- [**Deployment & GPU Specification**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/FAQ_EN.md#deployment--gpu-specification)
+
+Usually:
+
+- Models smaller than **~4B parameters** struggle with high translation quality.
+- Around **8B** is a good “sweet spot” between quality and resource usage.
+
 
  </details>
+
+------------
 
  <details>
   <summary>Privacy / Moderation</summary>  
 
-  -  **Local models**: generally no privacy leakage (runs on your machine). Only moderation remains (you can choose fine-tuned models to avoid it).
-  -  **Google AI Studio / free-tier [API](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)**: privacy isn’t a concern because there’s no private at all (lol). Google states free-tier data may be used for training; there’s no opt-out.
-  -  **Paid APIs**: true E2EE is not feasible yet. TEE/Confidential Computing (CC-ON) depends on the cloud provider.
-      - Most providers offer transport + at-rest encryption; plaintext is visible server-side. They promise to protect and regularly delete your data, and provide opt-out from training.
-      - Moderation exists. Newer models are typically stricter (more advanced safety). Official APIs are usually stricter than third-party hosts.
-  - **Third-party hosted open-source models**: you can choose fine-tuned variants that reduce/disable moderation (platform-level moderation unknown).
-</details>
+  - **Local models**  
+      - Data stays on your machine (no external upload).  
+      - Only moderation/censorship comes from the model itself; you can choose fine-tuned models with weaker or almost no moderation.
+  
+  -  **Google AI Studio / free-tier [API](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)**:
+      -  privacy isn’t a concern because there’s no private at all (lol).
+          -  Google states free-tier data may be used for training; there’s no opt-out.
+      
+  -  **Paid APIs**: </br>
+    True end-to-end encryption (E2EE) is not yet standard for LLM inference. TEE/Confidential Computing (CC-ON) depends on the cloud provider.
+      -  Most providers offer:
+          - Encryption in transit (HTTPS)
+          - Encryption at rest
+              - But plaintext is visible in memory on the server while the model runs.
+    
+      - Providers usually promise to:
+          - Protect data
+          - Delete it regularly
+          - Offer opt-out from training
+  
+  - **Third-party hosted open-source models**:
+      - You can choose fine-tuned variants that reduce or disable moderation.  
+      - Platform-level logging and moderation depend on the host.
+
+ </details>
+
+------------
+
 
  <details>
   <summary>Multilingual / Cross-lingual ability</summary>  
    
-  - Multilingual strength depends on the base model’s corpus, size, and training techniques.
-    - Domain-/language-tuned models reinforce certain areas vs their base model.</br>
-      - Example: [SakuraLLM](https://github.com/SakuraLLM/SakuraLLM) continues pretraining and fine-tuning on general Japanese and light-novel/Galgame bilingual (ZH-JA) data; it improves those domains sharply but degrades in other domains/languages, losing many of the base model (Qwen2.5) capabilities. Best used for translation tasks.
+ - Multilingual strength depends on:
+    - The base model’s training data (which languages and domains)
+    - Model size
+    - Training techniques and fine-tuning
+
+- Domain-/language-tuned models strengthen some areas compared with their base model.
+    - Example: [SakuraLLM](https://github.com/SakuraLLM/SakuraLLM)
+        - Continues pretraining and fine-tuning on general Japanese and light-novel / Galgame bilingual (ZH–JP) data.
+        - Performance improves sharply in these domains (e.g. VN translation, EN↔JP).
+            - But performance in other domains/languages is dramatically degraded, loses most of the base model (Qwen2.5) other capabilities.</br>
+              Which only can be used for translation tasks in those specific areas.
 </details>
+
+-----------
 
 <details> 
   <summary>Thinking models</summary>  
   
-  - `Thinking` mode strengthens **contextual understanding** and **instruction following**.</br>
-    In theory it means better whole-document translation when context linkage matters (vs non-thinking mode).
-    - Quality still depends on the training data.
-  - But **Thinking mode**: chain-of-thought(CoT) requires extra tokens—usually not ideal for real-time translation.
+ - **Thinking** mode aims to strengthen:
+    - Contextual understanding
+    - Instruction following
+
+In theory, this means better whole-document translation when long-range context is important (compared with non-thinking mode).
+> Actual quality still largely depends on data and training.
+
+- However, thinking mode （often **chain-of-thought**) requires extra tokens, </br> 
+  This increases token usage and latency, so it is usually **not** ideal for real-time translation.
+
   
 </details>
 
@@ -146,13 +236,8 @@ Using a $10 usage budget on Gemini official API as a quick estimate:
 > - Requests per day (RPD)  
 > Daily quota resets at midnight Pacific Time.
 
-| Model                  | Official API free-tier (baseline)         | Common/observed limits in AI Studio |
-|------------------------|-------------------------------------------|-------------------------------------|
-| Gemini 2.5 Pro         | 5 RPM / 250k TPM / 100 RPD                | Not consistently shown              |
-| Gemini 2.5 Flash       | 10 RPM / 250k TPM / 250 RPD               | Often 10 RPM / 500 RPD; some use-cases dropped to 250 RPD since 2025-06 |
-| Gemini 2.5 Flash-Lite  | 15 RPM / 250k TPM / 1000 RPD              | Often 15 RPM / 500 RPD              |
-| Gemini 2.0 Flash       | 15 RPM / 1M TPM / 200 RPD                 | Often 15 RPM / 1500 RPD             |
-| Gemini 2.0 Flash-Lite  | 30 RPM / 1M TPM / 200 RPD                 | Often 30 RPM / 1500 RPD             |
+
+Check the above link for rate limit details.
 
 \* AI Studio vs API: AI Studio usage is “free forever,” but its UI quotas don’t always match the API docs exactly; Google adjusts them periodically (e.g., 2.5 Flash RPD observed dropping from 500 to 250).
 </details>
@@ -248,18 +333,17 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
     
   - **8B**: parameter count. Common sizes: 4B±; 8B±; 14B±; 30B±; 70B±; 100B+
     - **MoE** models (e.g., 30B-A3B): 30B is total params; A3B are the active params.
-    - For VRAM vs params, see **Quantization & VRAM guide** below.
+    - For VRAM vs params, see [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)
       
   - **Thinking**: indicates a thinking-mode model (not all such models are labeled).
   
   - **2507**: time tag (2025/07), often minor updates.
   
-  - **abliterated**: a style of “de-safety-filtered” fine-tune; typically means moderation is removed.
-    - You’ll also see **uncensored, NSFW, amoral**, etc.
+  - **abliterated**: a style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
+    - You’ll also see ***uncensored*/*NSFW*/*amoral*/*evil***, etc.
    
-  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link or below:
+  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link:
     - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
-      - **Quantization & VRAM guide**
       - **GGUF Quantization types & relative quality**
 
 --------
@@ -267,12 +351,16 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
 <details> 
   <summary>Choosing an appropriate parameter size</summary> 
   
-  - Typically, GPU VRAM > model file size + context usage.
-  - Bigger model × more data × more compute → better results (scaling law).
+  - Typically, GPU VRAM > model file size + context memory usage.
+      - Context can be stored in ram with slower token speed.
+     
+  - Larger model × more data × more compute → better results (scaling law).
     - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
+  
   - Common open-model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B+
-    - <4B models often yield poor translation quality—test on Hugging Face if curious.
+    - <4B models often means poor translation quality—you can still test on Hugging Face or LMArena if curious.
     - For MoE, consider the **total** parameter count.
+
 > Note: A conservative VRAM estimate is “model file size + ~1GB headroom.” Longer context or placing KV cache on-GPU requires more VRAM.</br>
 >
 > If you exceed VRAM (spilling into system RAM), speed drops sharply (except on unified-memory systems).</br>
@@ -341,13 +429,15 @@ Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8
 
   - **In most cases, newer is better**: newer training techniques/more data → generally stronger multilingual ability.</br>
   - **Bigger is better (within your VRAM)**:
-    - Different sizes at different quant levels?  
-      For translation, **Q5_K_M** and above show little loss. So, Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M (for translation quality).
+    - Different ***parameters*** at different ***quant*** levels?  
+      For translation, **Q5_K_M** and above show little loss.</br>
+      So, Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M (for translation quality).
       - QAT (Quantization-Aware Training), e.g., Gemma 3 12B Instruct QAT q4, can outperform traditional q4 on both quality and speed.
-    - For translation & instruction following you usually **don’t need Q8**; **Q6_K** and above are typically indistinguishable in quality.
+
+    - For translation & instruction following you usually **don’t need Q8**; **Q6_K** and above are typically good enough in quality.
   
   - **Language fine-tunes**: English is usually best supported (most data). Other languages depend on data quantity/quality and training methods.</br>
-    Community fine-tunes (suffix like -JP) use Japanese data to significantly strengthen EN↔JA, but targeted fine-tunes often weaken other languages.
+    Community fine-tunes (suffix like -JP) use Japanese data to significantly strengthen EN↔JP, but targeted fine-tunes often weaken other languages.
     > Due to uneven multilingual corpora, tokenizer effects, and limited capacity, the fewer the multilingual data and the smaller the model, the more pronounced this trade-off.
     
   - **Unmoderated**: If your content trips safety filters, choose an unmoderated model, e.g.:
@@ -355,7 +445,8 @@ Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8
     - gemma-3-27b-it-abliterated
     - Llama-3-70b-Uncensored
     - Dhanishtha-nsfw
-    - amoral-gemma3-12B </br>   
+    - amoral-gemma3-12B </br>
+    *Just for example, not really recommendation</br>
     (Suffixes like abliterated / uncensored / NSFW / amoral indicate de-moderation; others include “evil”, etc.)  
     Depending on technique, these may sacrifice some quality.
 
@@ -413,7 +504,7 @@ Make fan-patches or translation files</summary>
 
   - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator) — an all-in-one translator for visual novels/galgames. Supports text hooking (HOOK/OCR/clipboard/ASR/file translation), multiple online/local engines, pre-translation & caching, Python extensions; plus TTS, Japanese tokenization & furigana, dictionaries (MDICT/online), Anki flashcards, Yomitan plugins, etc.
 
-  - [AiNiee](https://github.com/NEKOparapa/AiNiee) — one-click AI long-text translator. Fits common game text workflows (MTool, Ren’Py, Translator++), and many formats (i18next, EPUB/TXT, SRT/VTT/LRC, Word/PDF/Markdown). Auto file & language detection, context consistency & glossary, AI polishing/layout/term extraction; configurable for online and local models.
+  - [**AiNiee**](https://github.com/NEKOparapa/AiNiee) — one-click AI long-text translator. Fits common game text workflows (MTool, Ren’Py, Translator++), and many formats (i18next, EPUB/TXT, SRT/VTT/LRC, Word/PDF/Markdown). Auto file & language detection, context consistency & glossary, AI polishing/layout/term extraction; configurable for online and local models.
 
   - [LinguaGacha](https://github.com/neavo/LinguaGacha) — “nearly zero-config” multi-language text translator. Supports subtitles/ebooks/game texts, compatible with many online/local models (Claude/ChatGPT/etc.), emphasizes speed and preservation of format/code style. Many WOLF/Ren’Py/RPGMaker/Kirikiri games can be “translate-and-play,” with CLI and guides.
 
@@ -442,9 +533,7 @@ Below are common, practical platforms:
   - In 2025, official GUI (Win/mac) lowers the CLI barrier; offers unified cloud + local options.
 
 **Model size / quantization spec choices**  </br>
-See above: 
-- **“Open-weight/Open-source local models——Quantization & VRAM guide”**
-- And other models: [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
+See [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
 
 **Which model should I pick?** </br>
 See above: 
