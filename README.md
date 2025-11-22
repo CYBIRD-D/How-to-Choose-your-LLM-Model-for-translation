@@ -63,14 +63,13 @@ LLM可以分为
 更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
   - 谷歌提供**免费层api**，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
 
-- 如果没有8G及以上显卡（最低条件通常6G）（Mac为16G统一内存），**建议选择**[**Free API**](Freellmapi.md)
+- 如果没有8G及以上显卡（最低条件通常6G）（Mac为16G统一内存），**建议选择**[**Free API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
   - cn内也有类似第三方平台提供一定的免费token服务
   - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能
     - 其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
 
 - 6G及以上显存显卡可选择本地部署大模型
-    - 详细请看下文 **[本地开放权重/开源模型 ——量化与GPU显存对照举例]（https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation#%E6%9C%AC%E5%9C%B0%E5%BC%80%E6%94%BE%E6%9D%83%E9%87%8D%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B）**
-      - **6G以下或其它VRAM**请额外查看 [**LLM显存使用表**](OtherModels_gguf.md)
+    - 详细请看[**LLM显存使用表**](OtherModels_gguf.md)
         - 通常4B以下模型已难以保持翻译质量，8B为质量较好的甜点区 
 
  </details>
