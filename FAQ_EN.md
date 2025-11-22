@@ -47,10 +47,10 @@ There is **no single “best”** translation model—only the one that’s most
 
 -------
 
-### 2. Has the model used ***high-quality corpora** / **domain-specific corpora**?
+### 2. Has the model used **high-quality corpora(training data)** / **domain-specific corpora**?
 - **Domain-specific corpora** are typically present in fine-tuned models—for example, fine-tuned on visual novels (VN); news; web articles; academic literature; code, etc.</br>
         Depending on the **specific categories** and **language(s)** of the fine-tuning data, the model will substantially improve in those areas while weakening in others;
-  - For example, if the (fine-tuning) corpus focuses on visual novels, its ability in news/academic translation may be reduced;</br>
+  - To be more precise, if the (fine-tuning) corpus focuses on visual novels, its ability in other situation like news/academic translation may be reduced;</br>
     Community fine-tuned models (e.g., with a -JP suffix) are generally fine-tuned on Japanese data, which significantly strengthens EN↔JP ability, but targeted fine-tuning often weakens abilities in all other languages.
     - Due to data imbalance across languages and issues like model capacity/tokenization; the fewer multilingual corpora in the base model and the smaller the model, the more pronounced this effect is.
 
