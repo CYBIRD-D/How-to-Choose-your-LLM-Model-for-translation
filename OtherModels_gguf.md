@@ -122,7 +122,7 @@
 ----------
 ## For Mac (M series Pro/Max/Ultra) <br> NVIDIA WORKSTATION <br> GPU Server
 
-### Hermers-4-70B (Llama 3.1 70B) (GGUF)
+### Hemers-4-70B (Llama 3.1 70B) (GGUF)
 
 | 量化<br>Quantization | 模型文件大小<br>Model file size | 
 |---|---:|
