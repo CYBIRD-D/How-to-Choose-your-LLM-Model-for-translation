@@ -56,11 +56,11 @@ There is **no single “best”** translation model—only the one that’s most
 
 --------
 
-### 3. Model size
-- Larger model size × data × compute usually yields better performance (the scaling law).
+### 3. Model size & Performance
+- Larger model size × data × compute usually means better performance (the scaling law).
   - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
-  - [**LLM VRAM Usage Table**](OtherModels_gguf.md)
-
+  - [**LLM VRAM Usage Table**](OtherModels_gguf.md) Check Vram usage to find out what your GPU can support.
+ 
 -------
 
 ### 4. How to read a model name
