@@ -113,7 +113,7 @@ In essence, it’s still a locally running model—just running on a GPU server 
 <details>
 <summary>  
   
- ## Deployment
+ ## Deployment & GPU Specification
  How to deploy local models; common deployment platforms
 </summary>
 
@@ -133,6 +133,8 @@ In essence, it’s still a locally running model—just running on a GPU server 
   -  [Hugging Face](https://huggingface.co/docs/inference-endpoints/index)
   -  [OpenRouter](https://openrouter.ai/docs/quickstart)
 
-
+### 3. What model size your GPU can support?
+- [**LLM VRAM Usage Table**](OtherModels_gguf.md)
+- [**Nvidia_GPU_Specification**](Nvidia_GPU_Specification.md)
 
 </details>
