@@ -69,10 +69,12 @@ There is **no single “best”** translation model—only the one that’s most
 -------
 
 ### 4. How to read a model name
-For example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
+For example: **Qwen3-VL-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
 (This model does not exist; it’s just an example.)</br>
 
   - **Qwen3**: Name of the base model series
+
+  - **VL**: Visual, the model has trained to support visual input
     
   - **8B**: Parameter count; common sizes include ~4B; ~8B; ~14B; ~30B; ~70B; 100B+
     - For **MoE** architectures (e.g., 30B-A3B) 30B is total parameters; A3B are the active parameters.
