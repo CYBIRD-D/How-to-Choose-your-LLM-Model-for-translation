@@ -528,17 +528,19 @@ Below are common, practical platforms:
   - Built-in model discovery/download (Hugging Face); LAN sharing.</br>
   - Includes RAG, MCP integrations, and multiple GPU runtimes (CUDA/Metal/Vulkan/ROCm). </br>
 
-- [**koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
-  - Focused on writing/RP/fan-fic workflows; ships KoboldAI Lite UI (memory, world facts, character cards, scenes, etc.), multiple modes (chat/adventure/instruct/storywriter).</br>
-  - Beyond text, includes TTS/ASR and Stable Diffusion image generation; multiple compatible APIs (OpenAI/Ollama compatible).</br>
-  - Provides OpenAI/Ollama/Kobold compatible endpoints.</br>
-
 - [**Ollama**](https://ollama.com/) </br>
   - [**Guide**](https://docs.ollama.com/quickstart)
     - [**API Reference**](https://docs.ollama.com/api/introduction)
   - “Docker-for-models” local/LAN runtime and CLI/REST API. Supports Modelfile customization and model management.</br>
   - In 2025, official GUI (Win/mac) lowers the CLI barrier; offers unified cloud + local options.
     - [**Ollama cloud models**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider?tab=readme-ov-file#ollama-)
+
+
+- [**koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
+  - Focused on writing/RP/fan-fic workflows; ships KoboldAI Lite UI (memory, world facts, character cards, scenes, etc.), multiple modes (chat/adventure/instruct/storywriter).</br>
+  - Beyond text, includes TTS/ASR and Stable Diffusion image generation; multiple compatible APIs (OpenAI/Ollama compatible).</br>
+  - Provides OpenAI/Ollama/Kobold compatible endpoints.</br>
+
 
 **Model size / quantization spec choices**  </br>
 See [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
