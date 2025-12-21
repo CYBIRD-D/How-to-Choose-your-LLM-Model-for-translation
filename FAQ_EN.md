@@ -40,7 +40,7 @@ Basic concept of Proper Noun。
 
 ### 1. The “best” translation model? </br>
 There is **no single “best”** translation model—only the one that’s most suitable for you:
-- Training **corpus/data**
+- Training **corpus/data/model size**
   - Was the model trained on **your language**/**your source domain**?</br>
    German, French, Spanish, etc., and so on
 
