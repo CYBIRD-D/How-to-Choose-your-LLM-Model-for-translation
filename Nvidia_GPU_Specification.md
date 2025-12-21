@@ -35,7 +35,7 @@
 | RTX 3080 L 16GB | 6144 | 16 | 448 |
 | RTX 3080 Ti L 16GB | 7424 | 16 | 512 |
 
-*L:Laptop; some may write as m (mobile)
+*L: Laptop; some may write as m (mobile)
 
 --------
 
