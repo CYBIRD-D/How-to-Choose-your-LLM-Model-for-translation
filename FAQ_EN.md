@@ -119,7 +119,7 @@ In essence, it’s still a locally running model—just running on a GPU server 
 <summary>  
   
  ## Deployment & GPU Specification
- How to deploy local models; common deployment platforms
+ How to deploy local/online models; common deployment platforms
 </summary>
 
 ### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#deploying-local-models) include:
@@ -132,7 +132,8 @@ In essence, it’s still a locally running model—just running on a GPU server 
 -------
 
 ### 2. Common **online deployment platforms**
-- Free? Please see [**Free LLM API**](Freellmapi.md)
+- Free? Please see [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+  - Find the platform; register; and find your api key & endpoint
 
 - **Paid** intermediary platforms
   -  [Hugging Face](https://huggingface.co/docs/inference-endpoints/index)
