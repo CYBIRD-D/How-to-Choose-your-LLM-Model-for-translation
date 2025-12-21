@@ -107,7 +107,8 @@ For example: **Qwen3-VL-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
 
 ### 1. What is an online API?
 Essentially, an online API means a service provider runs the model on their servers and streams results to your machine via ports and the network.</br>
-In essence, it’s still a locally running model—just running on a GPU server and served to users over the network.
+
+It’s still a locally running model—just running on a cloud server and sent results to users over the network.
 
 ### 2. Local vs. Online
 [How to choose an LLM? Online VS Local](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#how-to-choose-an-llm-online-vs-local)
