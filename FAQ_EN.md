@@ -130,6 +130,7 @@ It’s still a locally running model—just running on a cloud server and sent r
   - You can search for models directly on [huggingface](https://huggingface.co/models), copy the model name, and then download it in LM Studio.
 
 - [**Ollama Guide**](https://docs.ollama.com/quickstart)
+  - [**API Reference**](https://docs.ollama.com/api/introduction)
   - Requires a basic understanding of the command line/code.</br>
 
 -------
