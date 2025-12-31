@@ -11,7 +11,7 @@ The main example is translating visual novels (VN), but the same ideas work for 
 
 Recommended tools and resources:
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
-- [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
+- [PDFMathTranslate](https://github.com/PDFMathTranslate-next/PDFMathTranslate-next)
 - [LinguaGacha](https://github.com/neavo/LinguaGacha)
 - [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
 
