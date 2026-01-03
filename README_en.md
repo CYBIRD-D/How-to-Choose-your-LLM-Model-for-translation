@@ -25,7 +25,8 @@ These are Questions related to
 - Local VS Online
 - **Deployment** & [**GPU Specification**](Nvidia_GPU_Specification.md)
 
-which is a fast **guide** on how to read this article.
+which is a fast **guide** on how to read this article.</br>
+Pls read if you can't find certain chapter you're looking for.
 </br>
 
 ------
@@ -94,8 +95,8 @@ LLMs can be:
 **Local (self-hosted)** means you run the LLM on your **own machine**.  
 How large a model you can run mainly depends on:
 
-- GPU memory bandwidth
-- VRAM size
+- GPU memory **bandwidth**
+- **VRAM** size
 - Compute (CUDA cores, etc.)
 
 Whether you use **local** or **online API**, there are cost considerations:
@@ -352,21 +353,21 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
 <details> 
   <summary>Choosing an appropriate parameter size</summary> 
   
-  - Typically, GPU VRAM > model file size + context memory usage.
+  - Typically, **GPU VRAM** > model file size + context memory usage.
       - Context can be stored in ram with slower token speed.
      
-  - Larger model × more data × more compute → better results (scaling law).
-    - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
+  - **Larger** model(parameters) × more data × more compute → better results (scaling law).
+    - For example: Qwen3-32B > Qwen3-14B > Qwen3-8B > Qwen3-4B
   
-  - Common open-model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B+
-    - <4B models often means poor translation quality—you can still test on Hugging Face or LMArena if curious.
-    - For MoE, consider the **total** parameter count.
+  - Common open-model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B++
+    - <4B models often means poor translation quality — you can still test on Hugging Face or LMArena if curious.
+ 
 
 > Note: A conservative VRAM estimate is “model file size + ~1GB headroom.” Longer context or placing KV cache on-GPU requires more VRAM.</br>
 >
 > If you exceed VRAM (spilling into system RAM), speed drops sharply (except on unified-memory systems).</br>
 >
-> In theory, larger models translate better; family-to-family comparisons are tricky.
+> In theory, larger parameters models translate better; family-to-family comparisons are tricky.
 
 </details>
 
@@ -396,9 +397,13 @@ Here we only discuss GGUF models supported by llama.cpp (deployable via Ollama /
 | Q6_K | 12.1 GB | ≥ 14/16 GB |
 | Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
-See more examples for other sizes | [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)    
+See more examples for different sizes here | [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)    
 \* *On Apple Mac (M1+), unified memory = RAM + VRAM. After subtracting 6–8GB for system/apps, the remainder approximates usable VRAM (many optimizations may need more memory).*</br>
+> For Apple (M series) by default you can only use 75% of total unified memory as vram.
+
 \* *For MoE (e.g., Qwen3-30B-A3B): total params = 30B, all must load; A3B are just the active params.*</br>
+
+
 </details>
 
 <details> 
