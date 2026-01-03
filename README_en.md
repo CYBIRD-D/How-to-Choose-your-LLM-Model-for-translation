@@ -23,7 +23,7 @@ These are Questions related to
 - Basic Concept
 - Models & Performance
 - Local VS Online
-- Deployment & [**GPU Specification**](Nvidia_GPU_Specification.md)
+- **Deployment** & [**GPU Specification**](Nvidia_GPU_Specification.md)
 
 which is a fast **guide** on how to read this article.
 </br>
