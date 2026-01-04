@@ -38,6 +38,7 @@ Pls read if you can't find certain chapter you're looking for.
   - [Local models (Open-weight / Open-source)](#local-models-open-weight--open-source)
   - [Optimize local model speed（single page)](Model_Speed_EN.md)
   - [Deploying local models](#deploying-local-models)
+- [**[!]Local LLM models recommodation**](Local_LLM_Models_Recommodation.md)
 - [AI Timeline](#ai-timeline)
 
 ----------
