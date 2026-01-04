@@ -36,7 +36,7 @@ Pls read if you can't find certain chapter you're looking for.
 - [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
   - [Online models (Closed-source models)](#online-models-closed-source-models)
   - [Local models (Open-weight / Open-source)](#local-models-open-weight--open-source)
-  - [Optimize local model speed（single page)](Model_Speed.md)
+  - [Optimize local model speed（single page)](Model_Speed_EN.md)
   - [Deploying local models](#deploying-local-models)
 - [AI Timeline](#ai-timeline)
 
