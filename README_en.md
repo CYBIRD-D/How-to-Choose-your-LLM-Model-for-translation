@@ -5,19 +5,19 @@ This guide is for beginners who want to use LLMs for translation.
 
 If it helps, please consider giving the repo a star. Thanks.
 
-### English | [中文-Simplified Chinese](README.md)
+## English | [中文-Simplified Chinese](README.md)
 This article gives beginners a first overview of using large language models (LLMs) for translation.</br>
 The main example is translating visual novels (VN), but the same ideas work for most other translation tasks.
 
 Recommended tools and resources:
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
+- [**Free LLM API Providers**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate-next/PDFMathTranslate-next)
 - [LinguaGacha](https://github.com/neavo/LinguaGacha)
-- [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
 
 --------
 
-### [FAQ-Frequent Ask Questions](FAQ_EN.md) & Fast guide
+## [FAQ-Frequent Ask Questions](FAQ_EN.md) & Fast guide
 
 These are Questions related to 
 - Basic Concept
@@ -30,6 +30,17 @@ Pls read if you can't find certain chapter you're looking for.
 </br>
 
 ------
+## Table of Contents
+- [**FAQ-Frequent Ask Questions & Fast guide**](#faq-frequent-ask-questions--fast-guide)
+- [What are LLMs good at?](#what-are-llms-good-at)
+- [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
+  - [Online models (Closed-source models)](#online-models-closed-source-models)
+  - [Local models (Open-weight / Open-source)](#local-models-open-weight--open-source)
+  - [Optimize local model speed（single page)](Model_Speed.md)
+  - [Deploying local models](#deploying-local-models)
+- [AI Timeline](#ai-timeline)
+
+----------
 
 ## What are LLMs good at?
 Compared with traditional Neural Machine Translation (NMT — classic seq2seq / Transformer models trained only for translation),    
