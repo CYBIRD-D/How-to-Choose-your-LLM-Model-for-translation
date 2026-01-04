@@ -56,16 +56,16 @@ LLMs at this scale usually have poor performance.</br>
 All links are from Hugging Face.</br>
 All models are choosen based on community reports, downloads and likes.
 
-| Model Name | Languages | Base model family | Link(GGUF) | Link(Original) |
+| Model Name | Languages | Base model family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
 | tencent/HY-MT1.5-1.8B                             | General | HY-MT1.5 | [GGUF](https://huggingface.co/mradermacher/HY-MT1.5-1.8B-GGUF) | [Original](https://huggingface.co/tencent/HY-MT1.5-1.8B) |
 | Unbabel/Tower-Plus-2B                             | General | Gemma2 | [GGUF](https://huggingface.co/DZgas/Tower-Plus-2B-GGUF) | [Original](https://huggingface.co/Unbabel/Tower-Plus-2B) |
 | prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1 | **EN**⇌XX | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-2B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1) |
 | Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1  | General | Qwen3 | [GGUF](mradermacher/Josiefied-Qwen3-1.7B-abliterated-v1-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1) |
 
+---------
 
-
-### 4B (Vram≈4GB/6GB)
+### 4B (Vram≈4GB~6GB)
 
 | Model Name | Languages | Base model family | Link(GGUF) | Link(Original) |
 |---|---:|---:|---:|---:|
@@ -73,8 +73,10 @@ All models are choosen based on community reports, downloads and likes.
 | INSAIT-Institute/MamayLM-Gemma-3-4B-IT-v1.0 | **Ukrainian⇌EN** | Gemma3 | [GGUF](https://huggingface.co/mradermacher/MamayLM-Gemma-3-4B-IT-v1.0-GGUF) | [Original](https://huggingface.co/INSAIT-Institute/MamayLM-Gemma-3-4B-IT-v1.0) | 
 | mlabonne/gemma-3-4b-it-abliterated-v2       | General | Gemma3 | [GGUF](https://huggingface.co/mradermacher/gemma-3-4b-it-abliterated-v2-GGUF) | [Original](https://huggingface.co/mlabonne/gemma-3-4b-it-abliterated-v2) | 
 | Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2 | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2) | 
-| RefalMachine/RuadaptQwen3-4B-Instruct | **RU⇌EN** | Qwen3 | [GGUF](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct-GGUF) | [Original](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct) | 
+| RefalMachine/RuadaptQwen3-4B-Instruct | **Russian⇌EN** | Qwen3 | [GGUF](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct-GGUF) | [Original](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct) | 
+| SakuraLLM/GalTransl-v4-4B-2512 | **JP⇌CN** | Qwen3 | [GGUF](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | [Original](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | 
 | DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored (!long thinking) | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored-GGUF) | [Original](https://huggingface.co/DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored) | 
+| prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1 | **EN**⇌XX | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-4B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1) | 
 
 
 
