@@ -82,8 +82,8 @@
 | 量化<br>Quantization | 模型文件大小<br>Model file size | 推荐显存（仅权重+余量）<br>Recommended VRAM (weights + headroom) |
 |---|---:|---:|
 | Q4_K_M | 7.3 GB | ≥ 10~12 GB |
-| Q5_K_S | 8.23 GB | ≥ 12 GB |
-| Q5_K_M | 8.44 GB | ≥ 12 GB |
+| Q5_K_S | 8.23 GB | ≥ 10~12 GB |
+| Q5_K_M | 8.44 GB | ≥ 10~12 GB |
 | Q6_K | 9.66 GB | ≥ 12~16 GB |
 | Q8_0 | 12.5 GB | ≥ 16 GB |
 
