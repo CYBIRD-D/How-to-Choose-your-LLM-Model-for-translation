@@ -118,6 +118,10 @@ It’s still a locally running model—just running on a cloud server and sent r
 
 ---------
 
+## [**Local LLMs Model Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
+
+--------------
+
 <details>
 <summary>  
   
