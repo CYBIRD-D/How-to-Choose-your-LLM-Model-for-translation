@@ -75,6 +75,8 @@ All models are choosen based on **community reports, downloads, likes and finetu
 | prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1 | **EN**⇌XX [^1] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-2B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1) |
 | Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1  | General | Qwen3 | [GGUF](mradermacher/Josiefied-Qwen3-1.7B-abliterated-v1-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1) |
 | mistralai/Ministral-3-3B-Instruct-2512  | General | Mistral3 | [GGUF](https://huggingface.co/unsloth/Ministral-3-3B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512) |
+| tiiuae/Falcon-H1-1.5B-Deep-Instruct </br> tiiuae/Falcon-H1-3B-Instruct  | General | FalconH1 | [GGUF](https://huggingface.co/tiiuae/Falcon-H1-1.5B-Deep-Instruct-GGUF) </br> [GGUF](https://huggingface.co/tiiuae/Falcon-H1-3B-Instruct-GGUF) | [Original](tiiuae/Falcon-H1-1.5B-Deep-Instruct) </br> [Original](https://huggingface.co/tiiuae/Falcon-H1-3B-Instruct) |
+
 
 [^1]: Finetune on ENG. The same applies below.
 
@@ -106,11 +108,12 @@ All models are choosen based on **community reports, downloads, likes and finetu
 
 -------
 
-### 7B-9B (Vram≈6G~8G)
+### 7B-10B (Vram≈6G~8G)
 New LLMs at this size ususally have a decent quality of translation.
 
 | Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
+| ★tiiuae/Falcon-H1-7B-Instruct </br>  | General | FalconH1 | [GGUF](https://huggingface.co/tiiuae/Falcon-H1-7B-Instruct-GGUF) | [Original](https://huggingface.co/tiiuae/Falcon-H1-7B-Instruct) |  
 | ★MuXodious/gemma-3n-E4B-it-absolute-heresy (7B/CPU-optimized) | General | Gemma3n | [GGUF](https://huggingface.co/mradermacher/gemma-3n-E4B-it-absolute-heresy-GGUF) | [Original](https://huggingface.co/MuXodious/gemma-3n-E4B-it-absolute-heresy) |  
 | **★Goekdeniz-Guelmez/Josiefied-Qwen3-8B-abliterated-v1**| General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-8B-abliterated-v1-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-8B-abliterated-v1) |  
 | **★mlabonne/Qwen3-8B-abliterated** | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-8B-abliterated-GGUF) | [Original](https://huggingface.co/mlabonne/Qwen3-8B-abliterated) |  
@@ -122,6 +125,7 @@ New LLMs at this size ususally have a decent quality of translation.
 | **★SakuraLLM/Sakura-GalTransl-7B-v3.7** | **JP⇌CHINESE** | Qwen2.5 | [GGUF](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) | [Original](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) |  
 | **★mistralai/Ministral-3-8B-Instruct-2512** | General | Ministral3 | [GGUF](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512) | 
 | **★Unbabel/Tower-Plus-9B** | General | Gemma2 | [GGUF](https://huggingface.co/mradermacher/Tower-Plus-9B-GGUF) | [Original](https://huggingface.co/Unbabel/Tower-Plus-9B) |
+| KORMo-Team/KORMo-10B-sft | **Korean⇌EN** | KORMo | [GGUF](https://huggingface.co/mradermacher/KORMo-10B-sft-GGUF) | [Original](https://huggingface.co/KORMo-Team/KORMo-10B-sft) |
 
 ----------
 
