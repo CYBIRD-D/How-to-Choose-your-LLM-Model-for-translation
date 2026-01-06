@@ -2,7 +2,16 @@
 This is only a small list of recommodation for llm models under 14B which are used for translation.</br>
 Depends on your languages/taste/usage/content, the results & performances **may or may not** meet your expectation.</br>
 
-Most models below are finetune of Qwen, Gemma, Mistral series.
+Most models below are finetune of 
+- Qwen
+  - [Qwen 3 1.7B/4B/8B/14B](https://huggingface.co/collections/Qwen/qwen3)
+  - [QWEN 3VL 2B/4B/8B](https://huggingface.co/collections/Qwen/qwen3-vl)
+- Gemma
+  - [Gemma 3 4B/12B](https://huggingface.co/collections/google/gemma-3-release)
+  - [Gemma 3n E2B/E4B](https://huggingface.co/collections/google/gemma-3n)
+- Mistral
+  - [Ministral 3B/8B/14B](https://huggingface.co/collections/mistralai/ministral-3)
+  - [Mistral Nemo 12B](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407)
 
 Explaination can be found here:
 - [**FAQ-Frequent Ask Questions**](FAQ_EN.md)
