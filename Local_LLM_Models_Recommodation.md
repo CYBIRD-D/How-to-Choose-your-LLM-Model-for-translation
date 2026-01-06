@@ -1,5 +1,5 @@
-# Local LLM Models Recommodation
-This is only a small list of recommodation for llm models under 14B which are used for translation.</br>
+# Local LLM Models Collection For Translation
+This is only a small list of Collection for llm models under 14B which are used for translation.</br>
 Depends on your languages/taste/usage/content, the results & performances **may or may not** meet your expectation.</br>
 
 Most models below are finetune of 
@@ -69,6 +69,7 @@ All models are choosen based on **community reports, downloads, likes and finetu
 
 | Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
+| shisa-ai/shisa-v2.1-lfm2-1.2b </br> shisa-ai/shisa-v2.1-llama3.2-3b                         | **JP⇌EN** | LFM2 </br> Llama3.2 | [GGUF](https://huggingface.co/mradermacher/shisa-v2.1-lfm2-1.2b-GGUF) </br> [GGUF](https://huggingface.co/mradermacher/shisa-v2.1-llama3.2-3b-GGUF) | [Original](https://huggingface.co/shisa-ai/shisa-v2.1-lfm2-1.2b) </br> [Original](https://huggingface.co/shisa-ai/shisa-v2.1-llama3.2-3b) |
 | tencent/HY-MT1.5-1.8B                             | General | HY-MT1.5 | [GGUF](https://huggingface.co/mradermacher/HY-MT1.5-1.8B-GGUF) | [Original](https://huggingface.co/tencent/HY-MT1.5-1.8B) |
 | Unbabel/Tower-Plus-2B                             | General | Gemma2 | [GGUF](https://huggingface.co/DZgas/Tower-Plus-2B-GGUF) | [Original](https://huggingface.co/Unbabel/Tower-Plus-2B) |
 | prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1 | **EN**⇌XX [^1] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-2B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1) |
@@ -105,7 +106,7 @@ All models are choosen based on **community reports, downloads, likes and finetu
 
 -------
 
-### 7B/8B (Vram≈6G~8G)
+### 7B-9B (Vram≈6G~8G)
 New LLMs at this size ususally have a decent quality of translation.
 
 | Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
@@ -118,21 +119,31 @@ New LLMs at this size ususally have a decent quality of translation.
 | **★shisa-ai/shisa-v2.1-qwen3-8b** | **JP⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/shisa-v2.1-qwen3-8b-GGUF) | [Original](https://huggingface.co/shisa-ai/shisa-v2.1-qwen3-8b) |  
 | **★prithivMLmods/Qwen3-VL-8B-Instruct-abliterated-v2** | **EN**⇌XX | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-8B-Instruct-abliterated-v2.0-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-8B-Instruct-abliterated-v2) | 
 | aisingapore/Qwen-SEA-LION-v4-8B-VL | **ENG+7key SEA languages**[^4] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen-SEA-LION-v4-8B-VL-GGUF) | [Original](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-8B-VL) | 
-| **★SakuraLLM/Sakura-GalTransl-7B-v3.7** | **JP⇌CN** | Qwen2.5 | [GGUF](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) | [Original](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) |  
+| **★SakuraLLM/Sakura-GalTransl-7B-v3.7** | **JP⇌CHINESE** | Qwen2.5 | [GGUF](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) | [Original](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) |  
 | **★mistralai/Ministral-3-8B-Instruct-2512** | General | Ministral3 | [GGUF](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512) | 
+| **★Unbabel/Tower-Plus-9B** | General | Gemma2 | [GGUF](https://huggingface.co/mradermacher/Tower-Plus-9B-GGUF) | [Original](https://huggingface.co/Unbabel/Tower-Plus-9B) |
 
 ----------
 
 
-### 12B~14B (Vram≈12G~16G)
+### 12B-14B (Vram≈12G~16G)
 
 | Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
 | **★Goekdeniz-Guelmez/Josiefied-Qwen3-14B-abliterated-v3**  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-14B-abliterated-v3-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-14B-abliterated-v3) |  
 | **★mlabonne/Qwen3-14B-abliterated**  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-14B-abliterated-GGUF) | [Original](https://huggingface.co/mlabonne/Qwen3-14B-abliterated) |  
 | NousResearch/Hermes-4-14B  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Hermes-4-14B-GGUF) | [Original](https://huggingface.co/NousResearch/Hermes-4-14B) |  
-| Sunbird/Sunflower-14B | **Ugandan[^7]⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Hermes-4-14B-GGUF) | [Original](https://huggingface.co/NousResearch/Hermes-4-14B) |  
-
+| Sunbird/Sunflower-14B | **Ugandan[^7]⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Sungur-14B-GGUF) | [Original](https://huggingface.co/Sunbird/Sunflower-14B) |  
+| suayptalha/Sungur-14B | **Turkish⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Sungur-14B-GGUF) | [Original](https://huggingface.co/Sunbird/Sunflower-14B) | 
+| sugoitoolkit/Sugoi-14B-Ultra-HF | **JP⇌EN** | Qwen2.5 | [GGUF](https://huggingface.co/mradermacher/Sugoi-14B-Ultra-HF-GGUF) | [Original](https://huggingface.co/sugoitoolkit/Sugoi-14B-Ultra-HF) |
+| ★SakuraLLM/Sakura-GalTransl-14B-v3.8 | **JP⇌CHINESE** | Qwen2.5 | [GGUF](https://huggingface.co/SakuraLLM/Sakura-GalTransl-14B-v3.8) | [Original](https://huggingface.co/SakuraLLM/Sakura-GalTransl-14B-v3.8) |
+| INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v1.0 | **Ukrainian⇌EN** | Gemma3 | [GGUF](https://huggingface.co/mradermacher/MamayLM-Gemma-3-12B-IT-v1.0-GGUF) | [Original](https://huggingface.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v1.0) |
+| **★mlabonne/gemma-3-12b-it-abliterated-v2** </br> mlabonne/gemma-3-12b-it-qat-abliterated | General | Gemma3 | [GGUF](https://huggingface.co/mradermacher/gemma-3-12b-it-abliterated-v2-GGUF) </br> [GGUF](https://huggingface.co/mradermacher/gemma-3-12b-it-qat-abliterated-GGUF) | [Original](https://huggingface.co/mlabonne/gemma-3-12b-it-abliterated-v2) </br> [Original](https://huggingface.co/mlabonne/gemma-3-12b-it-qat-abliterated) |
+| ★mistralai/Ministral-3-14B-Instruct-2512 | General | Ministral | [GGUF](https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512) |
+| jenerallee78/Ministral-3-14B-abliterated | General | Ministral | [GGUF](https://huggingface.co/mradermacher/Ministral-3-14B-abliterated-GGUF) | [Original](https://huggingface.co/jenerallee78/Ministral-3-14B-abliterated) |
+| mistralai/Mistral-Nemo-Instruct-2407 | General | Mistralnemo | [GGUF](https://huggingface.co/MaziyarPanahi/Mistral-Nemo-Instruct-2407-GGUF) | [Original](Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24) |
+| Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24 | **Russian⇌EN** | Mistralnemo | [GGUF](https://huggingface.co/mradermacher/Vikhr-Nemo-12B-Instruct-R-21-09-24-GGUF) | [Original](Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24) |
+| shisa-ai/shisa-v2-mistral-nemo-12b | **JP⇌EN** | Mistralnemo | [GGUF](https://huggingface.co/mradermacher/shisa-v2-mistral-nemo-12b-GGUF) | [Original](https://huggingface.co/shisa-ai/shisa-v2-mistral-nemo-12b) |
 
 
 [^7]: 31 Ugandan languages `Acoli Adhola Alur Bari Chiga Gwere Kumam Karamojong Kakwa Kinyarwanda Konzo Kupsabiny Lango (Uganda) Lugbara Saamia Aringa Ganda Ma'di Masaaba Nyole Nyankole Nyoro Pokangá Gungu Ruuli Amba (Uganda); Swahili (macrolanguage); Teso Talinga-Bwisi Tooro Soga` + English
