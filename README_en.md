@@ -5,7 +5,7 @@ This guide is for beginners who want to use LLMs for translation.
 
 If it helps, please consider giving the repo a star. Thanks.
 
-## English | [中文-Simplified Chinese](README.md)
+## English | [中文-Simplified Chinese](READMECN.md)
 This article gives beginners a first overview of using large language models (LLMs) for translation.</br>
 The main example is translating visual novels (VN), but the same ideas work for most other translation tasks.
 
