@@ -1,301 +1,397 @@
-# How to Choose your LLM？
-**如何选择适合你的大语言模型 （用于翻译）**  </br>
-This is a post for beginners to choose the LLM Models suit themselves. (Mostly for translation) </br>
-if it helps, pls give a star, thanks!
+# How to Choose Your LLM?
+**How to choose the right large language model (for translation)**  </br>
 
-### 简体中文  | [ENGLISH](README_en.md)
-此文为了帮助初学者对于LLM model翻译有一个初步的了解，主要场景为翻译visual novel（vn）。当然因为原理相同别的翻译任务也可参考。
+This guide is for beginners who want to use LLMs for translation.
 
-在此推荐
+If it helps, please consider giving the repo a star. Thanks.
+
+## English | [中文-Simplified Chinese](READMECN.md)
+This article gives beginners a first overview of using large language models (LLMs) for translation.</br>
+The main example is translating visual novels (VN), but the same ideas work for most other translation tasks.
+
+Recommended tools and resources:
 - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
-- [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate-next)
-- [AiNiee](https://github.com/NEKOparapa/AiNiee)
-- [**Free LLM API**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
-
-
-## LLM的优势？
-LLM相较传统神经机器翻译-NMT（指专门为翻译训练的序列到序列/Transformer 系统）**并非**在所有指标上全面碾压</br>
-
-但在若干关键方面具有明显优势，尤其是**上下文，术语表与跨语言能力**等
-- **更强的上下文能力**</br>
-  LLM 的长上下文窗口与“上下文感知提示”，有助于保持篇章连贯、指代/省略消解、术语一致
-
-- **术语表和语境(gpt字典）**</br>
-  LLM 能**理解**指令化约束（术语/语域/语气/人称代词），在vn翻译（或**需要上下文理解**）上体验整体超过传统神经机器翻译
-  - 能根据你的指令（取决于模型能力）对于翻译自动做调整 </br>
-        例如，NMT 翻译器无法正确处理代词，而这个问题无法用字典来处理（因为它无法理解）</br>
-        对于 LLM，它可以阅读字典解释：`黄三：男性名字` </br>
-        LLM 将阅读字典的解释并将其作为背景调整人称代词</br>
-
-
-- **跨语言能力**</br>
-  因为LLM的特性（LLM 预训练的跨语言迁移与多域泛化能力强），较新的模型更容易支持多语言
-
-## 如何选择LLM？在线 VS 本地
-### [FAQ 常见问题](FAQ.md)
-
-关于模型/本地VS在线/部署的一些常见问答
-
-不想通读全文可先看这个
+- [**Free LLM API Providers**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+- [PDFMathTranslate](https://github.com/PDFMathTranslate-next/PDFMathTranslate-next)
+- [LinguaGacha](https://github.com/neavo/LinguaGacha)
 
 --------
 
-如何选择模型取决于你对于以下因素的需求和取舍，这里做一个简单的介绍：</br>
+## [FAQ-Frequent Ask Questions](FAQ_EN.md) & Fast guide
 
-- 只想使用本地模型但不知道大小：[**LLM显存使用表**](OtherModels_gguf.md)
+These are Questions related to 
+- Basic Concept
+- Models & Performance
+- Local VS Online
+- **Deployment** & [**GPU Specification**](Nvidia_GPU_Specification.md)
+
+which is a fast **guide** on how to read this article.</br>
+Pls read if you can't find certain chapter you're looking for.
+</br>
+
+------
+## Table of Contents
+- [**FAQ-Frequent Ask Questions & Fast guide**](#faq-frequent-ask-questions--fast-guide)
+- [What are LLMs good at?](#what-are-llms-good-at)
+- [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
+  - [Online models (Closed-source models)](#online-models-closed-source-models)
+  - [Local models (Open-weight / Open-source)](#local-models-open-weight--open-source)
+  - [Optimize local model speed（single page)](Model_Speed_EN.md)
+  - [Deploying local models](#deploying-local-models)
+- [**[!]Local LLM models recommodation**](Local_LLM_Models_Recommodation.md)
+- [AI Timeline](#ai-timeline)
+
+----------
+
+## What are LLMs good at?
+Compared with traditional Neural Machine Translation (NMT — classic seq2seq / Transformer models trained only for translation),    
+LLMs are not better at everything. </br>
+
+But LLMs are clearly stronger in several important areas, especially: </br>
+**Context handling**, **Controlling proper nouns / glossary**, and **Cross-lingual ability**:
+
+- **Context Handling**</br>
+ LLMs usually have **long context windows**. With suitable prompts, they can:
+    - Keep the story or conversation coherent
+    - Resolve pronouns and omitted parts (“he / she / that person / there”)
+    - Maintain consistent terminology and style over long texts
+
+- **Controlling proper nouns/glossary/GPT-DICTIONARY** (Proper Noun Translation) </br>
+ LLMs are good at following user instructions, such as:
+
+    - Terminology rules
+    - Tone and style
+    - Pronouns (he / she / they)
+    - Custom dictionary explanations
+
+ For VN translation (or any task where context matters), LLMs often **feel better overall** than traditional NMT.
+
+    They can understand your prompts/instructions (depending on the model) and adjust translation accordingly.
+    
+    Traditional NMT usually cannot handle pronouns correctly even with a dictionary, because it does not truly “understand” context.
+    
+  - LLMs can read explanations like:</br>
+    `James: A man's name`
+
+  and treat that as context, so later they are more likely to use **“he”** instead of **“she”**.
+
+    You can also control style via prompt (formal, casual, cute, etc.), depending on the model’s ability.
+
+- **Cross-lingual ability**</br>
+  Because modern LLMs are pretrained on large multilingual datasets, newer models usually:
+
+  - Support more languages easier
+  - Transfer knowledge across languages
+  - Work across different domains (everyday language, games, documents, etc.)
+
+
+## How to choose an LLM? Online vs Local
+What you choose depends on your needs and trade-offs across the following factors. Here’s a quick guide:</br>
+
+- Only Want to use local models but unsure about the Vram: </br>
+[**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
+
+LLMs can be:
+- **Local models**
+- **Online models**
+  - **Official APIs** (online)
+  - **Third-party hosted APIs** (online)
+
+---------
 
 <details>
-  <summary>速度/价格/性能  </br>
-  "Cuda out of money, pls charge💸 "</summary>   </br>
-  
-LLM可以分为
-- **本地模型**
-- **在线模型**
-  - 在线模型又可分为**官方api**
-  - **第三方托管api**
-  
-本地（托管）模型，顾名思义为用户用自己的电脑/服务器运行LLM
+  <summary>Speed / Price / Performance  </br>
+  "CUDA out of money, pls charge💸"</summary>   </br>
 
-能运行多大参数的模型取决于 **显卡显存带宽/显存大小/算力**
   
-- 无论是**本地模型**还是**在线api**，都有价格取舍的问题。</br>
-  本地模型需要显卡，在线api需要按量付费，这些价格取决于模型参数大小和你使用的token数量</br>
-更大的模型/更快的速度=更好的效果=更多的显存+更多的cuda core=更贵的api价格
-  - 谷歌提供**免费层api**，且gemini 2.0flash通常强于70%开源小模型，但有额度限制 更大的模型=更多的限制</br>
+**Local (self-hosted)** means you run the LLM on your **own machine**.  
+How large a model you can run mainly depends on:
 
-- 如果没有8G及以上显卡（最低条件通常6G）（Mac为16G统一内存），**建议选择**[**Free API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
-  - cn内也有类似第三方平台提供一定的免费token服务
-  - 笔者没有使用过AMD AI Max+ 395系列，不确定其兼容性或性能
-    - 其设计类似Mac统一内存，但带宽更小（相对M3)，算力不足以支撑128G
+- GPU memory **bandwidth**
+- **VRAM** size
+- Compute (CUDA cores, etc.)
 
-- 6G及以上显存显卡可选择本地部署大模型
-    - 详细请看[**LLM显存使用表**](OtherModels_gguf.md)
-        - 通常4B以下模型已难以保持翻译质量，8B为质量较好的甜点区 
+Whether you use **local** or **online API**, there are cost considerations:
+
+- **Local**: you "pay" for hardware (GPU, electricity, etc.).
+- **Online**: you "pay per token" to API providers.  
+  (Tokens ≈ pieces of text; more text → more tokens.)
+
+In general:
+
+> Bigger / newer models → better quality and/or speed → need more VRAM locally
+
+Google offers a **free-tier API**. For example, Gemini 2.0 / 2.5 Flash often performs better than most small open models, but:
+
+- Free-tier has quota limits (requests per minute/day, tokens per minute/day).
+  - Larger models usually have tighter limits.
+- newer models have more strict censorship.(explained in the next section)
+
+If you do **NOT** have an 8GB+ GPU,  
+- (6GB is often the bare minimum; on Mac no less than 16GB **unified memory** is recommended)
+  - M series, not intel CPU
+ 
+you can consider platforms like:
+
+- [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+
+Some CN platforms also provide limited free tokens （check the article above).
+
+With a **6GB+ VRAM GPU**, you may try local deployment. See:
+
+- [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md)
+- [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)
+- [**Deployment & GPU Specification**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/FAQ_EN.md#deployment--gpu-specification)
+
+Usually:
+
+- Models smaller than **~4B parameters** struggle with high translation quality.
+- Around **8B** is a good “sweet spot” between quality and resource usage.
+
 
  </details>
 
- <details>
-  <summary>隐私/审查</summary>  
-
-  -  **本地模型**：一般不用担心隐私泄露，都是在本地跑 </br>
-    唯一的问题是审查（可选择特定**微调模型**避免）
-    
-  -  **google ai studio/免费层[API](Freellmapi.md)** 也不用担心隐私泄露，因为没有隐私（笑）。</br>
-    谷歌明确free tier的数据会用于模型训练，没有关闭的选项。
-
-  -  **付费api**：因为其性质暂时无法做到E2EE端到端加密，相对接近的TEE（CC-ON/机密计算）需看云服务商是否提供。</br>
-     绝大多数服务商只做传输加密与存储加密，服务端可见明文。承诺保护你的数据并定时删除，且有关闭数据用于训练的选项。
-      - **审查存在**.一般**越新的模型越严格**（模型本身安全审查更先进）, 但第三方托管通常较官方api更宽松
-        - 部分服务商明确有上报协议
-    
-  - **第三方托管开源模型**：隐私条款由托管方服务商规定</br>
-    因为可选模型缘故，用户可选择已经过微调的模型来避免模型审查（托管方/平台是否有审查 笔者不能确定）
-</details>
+------------
 
  <details>
-  <summary>多语言/跨语言能力</summary>  
+  <summary>Privacy / Moderation</summary>  
+
+  - **Local models**  
+      - Data stays on your machine (no external upload).  
+      - Only moderation/censorship comes from the model itself; you can choose fine-tuned models with weaker or almost no moderation.
+  
+  -  **Google AI Studio / free-tier [API](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)**:
+      -  privacy isn’t a concern because there’s no private at all (lol).
+          -  Google states free-tier data may be used for training; there’s no opt-out.
+      
+  -  **Paid APIs**: </br>
+    True end-to-end encryption (E2EE) is not yet standard for LLM inference. TEE/Confidential Computing (CC-ON) depends on the cloud provider.
+      -  Most providers offer:
+          - Encryption in transit (HTTPS)
+          - Encryption at rest
+              - But plaintext is visible in memory on the server while the model runs.
+    
+      - Providers usually promise to:
+          - Protect data
+          - Delete it regularly
+          - Offer opt-out from training
+  
+  - **Third-party hosted open-source models**:
+      - You can choose fine-tuned variants that reduce or disable moderation.  
+      - Platform-level logging and moderation depend on the host.
+
+ </details>
+
+------------
+
+
+ <details>
+  <summary>Multilingual / Cross-lingual ability</summary>  
    
-  - 多语言能力取决于基础模型训练的**语料/模型大小/训练技术能力**
-    
-    - 特定的微调模型相比其基础模型会在**特定领域**进一步加强</br>
-    
-      - 例如[SakuraLLM](https://github.com/SakuraLLM/SakuraLLM) 针对通用日文语料与轻小说/Galgame等领域的中日语料上进行继续预训练与微调，中日翻译水平大幅增加，</br>
-    但在**其他领域和语系**能力会显著下降，且失去基础模型（Qwen2.5）其余大部分功能，基本仅能用于翻译任务
-        
-        - 原因为针对性微调会导致训练语料在不同语言上的不均衡及模型容量/分词问题，基底模型多语言语料越少，模型越小，这种现象越明显
+ - Multilingual strength depends on:
+    - The base model’s training data (which languages and domains)
+    - Model size
+    - Training techniques and fine-tuning
+
+- Domain-/language-tuned models strengthen some areas compared with their base model.
+    - Example: [SakuraLLM](https://github.com/SakuraLLM/SakuraLLM)
+        - Continues pretraining and fine-tuning on general Japanese and light-novel / Galgame bilingual (ZH–JP) data.
+        - Performance improves sharply in these domains (e.g. VN translation, EN↔JP).
+            - But performance in other domains/languages is dramatically degraded, loses most of the base model (Qwen2.5) other capabilities.</br>
+              Which only can be used for translation tasks in those specific areas.
 </details>
+
+-----------
 
 <details> 
-  <summary>思维模型</summary>  
+  <summary>Thinking models</summary>  
   
-  - 思维模型（Thinking）因理解上下文语境和用户指令能力进一步加强</br>
-    理论上在需要**长上下文关联**的情况下（例如名字/人称）对于整篇文章的翻译会优于未开启时的结果（non-thinking mode）
-    - 其文本质量同样取决于训练语料
-  - 需模型本身为思维模型（进行过特定训练&具有思维mode）
-    - 模拟CoT流程并不一定带来正收益
-  - 思考时间较长，且思维链也需要消耗大量token，通常不适合实时快速翻译
+ - **Thinking** mode aims to strengthen:
+    - Contextual understanding
+    - Instruction following
+
+In theory, this means better whole-document translation when long-range context is important (compared with non-thinking mode).
+> Actual quality still largely depends on data and training.
+
+- However, thinking mode （often **chain-of-thought**) requires extra tokens, </br> 
+  This increases token usage and latency, so it is usually **not** ideal for real-time translation.
+
   
 </details>
 
 ---------
+</br>
 
-### 闭源模型
+### Online models (Closed-source models)
 
 <details> 
-  <summary>价格</br>
-不同模型的价格不同</br>
-  </summary>  
-以gemini官方api 10USD使用量为例做一个快速的估算：
+  <summary>Price & Free API</br>
+Different models have different prices</summary>  
 
-| 特性         | 2.5 Pro | 2.5 Flash | 2.5 Flash-Lite |
-| :----------- | :-----: | :-------: | :--------: |
-| 输入上限(或） | ~8M     | ~33.3M     |~100M      |
-| 输出上限     | ~1M     |     ~4M    | ~25M       |
-| 成本= 输入token* 单价+输出token*单价                |
-1. 这里没有计算thinking token
-2. 100token≈75 words(English)
-3. 或者假设小型聊天式调用≈每次 1,000 个输入 token + 500 个输出 token.</br>
-2.5 Pro：约 1,600 次调用</br>
-  2.5 Flash：约 6,450 次调用</br>
-  2.5 Flash-Lite 或 2.0 Flash：约 33,000 次调用</br>
+Using a $10 usage budget on Gemini official API as a quick estimate:
 
-> Google提供免费层（free tier）api   
-> 但会受
-> - 请求/分钟 (RPM)
-> - Token/分钟 (TPM)
-> - 请求/天 (RPD)  
-> 等速率限制影响。每天配额按太平洋时间午夜重置
+| Feature       | 2.5 Pro | 2.5 Flash | 2.5 Flash-Lite |
+| :----------- | :-----: | :-------: | :------------: |
+| Input limit (or) | ~8M | ~33.3M | ~100M |
+| Output limit | ~1M | ~4M | ~25M |
+| Cost = input tokens * unit price + output tokens * unit price |
+
+1. Thinking tokens not included here  
+2. 100 tokens ≈ 75 English words  
+3. Or assume a small chat-style call ≈ 1,000 input + 500 output tokens per call.</br>
+2.5 Pro: ≈ 1,600 calls</br>
+2.5 Flash: ≈ 6,450 calls</br>
+2.5 Flash-Lite or 2.0 Flash: ≈ 33,000 calls</br>
+
+> Google provides a [**free-tier API**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider) (check details in the link).  
+> But it’s limited by:
+> - Requests per minute (RPM)
+> - Tokens per minute (TPM)
+> - Requests per day (RPD)  
+> Daily quota resets at midnight Pacific Time.
 
 
-| 模型              | 官方 API 免费层额度（基准）        | AI Studio 内常见/悬停观察到的额度 |
-|-------------------|-----------------------------------|--------------------------------|
-| Gemini 2.5 Pro    | 5 RPM / 250k TPM / 100 RPD        | 未固定显示     |
-| Gemini 2.5 Flash  | 10 RPM / 250k TPM / 250 RPD       | 常见 10 RPM / 500 RPD；2025-06 起部分场景降至 250 RPD |
-| Gemini 2.5 Flash-Lite | 15 RPM / 250k TPM / 1000 RPD  | 常见 15 RPM / 500 RPD |
-| Gemini 2.0 Flash  | 15 RPM / 1M TPM / 200 RPD         | 常见 15 RPM / 1500 RPD |
-| Gemini 2.0 Flash-Lite | 30 RPM / 1M TPM / 200 RPD     | 常见 30 RPM / 1500 RPD |
+Check the above link for rate limit details.
 
-\*AI Studio vs API：AI Studio页面的使用永久免费，但其界面内的限额与 API 文档表格不总是完全一致；Google 会不定期调整（例如 2.5 Flash 的 RPD 曾被观察到从 500 降到 250）
+\* AI Studio vs API: AI Studio usage is “free forever,” but its UI quotas don’t always match the API docs exactly; Google adjusts them periodically (e.g., 2.5 Flash RPD observed dropping from 500 to 250).
 </details>
   
 <details> 
-  <summary>性能</br>  
-新闭源模型能力多方面优于开源模型</summary>  
+  <summary>Performance</br>  
+New closed-source models outperform open models in many areas</summary> 
+
+Check [**Timeline**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg) here
   
-代表为（截至2025/08）
-  - xai（grok 4）
-  - Openai （GPT-5 Thinking)
-  - Google (Gemini 2.5pro)
-  - Anthropic (Claude 4)</br>
-  同系列模型之间参数越大，能力越强 （gemini2.5 pro>flash>lite)
+Representatives (as of 2025/11):
+  - xAI (Grok-4/4.1)
+  - OpenAI (GPT-5/5.1 Thinking)
+  - Google (Gemini 2.5 Pro/3 Pro)
+  - Anthropic (Claude 4/4.1)</br>
+  Within a family, larger models are stronger (Gemini 2.5 Pro > Flash > Lite).
 
-多项测评（benchmark）可在[Kaggle](https://www.kaggle.com/benchmarks)查看
-
+See various benchmarks on [Kaggle](https://www.kaggle.com/benchmarks).
 </details>
 
 <details> 
-  <summary>审查</br>    
-闭源模型普遍存在较严格的安全审查机制（也很合理）</summary> 
+  <summary>Moderation</br>    
+Closed-source models generally implement stricter safety moderation (which is reasonable)</summary> 
 
-
-**审查机制由弱到强为**</br>
-grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series < openai第三方api <<< openai(越新的模型越难绕过）
-1. Gemini 2.5 free tier审查疑似更严重
-2. 各模型网页/客户端Chat版本审核强于api
-3. 第三方托管通常审查弱于官方api
+**Rough moderation strictness (weaker → stronger):**</br>
+Grok-3/4 (easier to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 series < OpenAI third-party APIs <<< OpenAI (newer the model, harder the bypass)
+1. Gemini 2.5 free tier appears stricter.
+2. Web/client Chat versions are stricter than APIs.
+3. Third-party hosting tends to be less strict than official APIs.
 
 </details>
 
 <details>
-  <summary>多语言/跨语言能力</br>   
-领先的闭源模型通常有强大的跨语言能力</summary> 
+  <summary>Multilingual / Cross-lingual ability</br>   
+Leading closed-source models are typically strong across languages</summary> 
 
-| 模型 | 可核实数量 | 依据（范围） | 备注 |
+| Model | Verifiable count | Basis (scope) | Notes |
 |---|---:|---|---|
-| **xAI Grok-3** | **27** | 官方清单（模型） | 厂商列出的文本语言列表。 |
-| **xAI Grok-4** | — | — | **未披露**（无官方数据）。 |
-| **OpenAI GPT-4** | **26** | 评测覆盖（翻译版 MMLU） | 评测含 26 种语言；评测≠能力上限。 |
-| **OpenAI GPT-4o** | **超过GPT-4** | 官方宣称 |   |
-| **OpenAI GPT-5** | — | — | **未披露**（无官方数据）。 |
-| **Google Gemini 2.5 Pro** | **37** / **40+** | 开发者提示语言 / Web 应用 UI | 两套口径：开发者清单 37；Web 应用 UI 为 40+。 |
-| **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | 官方评测覆盖 / 产品/UI 语言 | 评测：英语+14 种非英语（共 15）；UI 语言：11。 |
-<details> 
-  <summary> Grok3 </summary> 
-  
-> English（英语）、Spanish（西班牙语）、French（法语）、Afrikaans（南非荷兰语）、Arabic（阿拉伯语）、Bengali（孟加拉语）、Welsh（威尔士语）、German（德语）、Greek（希腊语）、Indonesian（印尼语）、Icelandic（冰岛语）、Italian（意大利语）、Japanese（日语）、Korean（韩语）、Latvian（拉脱维亚语）、Marathi（马拉地语）、Nepali（尼泊尔语）、Punjabi（旁遮普语）、Polish（波兰语）、Russian（俄语）、Swahili（斯瓦希里语）、Telugu（泰卢固语）、Thai（泰语）、Turkish（土耳其语）、Ukrainian（乌克兰语）、Urdu（乌尔都语）、Chinese（中文） </br>
-  
- </details>
+| **xAI Grok-3** | **27** | Official language list (model) | Vendor-listed supported text languages. |
+| **xAI Grok-4** | — | — | **Undisclosed**. |
+| **OpenAI GPT-4** | **26** | Evaluation coverage (translated MMLU) | Eval includes 26 languages; eval ≠ upper bound. |
+| **OpenAI GPT-4o** | **More than GPT-4** | Official statement |   |
+| **OpenAI GPT-5** | — | — | **Undisclosed**. |
+| **Google Gemini 2.5 Pro** | **37** / **40+** | Dev prompt languages / Web app UI | Two counts: dev list 37; Web UI “40+”. |
+| **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | Official eval coverage / Product/UI languages | Eval: English + 14 non-English (15 total); UI languages: 11. |
 
 <details> 
-  <summary> GPT-4 </summary> 
+  <summary>Grok-3</summary> 
   
-> English（英语）、Italian（意大利语）、Afrikaans（南非荷兰语）、Spanish（西班牙语）、German（德语）、French（法语）、Indonesian（印尼语）、Russian（俄语）、Polish（波兰语）、Ukrainian（乌克兰语）、Greek（希腊语）、Latvian（拉脱维亚语）、Mandarin（中文）、Arabic（阿拉伯语）、Turkish（土耳其语）、Japanese（日语）、Swahili（斯瓦希里语）、Welsh（威尔士语）、Korean（韩语）、Icelandic（冰岛语）、Bengali（孟加拉语）、Urdu（乌尔都语）、Nepali（尼泊尔语）、Thai（泰语）、Punjabi（旁遮普语）、Marathi（马拉地语）、Telugu（泰卢固语） </br>
+> English, Spanish, French, Afrikaans, Arabic, Bengali, Welsh, German, Greek, Indonesian, Icelandic, Italian, Japanese, Korean, Latvian, Marathi, Nepali, Punjabi, Polish, Russian, Swahili, Telugu, Thai, Turkish, Ukrainian, Urdu, Chinese </br>
+  
 </details>
 
 <details> 
-  <summary> Gemini </summary>  
+  <summary>GPT-4</summary> 
   
-> 阿拉伯语、孟加拉语、保加利亚语、中文（简体/繁体）、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、波斯语、芬兰语、法语、德语、希腊语、古吉拉特语、希伯来语、印地语、匈牙利语、印尼语、意大利语、日语、卡纳达语、韩语、拉脱维亚语、立陶宛语、马拉雅拉姆语、马拉地语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语、斯洛伐克语、斯洛文尼亚语、西班牙语、斯瓦希里语、瑞典语、泰米尔语、泰卢固语、泰语、土耳其语、乌克兰语、乌尔都语、越南语
+> English, Italian, Afrikaans, Spanish, German, French, Indonesian, Russian, Polish, Ukrainian, Greek, Latvian, Mandarin (Chinese), Arabic, Turkish, Japanese, Swahili, Welsh, Korean, Icelandic, Bengali, Urdu, Nepali, Thai, Punjabi, Marathi, Telugu </br>
 </details>
 
 <details> 
-  <summary> Claude </summary> 
+  <summary>Gemini</summary>  
+> Arabic, Bengali, Bulgarian, Chinese (Simplified/Traditional), Croatian, Czech, Danish, Dutch, English, Estonian, Persian, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kannada, Korean, Latvian, Lithuanian, Malayalam, Marathi, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Vietnamese
+</details>
+
+<details> 
+  <summary>Claude</summary> 
   
-> English（英语，基线）、Spanish（西班牙语）、Portuguese（Brazil）（巴西葡萄牙语）、Italian（意大利语）、French（法语）、Indonesian（印尼语）、German（德语）、Arabic（阿拉伯语）、Chinese（Simplified）（简体中文）、Korean（韩语）、Japanese（日语）、Hindi（印地语）、Bengali（孟加拉语）、Swahili（斯瓦希里语）、Yoruba（约鲁巴语）
+> English (baseline), Spanish, Portuguese (Brazil), Italian, French, Indonesian, German, Arabic, Chinese (Simplified), Korean, Japanese, Hindi, Bengali, Swahili, Yoruba
 </details>
 
 </details>
 
 -------
-### 本地开放权重/开源模型
+### Local models (Open-weight / Open-source)
 
 <details> 
-  <summary> 开源/开放权重模型解释 </summary> 
-  
-  - 目前开源模型一般指的是开放权重模型  </br>
-  - **开放权重**：指模型权重（模型本身）发布，任何人可在一定协议下（例如MIT)使用，修改，微调，商业化等等</br>
-  - **真正开源**：公布模型训练/推理代码及流程、模型结构、权重、训练数据来源且足以进行复现实验</br>
+  <summary>What open-source & open-weight means</summary> 
 
-</details> 
+  - Today, “open-source models” usually means **open-weight**.  </br>
+  - **Open-weight**: the model weights are released; anyone can use/modify/fine-tune/commercialize them under a license (e.g., MIT). </br>
+  - **Truly open-source**: training/inference code & pipeline, model architecture, weights, and data sources are published, sufficient for full reproduction.
+</details>
 
-- **哪里寻找开源模型？** </br>
-[Huggingface](https://huggingface.co/)
-  - CN平台例如ModelScope(魔搭社区)
+- **Where to find models?** </br>
+[Hugging Face](https://huggingface.co/)  
+  - CN platforms include ModelScope (魔搭社区).
 
-- **模型名称解释** </br>
-例如 **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
-（模型并不存在，仅为举例）</br>
+- **How to read model names?** </br>
+Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
+(This model name is hypothetical for illustration.)</br>
 
-  - **Qwen3**: 基底模型系列名称
+  - **Qwen3**: base model family
     
-  - **8B**：模型参数大小，常见为4B±；8B±；14B±；30B±；70B±；100B+
-    - **MoE**架构模型（例如30B-A3B) 30B为总参数，A3B仅为活跃参数
-    - 不同参数对应显存使用量请看下方 **量化与GPU显存对照举例**
+  - **8B**: parameter count. Common sizes: 4B±; 8B±; 14B±; 30B±; 70B±; 100B+
+    - **MoE** models (e.g., 30B-A3B): 30B is total params; A3B are the active params.
+    - For VRAM vs params, see [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)
       
-  - **Thinking**: 模型为或具有thinking mode（思维模型），并非所有思维模型都会标注
+  - **Thinking**: indicates a thinking-mode model (not all such models are labeled).
   
-  - **2507**：时间版本号（2025/07），通常为小版本更新
+  - **2507**: time tag (2025/07), often minor updates.
   
-  - **abliterated**: 去安全审核的一种方式，通常意味着此微调模型已去审核
-    - 常见还有 uncensored; NFSW; amoral（不一定为尾缀）等
+  - **abliterated**: a style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
+    - You’ll also see ***uncensored*/*NSFW*/*amoral*/*evil***, etc.
    
-  - **Q8_0 (gguf)**: llama.cpp的量化方式， 具体请查看链接或下文
-    - [**LLM显存使用表**](OtherModels_gguf.md)
-      -  **量化与GPU显存对照举例**
-      - **GGUF量化类型与相对质量**
+  - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link:
+    - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
+      - **GGUF Quantization types & relative quality**
 
 --------
 
 <details> 
-  <summary> 如何选择适合的模型参数大小 </summary> 
+  <summary>Choosing an appropriate parameter size</summary> 
   
-  - 通常需GPU显存 ≥ 模型文件大小 + 上下文占用
+  - Typically, **GPU VRAM** > model file size + context memory usage.
+      - Context can be stored in ram with slower token speed.
+     
+  - **Larger** model(parameters) × more data × more compute → better results (scaling law).
+    - For example: Qwen3-32B > Qwen3-14B > Qwen3-8B > Qwen3-4B
   
-  - 模型规模×数据×算力越大，通常效果越好(scaling law)
-    - 例如Qwen3-4B<Qwen3-8B<Qwen3-14B<Qwen3-32B
-  
-  - 通常开源模型规模分布：4B±；8B±；14B±；32B±；70B±；100B+
-    - 小于4B的模型往往翻译质量不佳，可在Huggingface自行寻找微调版测试
-      - 在此可查看其他不同大小模型例子 | [**LLM显存使用表**](OtherModels_gguf.md) 
-    - Moe架构模型以**总参数**为准
-  
-> 说明：推荐显存为“模型文件大小 + 1k余量”的保守估算；更长上下文或将 KV cache 放入显存时需要更多 VRAM。</br>
+  - Common open-model size tiers: 4B±; 8B±; 14B±; 32B±; 70B±; 100B++
+    - <4B models often means poor translation quality — you can still test on Hugging Face or LMArena if curious.
+ 
 
-> 爆显存（即超过显存大小导致占用内存）会大幅降低速度（统一内存架构除外） </br>
-
-> 理论上模型参数越大，翻译质量越高；不同系列难以对比
+> Note: A conservative VRAM estimate is “model file size + ~1GB headroom.” Longer context or placing KV cache on-GPU requires more VRAM.</br>
+>
+> If you exceed VRAM (spilling into system RAM), speed drops sharply (except on unified-memory systems).</br>
+>
+> In theory, larger parameters models translate better; family-to-family comparisons are tricky.
 
 </details>
 
 <details> 
-  <summary> 量化与GPU显存对照举例 </summary> 
+  <summary>Quantization & VRAM guide (examples)</summary> 
   
-以Qwen3 GGUF 量化尺寸与推荐显存为例（llama.cpp）</br>
-这里仅讨论支持llama.cpp的GGUF模型（可由ollama/LM studio等平台布置）（MLX类似）</br>
+Using Qwen3 GGUF sizes with llama.cpp as examples.</br>
+Here we only discuss GGUF models supported by llama.cpp (deployable via Ollama / LM Studio etc.). (MLX is similar.)</br>
 
-#### Qwen3-8B（GGUF）
+#### Qwen3-8B (GGUF)
 
-| 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
+| Quantization | Model file size | Recommended VRAM (weights + headroom) |
 |---|---:|---:|
 | Q4_K_M | 5.03 GB | ≥ 6 GB |
 | Q5_0 | 5.72 GB | ≥ 7/8 GB |
@@ -303,9 +399,9 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q6_K | 6.73 GB | ≥ 8 GB |
 | Q8_0 | 8.71 GB | ≥ 10 GB |
 
-#### Qwen3-14B（GGUF）
+#### Qwen3-14B (GGUF)
 
-| 量化 | 模型文件大小 | 推荐显存（仅权重+余量） |
+| Quantization | Model file size | Recommended VRAM (weights + headroom) |
 |---|---:|---:|
 | Q4_K_M | 9.00 GB | ≥ 11/12 GB |
 | Q5_0 | 10.3 GB | ≥ 12 GB |
@@ -313,160 +409,163 @@ grok3/4(容易绕过）≤ claude 3.7 ≤ gemini 2.0 series < gemini 2.5 series 
 | Q6_K | 12.1 GB | ≥ 14/16 GB |
 | Q8_0 | 15.7 GB | ≥ 18/20 GB |
 
-在此可查看其他不同大小模型例子 | [**LLM显存使用表**](OtherModels_gguf.md)  
-\* *Apple Mac(M1版本及以上）统一内存为RAM+VRAM，扣除6~8G系统&程序需求剩余可近似看为显存（多数优化方式需更多内存）。*</br>
-\* *MOE（混合专家）例如Qwen3-30b-A3b：其总参数大小为30b, 需全部装入显存，A3b只为活跃参数</br>
+See more examples for different sizes here | [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md)    
+\* *On Apple Mac (M1+), unified memory = RAM + VRAM. After subtracting 6–8GB for system/apps, the remainder approximates usable VRAM (many optimizations may need more memory).*</br>
+> For Apple (M series) by default you can only use 75% of total unified memory as vram.
+
+\* *For MoE (e.g., Qwen3-30B-A3B): total params = 30B, all must load; A3B are just the active params.*</br>
+
+
 </details>
 
 <details> 
-  <summary> GGUF 量化类型与相对质量 </summary> 
+  <summary>GGUF quantization types & relative quality</summary> 
 
-> 注：质量为**相对 FP16 的总体逼近**与社区常用基准（如困惑度/客观评测）综合判断的**经验级**分档；
-> 同一量化在不同模型/任务上可能有差异。
-> `_K` 为更先进的 K 类量化；`_S/_M` 为不同“混合策略”，一般 `_M` 质量高于 `_S`。
+> Note: “Quality” here is an **experience-based** tiering of overall closeness to FP16 + common community metrics (e.g., perplexity/objective evals). The same quant level can vary by model/task. `_K` denotes newer K-quant; `_S/_M` are mixed strategies—`_M` is usually higher quality than `_S`.
 
-| 量化类型 | 理论 bpw* | 相对质量（对比 FP16） | 典型使用场景 / 建议 | 备注 |
+| Quantization | Theoretical bpw* | Relative quality (vs FP16) | Typical use / advice | Notes |
 |---|---:|---|---|---|
-| **Q8_0** | ≈ 8.0 | 最高（接近 FP16） | VRAM 充足、要尽量贴近原精度或做严谨评测 | 属于“旧法（legacy）”，但质量最高的量化档，相较FP16基本没有质量下降 |
-| **Q6_K** | 6.5625 | 很高（接近 Q8_0） | 追求高质量且希望显存更省 | K-Quant，质量/体积效率优于同位数的旧法 |
-| **Q5_K_M** | 5.5 | 较高 | 5-bit 档的通用首选；综合部署的“甜点位” | `_M` 较 `_S` 更注重质量 |
-| **Q5_0** | ≈ 5.0 | 中等—较高 | 仅在兼容旧工作流时考虑(相对更高量化） | 旧法，质量通常逊于 Q5_K_ |
-| **Q4_K_M** | 4.5 | 中等（**4-bit 中**质量最佳之一） | 显存较紧张但仍需可用质量；常见平衡点 | 社区普遍认为 **4-bit**内首选|
-| **Q4_K_S** | ≈ 4.5 | 中等偏下（低于 `_M`） | 更追求速度/更小体积时的 4-bit 选项 | `_S` 为更激进混合，质量略降 |
-| **Q4_0** | ≈ 4.0 | 中等—较低 | 仅做兼容/对比用途 | 旧法（legacy），质量较低，通常不再推荐* |
-| **Q3_K_M** | 3.4375 | 较低 | 极限内存或边缘设备权衡 | 质量明显劣化，不推荐 |
+| **Q8_0** | ≈ 8.0 | Highest (near FP16) | When VRAM is plenty and you want FP16-like fidelity or rigorous evals | “Legacy” method but the highest-quality quant; negligible drop vs FP16 |
+| **Q6_K** | 6.5625 | Very high (near Q8_0) | Aim for high quality while saving VRAM | K-Quant; better quality/size than same-bit legacy |
+| **Q5_K_M** | 5.5 | High | A great 5-bit default; deployment “sweet spot” | `_M` prioritizes quality over `_S` |
+| **Q5_0** | ≈ 5.0 | Medium–High | Consider only for old workflows | Legacy; usually worse than Q5_K_* |
+| **Q4_K_M** | 4.5 | Medium (best among many 4-bit options) | Tight VRAM yet usable quality; common balance | Often the 4-bit go-to |
+| **Q4_K_S** | ≈ 4.5 | Medium–Low (lower than `_M`) | When you need speed/smaller size in 4-bit | More aggressive mix, slight quality drop |
+| **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
+| **Q3_K_M** | 3.4375 | Low | Extreme memory/edge devices | Noticeable degradation; not recommended |
 
-具体技术文章 https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
 
-\* *bpw（bits per weight）为官方/文档给出的近似或精确数值；部分旧法（如 Q4_0/Q5_0）不明确给出额外开销，表中以“≈”表示。*</br>
-\* *特殊情况：Gemma 3 12B Instruct QAT 虽为q4_0量化，但量化感知训练（Quantization-Aware Training, QAT）使其质量和速度远超q4档位</br> 
+\* *bpw (bits per weight) are approximate/official numbers; some legacy formats (Q4_0/Q5_0) have extra overhead not precisely specified—shown as “≈”.*</br>
+\* *Special case: Gemma 3 12B Instruct QAT is q4_0, but quantization-aware training (QAT) makes its quality/speed far above typical q4.*</br> 
 </details>
 
 </details>
 
 <details> 
-  <summary> 哪些模型更适合使用？ </summary> 
+  <summary>Which models are better to use?</summary> 
 
-  - **大多数情况下，越新越好**： 新模型通常意味着新训练技术/更多语料，在多语言方面一般更强。
-    - 也存在模型越新，审查技术越严格的情况（热门模型一般会有第三方去审核微调） </br><br>
-  - **模型参数越大越好**： 在你的**显存可支持范围内**，参数越大越好
-    - 不同参数 但 不同量化 之间对比？
-      仅针对翻译任务而言，**Q5_K_M/Q6** 及以上级别量化不会有明显质量损失，所以 Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M
-      - **QAT** （Quantization-Aware Training），例如Gemma 3 12B Instruct QAT q4其质量和速度一般超过传统q4量化<br>
-    - 针对翻译和指令遵循一般无需**Q8**精度，**Q5_K_M/Q6**及以上基本无质量损失。
-      - Q4 （4bit）档位一般可感知到**明显质量下滑**（除QAT外）<br><br>
-  - **语言微调**：大部分模型对于**英文**支持最好（英文数据最多），别的语言质量则取决于训练数据数量与质量/训练方式与技术。</br>
-    - CN模型因基底同样依赖中文（中文数据也多），会导致语言输出方面可能夹带中文
+  - **In most cases, newer is better**: newer training techniques/more data → generally stronger multilingual ability.</br>
+  - **Bigger is better (within your VRAM)**:
+    - Different ***parameters*** at different ***quant*** levels?  
+      For translation, **Q5_K_M** and above show little loss.</br>
+      So, Qwen3-8B-Q8_0/FP16 < Qwen3-14B-Q5_K_M (for translation quality).
+      - QAT (Quantization-Aware Training), e.g., Gemma 3 12B Instruct QAT q4, can outperform traditional q4 on both quality and speed.
+
+    - For translation & instruction following you usually **don’t need Q8**; **Q6_K** and above are typically good enough in quality.
+  
+  - **Language fine-tunes**: English is usually best supported (most data). Other languages depend on data quantity/quality and training methods.</br>
+    Community fine-tunes (suffix like -JP) use Japanese data to significantly strengthen EN↔JP, but targeted fine-tunes often weaken other languages.
+    > Due to uneven multilingual corpora, tokenizer effects, and limited capacity, the fewer the multilingual data and the smaller the model, the more pronounced this trade-off.
     
-    社区微调模型（例如尾缀带-JP）一般是用日语数据进行微调，会显著加强EN-JP能力，但针对性微调通常会削弱其他所有语言的能力
-    因其训练语料在不同语言上的不均衡及模型容量/分词问题; 基底模型多语言语料越少，模型越小，这种现象越明显<br><br>
-    
-  - **无审查**：如果你需要翻译的内容会被模型安全审核，则需要找无审查模型。</br>
-    例如：
+  - **Unmoderated**: If your content trips safety filters, choose an unmoderated model, e.g.:
     - Qwen3-8B-abliterated
     - gemma-3-27b-it-abliterated
     - Llama-3-70b-Uncensored
     - Dhanishtha-nsfw
-    - amoral-gemma3-12B </br>   
-    其中abliterated; uncensored; NSFW; amoral等都代表去安全审核微调，其他还有意义相近的诸如evil等</br>
-    取决于技术和能力，这些模型可能会有质量下降</br>
+    - amoral-gemma3-12B </br>
+    *Just for example, not really recommendation</br>
+    (Suffixes like abliterated / uncensored / NSFW / amoral indicate de-moderation; others include “evil”, etc.)  
+    Depending on technique, these may sacrifice some quality.
 
 </details>
 
 -----------
+</br>
     
-### [优化本地模型速度](Model_Speed.md) </br>
+### [Optimize local model speed](Model_Speed.md) </br>
 <details> 
-  <summary>这里仅作简单介绍，详细请查看上面链接  </summary>   </br>
+  <summary>Quick notes here—see the link above for details</summary>   </br>
     
-以LM STUDIO为例
+Using LM STUDIO as an example:
 <p align="center">
-  <img src="./LM%20STUDIO.png" width="800" alt="LM Studio 截图">
+  <img src="./LM%20STUDIO.png" width="800" alt="LM Studio screenshot">
 </p>
 
-1. **Context Length（上下文长度）** </br>
-设定一次推理中模型可“记住/处理”的最大 token 数（包含提示词与模型生成的回复本身）。数值越大，能处理的长文本越多，但显著增加显存/内存与计算开销，超过模型训练或实现允许的最大窗口还可能导致输出异常。<br><br>
-2. **GPU Offload（GPU 分层卸载）** </br>
-指定将多少层网络权重与计算卸载到 GPU 上执行（llama.cpp 对应 n_gpu_layers/-ngl；设为 -1 或远大于层数通常意味着尽量全卸载）。更多层在 GPU 上可显著提升吞吐，但受显存限制；不足部分仍会在 CPU 上跑<br><br>
-3. **CPU Thread Pool Size（CPU 线程池大小）** </br>
-控制推理时使用的 CPU 线程数（llama.cpp 参数 n_threads）。线程数越高不一定线性提速，通常接近物理核数或系统建议值即可；很多封装默认取系统 CPU 数的一半到全部。<br><br>
-4. **Evaluation Batch Size（评估批大小 / n_batch）** </br>
-预填充阶段一次并行送入模型的 token 数。批越大，通常吞吐更高但占用内存/显存也更大；结果与语义不会因批大小改变，只影响速度与资源占用。<br><br>
-5. **RoPE Frequency Base（RoPE 频率基数）** </br>
-调整旋转位置编码（RoPE）的基频。该进阶参数影响模型如何编码位置信息；适当调大常用于尝试在更长上下文下保持稳定性（具体极限取决于模型/实现）。<br><br>
-6. **RoPE Frequency Scale（RoPE 频率缩放）** </br>
-RoPE 的缩放因子；改变位置编码的“粒度”，常与上项配合，用于扩展有效上下文或做长上下文实验。<br><br>
-7. **Offload KV Cache to GPU Memory（将 KV 缓存卸载到 GPU）** </br>
-把注意力的 K/V 缓存及相关 KQV 运算放到 GPU/显存中，可降低 CPU/RAM 压力并提升上下文的速度；是否可用取决于后端与硬件。<br><br>
-8. **Keep Model in Memory（将模型常驻内存）** </br>
-使已加载的模型不被自动移出系统内存，换取更快的再次调用与交互体验；代价是占用更多 RAM。<br><br>
-9. **Try mmap()（尝试内存映射）** </br>
-通过内存映射从磁盘“按需”映射权重，通常能加快加载并减少常驻内存占用；但当模型大于可用 RAM 时可能产生频繁页换而降速。LM Studio 提供该开关；llama.cpp 默认使用 mmap，可按需要禁用。<br><br>
-10. **Seed（随机种子）** </br>
-控制采样中的随机性以便复现实验结果；设定固定值可让同一提示在同参数下产生一致输出。<br><br>
-11. **Flash Attention（实验性/可选）** </br>
-一种对注意力计算的高效实现，通过重排计算与分块把大量显存读写转化为片上缓存操作，从而显著降低内存占用并加速长序列推理；llama.cpp/部分后端提供 --flash-attn 开关，具体可用性取决于模型与硬件。<br><br>
-12. **K Cache Quantization Type（K 缓存量化类型，实验性）** </br>
-选择注意力中 K（Key）缓存的存储精度/量化格式（对应实现里的 type_k/ggml 类型）。量化 KV 缓存可明显降低内存/显存占用以换取极小精度损失或在部分场景带来速度收益；可用格式与稳定性依实现与硬件而异。<br><br>
-13. **V Cache Quantization Type（V 缓存量化类型，实验性）** </br>
-同上，但作用于 V（Value）缓存（实现字段 type_v）。与 K 缓存配合量化常用于长上下文或小显存卡以扩大可用窗口/降低占用。<br><br>
-14. **Speculative Decoding（推测/投机解码）** | [**LM STUDIO官方介绍**](https://lmstudio.ai/blog/lmstudio-v0.3.10) </br>
-Speculative Decoding（推测/投机解码）用一个更小更快的“草稿模型”先并行起草一串候选 token，再让更大的“主模型”快速验证并只接受那些与它本来会生成的结果一致的 token，从而在不牺牲输出分布/质量的前提下提升生成速度.
-> 一般情况下RoPE；kv cache可保持默认状态，部分模型容易出错。
+1. **Context Length** </br>
+Max tokens the model can “remember/process” per run (prompt + generated output). Larger windows handle longer texts but require much more RAM/VRAM and compute; exceeding the true max can cause odd outputs.
+2. **GPU Offload** </br>
+How many layers run on GPU (llama.cpp `n_gpu_layers` / `-ngl`; `-1` or >#layers ≈ full offload). More GPU layers boost throughput but are VRAM-limited; the rest runs on CPU.
+3. **CPU Thread Pool Size** </br>
+Number of CPU threads during inference (`n_threads`). More threads ≠ linear gains; near physical cores/system default is typical.
+4. **Evaluation Batch Size (n_batch)** </br>
+How many tokens are fed in parallel during prefill. Larger batch → higher throughput but more RAM/VRAM; semantics unaffected.
+5. **RoPE Frequency Base** </br>
+Controls rotary position encoding base frequency; sometimes increased for longer-context stability (model/impl dependent).
+6. **RoPE Frequency Scale** </br>
+Scaling factor for RoPE; used with the above for extending effective context.
+7. **Offload KV Cache to GPU Memory** </br>
+Put K/V cache and KQV ops on GPU to ease CPU/RAM pressure and speed up long contexts; availability varies.
+8. **Keep Model in Memory** </br>
+Avoid unloading weights between calls for snappier reuse; costs RAM.
+9. **Try mmap()** </br>
+Map weights from disk on demand; speeds loading and reduces resident memory. (llama.cpp uses mmap by default; can disable if needed.)
+10. **Seed** </br>
+Fix randomness for reproducibility.
+11. **Flash Attention (experimental/optional)** </br>
+A more efficient attention implementation that reduces memory traffic and speeds long-sequence inference; availability varies.
+12. **K Cache Quantization Type (experimental)** </br>
+Quantize the K cache to cut memory/VRAM with minimal loss; stability varies by backend/hardware.
+13. **V Cache Quantization Type (experimental)** </br>
+Same idea for the V cache; often paired with K quantization for long contexts on small GPUs.
+14. **Speculative Decoding** | [**LM STUDIO intro**](https://lmstudio.ai/blog/lmstudio-v0.3.10) </br>
+Use a small, fast “draft” model to propose tokens that the large “main” model quickly verifies; improves speed without changing the final distribution.
+> In most cases, keeping RoPE/KV defaults is fine; some models are sensitive.
 
 </details>   
 
 ---------
 
 <details> 
-  <summary> 翻译工具？ </br>
+  <summary>
+   
+   ### Translation tools?</br>
   
-可自制游戏补丁或翻译文件</summary> 
+Make fan-patches or translation files</summary> 
 
-  - [LunaTranslator](https://github.com/HIllya51/LunaTranslator) —— 面向视觉小说/galgame 的一体化翻译器。支持文本抓取（HOOK/OCR/剪贴板/语音识别/文件翻译）、多种在线/本地翻译引擎、预翻译与缓存、Python 扩展；并提供 TTS 合成、日语分词与假名注音、词典查词（MDICT/在线）、Anki 生词卡、加载 Yomitan 等插件。
+  - [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator) — an all-in-one translator for visual novels/galgames. Supports text hooking (HOOK/OCR/clipboard/ASR/file translation), multiple online/local engines, pre-translation & caching, Python extensions; plus TTS, Japanese tokenization & furigana, dictionaries (MDICT/online), Anki flashcards, Yomitan plugins, etc.
 
-  - [AiNiee](https://github.com/NEKOparapa/AiNiee) —— 一键式 AI 长文本翻译工具。适配常见游戏文本工作流（MTool、Ren’Py、Translator++ 等）与多格式（i18next、EPUB/TXT、SRT/VTT/LRC、Word/PDF/Markdown）；支持自动识别文件与语种、上下文一致性与术语表、AI 润色/排版/术语提取，在线与本地模型接口可配置。
+  - [**AiNiee**](https://github.com/NEKOparapa/AiNiee) — one-click AI long-text translator. Fits common game text workflows (MTool, Ren’Py, Translator++), and many formats (i18next, EPUB/TXT, SRT/VTT/LRC, Word/PDF/Markdown). Auto file & language detection, context consistency & glossary, AI polishing/layout/term extraction; configurable for online and local models.
 
-  - [LinguaGacha](https://github.com/neavo/LinguaGacha) —— “开箱即用、几乎零配置”的多语言文本翻译器。支持字幕/电子书/游戏文本等类型，兼容多家在线或本地模型（如 Claude / ChatGPT 等），强调高速度与格式/代码样式保留；多数 WOLF/Ren’Py/RPGMaker/Kirikiri 游戏可即翻即玩，并提供命令行模式与使用教程。
+  - [LinguaGacha](https://github.com/neavo/LinguaGacha) — “nearly zero-config” multi-language text translator. Supports subtitles/ebooks/game texts, compatible with many online/local models (Claude/ChatGPT/etc.), emphasizes speed and preservation of format/code style. Many WOLF/Ren’Py/RPGMaker/Kirikiri games can be “translate-and-play,” with CLI and guides.
 
-  - [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator) —— 面向漫画/条漫的深度学习辅助翻译与排版工具。支持一键机翻、所见即所得的文本编辑（查找替换、批量样式）、图像编辑与修复（掩膜/修复画笔）、OCR 文本检测；可用 Windows 打包版或 Python 源码运行，兼容多种机翻/LLM 与离线模型。
+  - [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator) — DL-assisted translation & typesetting for comics/webtoons. One-click MT, WYSIWYG text editing (find/replace, batch styles), image editing & inpainting (masks/heal), OCR detection; Windows packaged build or Python source; compatible with many MT/LLM and offline models.
 
 </details>    
 
 -----------
-### 部署本地模型
-以部署量化模型为例（llama.cpp) </br>
-下面介绍最为常见且好用的平台
+### Deploying local models
+Quantized-model deployment example (llama.cpp). </br>
+Below are common, practical platforms:
 
-
-**可选择平台** 
+**Possible platforms** 
 - [**LM Studio**](https://lmstudio.ai/)  </br>
-  - 一体化集成，本地 LLM 桌面应用 + OpenAI 兼容本地服务；部署简单快速（装了就能用） </br>
-  - 自带模型发现/下载（Huggingface)；支持局域网共享</br>
-  - 带RAG、MCP 集成与多后端 GPU Runtime（CUDA/Metal/Vulkan/ROCm） </br>
-
-
-- [**Koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
-  - 重点服务写作/角色扮演与同人创作工作流；内置 KoboldAI Lite UI（记忆、世界观设定、角色卡、场景等写作工具），支持多对话模式（chat/adventure/instruct/storywriter）</br>
-  - 除文本外，还内置 TTS/ASR 与 Stable Diffusion 图像生成，并提供多种兼容 API（含 OpenAI/Ollama 兼容）</br>
-  - 提供 OpenAI/Ollama/Kobold 等多种兼容 API 端点</br>
+  - [**Official Guide**](https://lmstudio.ai/docs/app/basics)
+  - All-in-one: local desktop app + OpenAI-compatible local server; easy setup (“install and go”). </br>
+  - Built-in model discovery/download (Hugging Face); LAN sharing.</br>
+  - Includes RAG, MCP integrations, and multiple GPU runtimes (CUDA/Metal/Vulkan/ROCm). </br>
 
 - [**Ollama**](https://ollama.com/) </br>
-  - 类“Docker 管模型”的本地/局域网推理引擎与 CLI/REST API，支持 Modelfile 自定义与模型管理</br>
-  - 2025 推出官方 GUI（Win/mac）降低纯命令行的门槛，并提供云与本地一体化选项。
+  - [**Official Guide**](https://docs.ollama.com/quickstart)
+    - [**API Reference**](https://docs.ollama.com/api/introduction)
+  - “Docker-for-models” local/LAN runtime and CLI/REST API. Supports Modelfile customization and model management.</br>
+  - In 2025, official GUI (Win/mac) lowers the CLI barrier; offers unified cloud + local options.
+    - [**Ollama cloud models**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider?tab=readme-ov-file#ollama-)
 
 
+- [**koboldcpp**](https://github.com/LostRuins/koboldcpp)  </br>
+  - Focused on writing/RP/fan-fic workflows; ships KoboldAI Lite UI (memory, world facts, character cards, scenes, etc.), multiple modes (chat/adventure/instruct/storywriter).</br>
+  - Beyond text, includes TTS/ASR and Stable Diffusion image generation; multiple compatible APIs (OpenAI/Ollama compatible).</br>
+  - Provides OpenAI/Ollama/Kobold compatible endpoints.</br>
 
-**模型大小/量化规格选择**  </br>
-见上文： 
-- **“本地开放权重/开源模型 —— 量化与GPU显存对照举例”**
-- 及其他模型 [**Other Model GGUF**](OtherModels_gguf.md) 
 
+**Model size / quantization spec choices**  </br>
+See [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
 
- **应该选择什么模型？** </br>
- 见上文： 
- - **“如何选择LLM”**？
- - **“本地开放权重/开源模型**——**哪些模型更适合使用？”** </br>
- 
-----------
-## [AI时间线](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg)
+**Which model should I pick?** </br>
+See above: 
+ - **“How to choose an LLM?”**
+ - **“Open-weight/Open-source local models——Which models are better to use?”** </br>
+
+--------
+## [AI Timeline](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg)
