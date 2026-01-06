@@ -15,6 +15,8 @@ Unless you had the knowledge.
 
 - [**Deploy local models**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#deploying-local-models)
 
+-----
+
 ### Highly Recommend to Read
 - [**How to choose an LLM? Online vs Local**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/OtherModels_gguf.md#gguf-quantization-types--relative-quality)
   - [Local models](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#local-models-open-weight--open-source)
@@ -35,8 +37,8 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
   
   - **2507**: time tag (2025/07), often minor updates.
   
-  - **abliterated**: a style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
-    - You’ll also see ***uncensored*/*NSFW*/*amoral*/*evil***, etc.
+  - **abliterated**: a way/style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
+    - You’ll also see ***uncensored*/*NSFW*/*heretic*/*amoral*/*evil***, etc.
    
   - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link:
     - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
@@ -49,36 +51,79 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
 >     - For example: Qwen3-4B < Qwen3-8B < Qwen3-14B < Qwen3-32B
 > 3. Translation quality also depends on the **quality & amount of training data** on certain languages. 
 
-**Only download GGUF file** unless you're not using llama.cpp (that includes LM Studio, Ollama, Kobold)
+**Only download GGUF file** unless you're not using llama.cpp (that includes LM Studio, Ollama, Kobold, etc.)
 
 ### 0~3B (Vram≤4GB)
 LLMs at this scale usually have poor performance.</br>
 All links are from Hugging Face.</br>
-All models are choosen based on community reports, downloads and likes.
+All models are choosen based on **community reports, downloads, likes and finetune languages**.
 
-| Model Name | Languages | Base model family | Link(GGUF) | Link(Original Page) |
+| Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
 | tencent/HY-MT1.5-1.8B                             | General | HY-MT1.5 | [GGUF](https://huggingface.co/mradermacher/HY-MT1.5-1.8B-GGUF) | [Original](https://huggingface.co/tencent/HY-MT1.5-1.8B) |
 | Unbabel/Tower-Plus-2B                             | General | Gemma2 | [GGUF](https://huggingface.co/DZgas/Tower-Plus-2B-GGUF) | [Original](https://huggingface.co/Unbabel/Tower-Plus-2B) |
-| prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1 | **EN**⇌XX | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-2B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1) |
+| prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1 | **EN**⇌XX [^1] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-2B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-2B-Instruct-abliterated-v1) |
 | Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1  | General | Qwen3 | [GGUF](mradermacher/Josiefied-Qwen3-1.7B-abliterated-v1-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1) |
+| mistralai/Ministral-3-3B-Instruct-2512  | General | Mistral3 | [GGUF](https://huggingface.co/unsloth/Ministral-3-3B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512) |
+
+[^1]: Finetune on ENG. The same applies below.
 
 ---------
 
-### 4B (Vram≈4GB~6GB)
+### 4B/5B (Vram≈4GB~6GB)
 
-| Model Name | Languages | Base model family | Link(GGUF) | Link(Original) |
+> **`★` means model has been tested on some languages/tasks**.
+
+| Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
 |---|---:|---:|---:|---:|
-| sarvamai/sarvam-translate  （note:4B） | **22 official Indian languages** | Gemma3 | [GGUF](https://huggingface.co/mradermacher/sarvam-translate-GGUF) | [Original](https://huggingface.co/sarvamai/sarvam-translate) |  
+| sarvamai/sarvam-translate  （note:4B） | **22 official Indian languages**[^2] | Gemma3 | [GGUF](https://huggingface.co/mradermacher/sarvam-translate-GGUF) | [Original](https://huggingface.co/sarvamai/sarvam-translate) |  
 | INSAIT-Institute/MamayLM-Gemma-3-4B-IT-v1.0 | **Ukrainian⇌EN** | Gemma3 | [GGUF](https://huggingface.co/mradermacher/MamayLM-Gemma-3-4B-IT-v1.0-GGUF) | [Original](https://huggingface.co/INSAIT-Institute/MamayLM-Gemma-3-4B-IT-v1.0) | 
-| mlabonne/gemma-3-4b-it-abliterated-v2       | General | Gemma3 | [GGUF](https://huggingface.co/mradermacher/gemma-3-4b-it-abliterated-v2-GGUF) | [Original](https://huggingface.co/mlabonne/gemma-3-4b-it-abliterated-v2) | 
-| Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2 | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2) | 
+| **★mlabonne/gemma-3-4b-it-abliterated-v2**       | General | Gemma3 | [GGUF](https://huggingface.co/mradermacher/gemma-3-4b-it-abliterated-v2-GGUF) | [Original](https://huggingface.co/mlabonne/gemma-3-4b-it-abliterated-v2) | 
+| **★Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2** | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2) | 
 | RefalMachine/RuadaptQwen3-4B-Instruct | **Russian⇌EN** | Qwen3 | [GGUF](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct-GGUF) | [Original](https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct) | 
-| SakuraLLM/GalTransl-v4-4B-2512 | **JP⇌CN** | Qwen3 | [GGUF](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | [Original](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | 
-| DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored (!long thinking) | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored-GGUF) | [Original](https://huggingface.co/DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored) | 
-| prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1 | **EN**⇌XX | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-4B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1) | 
+| **★SakuraLLM/GalTransl-v4-4B-2512** | **JP⇌CN** | Qwen3 | [GGUF](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | [Original](https://huggingface.co/SakuraLLM/GalTransl-v4-4B-2512) | 
+| ★DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored (***[!]long thinking***[^3]) | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored-GGUF) | [Original](https://huggingface.co/DavidAU/Qwen3-4B-2507-Thinking-heretic-abliterated-uncensored) | .
+| prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1 | **EN**⇌XX | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-4B-Instruct-abliterated-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-4B-Instruct-abliterated-v1) | 
+| aisingapore/Qwen-SEA-LION-v4-4B-VL | **ENG+7key SEA languages**[^4] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen-SEA-LION-v4-4B-VL-GGUF) | [Original](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-4B-VL) |  
+| HiTZ/Latxa-Qwen3-VL-4B-Instruct | **5+**[^5] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Latxa-Qwen3-VL-4B-Instruct-GGUF) | [Original](https://huggingface.co/HiTZ/Latxa-Qwen3-VL-4B-Instruct) | 
+| MuXodious/gemma-3n-E2B-it-absolute-heresy （5B/**CPU-optimized**)[^6]  | General | Gemma3n | [GGUF](https://huggingface.co/mradermacher/gemma-3n-E2B-it-absolute-heresy-GGUF) | [Original](https://huggingface.co/MuXodious/gemma-3n-E2B-it-absolute-heresy) |  
+
+[^2]: Including `Assamese, Bengali, Bodo, Dogri, Gujarati, English, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santali, Sindhi, Tamil, Telugu, Urdu`
+[^3]: This CoT is very long.
+[^4]: Including `Burmese, Indonesian, Filipino, Malay, Tamil, Thai, and Vietnamese`
+[^5]: Including `Basque, Galician, Catalan, Spanish, English` and more
+[^6]: Gemma3n series (E2B/E4B) is optimized for CPU performance. Check [Gemma3n](https://ai.google.dev/gemma/docs/gemma-3n#parameters) for more details.
+
+-------
+
+### 7B/8B (Vram≈6G~8G)
+New LLMs at this size ususally have a decent quality of translation.
+
+| Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
+|---|---:|---:|---:|---:|
+| ★MuXodious/gemma-3n-E4B-it-absolute-heresy (7B/CPU-optimized) | General | Gemma3n | [GGUF](https://huggingface.co/mradermacher/gemma-3n-E4B-it-absolute-heresy-GGUF) | [Original](https://huggingface.co/MuXodious/gemma-3n-E4B-it-absolute-heresy) |  
+| **★Goekdeniz-Guelmez/Josiefied-Qwen3-8B-abliterated-v1**| General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-8B-abliterated-v1-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-8B-abliterated-v1) |  
+| **★mlabonne/Qwen3-8B-abliterated** | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-8B-abliterated-GGUF) | [Original](https://huggingface.co/mlabonne/Qwen3-8B-abliterated) |  
+| AvitoTech/avibe  (8B)</br> t-tech/T-lite-it-2.1  (8B)</br>RefalMachine/RuadaptQwen3-8B-Hybrid | **Russian⇌EN** | Qwen3 | [GGUF](https://huggingface.co/NightForger/avibe-GGUF)</br> [GGUF](https://huggingface.co/t-tech/T-lite-it-2.1-GGUF) </br> [GGUF](https://huggingface.co/RefalMachine/RuadaptQwen3-8B-Hybrid-GGUF) | [Original](https://huggingface.co/AvitoTech/avibe) </br> [Original](https://huggingface.co/t-tech/T-lite-it-2.1) </br> [Original](https://huggingface.co/RefalMachine/RuadaptQwen3-8B-Hybrid) |  
+| legmlai/legml-v1.0-8b-instruct | **French⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/legml-v1.0-8b-instruct-GGUF) | [Original](https://huggingface.co/legmlai/legml-v1.0-8b-instruct) |  
+| **★shisa-ai/shisa-v2.1-qwen3-8b** | **JP⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/shisa-v2.1-qwen3-8b-GGUF) | [Original](https://huggingface.co/shisa-ai/shisa-v2.1-qwen3-8b) |  
+| **★prithivMLmods/Qwen3-VL-8B-Instruct-abliterated-v2** | **EN**⇌XX | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen3-VL-8B-Instruct-abliterated-v2.0-GGUF) | [Original](https://huggingface.co/prithivMLmods/Qwen3-VL-8B-Instruct-abliterated-v2) | 
+| aisingapore/Qwen-SEA-LION-v4-8B-VL | **ENG+7key SEA languages**[^4] | Qwen3VL | [GGUF](https://huggingface.co/mradermacher/Qwen-SEA-LION-v4-8B-VL-GGUF) | [Original](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-8B-VL) | 
+| **★SakuraLLM/Sakura-GalTransl-7B-v3.7** | **JP⇌CN** | Qwen2.5 | [GGUF](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) | [Original](https://huggingface.co/SakuraLLM/Sakura-GalTransl-7B-v3.7) |  
+| **★mistralai/Ministral-3-8B-Instruct-2512** | General | Ministral3 | [GGUF](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-GGUF) | [Original](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512) | 
+
+----------
+
+
+### 12B~14B (Vram≈12G~16G)
+
+| Model Name | Languages | Base Model Family | Link(GGUF) | Link(Original Page) |
+|---|---:|---:|---:|---:|
+| **★Goekdeniz-Guelmez/Josiefied-Qwen3-14B-abliterated-v3**  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Josiefied-Qwen3-14B-abliterated-v3-GGUF) | [Original](https://huggingface.co/Goekdeniz-Guelmez/Josiefied-Qwen3-14B-abliterated-v3) |  
+| **★mlabonne/Qwen3-14B-abliterated**  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Qwen3-14B-abliterated-GGUF) | [Original](https://huggingface.co/mlabonne/Qwen3-14B-abliterated) |  
+| NousResearch/Hermes-4-14B  | General | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Hermes-4-14B-GGUF) | [Original](https://huggingface.co/NousResearch/Hermes-4-14B) |  
+| Sunbird/Sunflower-14B | **Ugandan[^7]⇌EN** | Qwen3 | [GGUF](https://huggingface.co/mradermacher/Hermes-4-14B-GGUF) | [Original](https://huggingface.co/NousResearch/Hermes-4-14B) |  
 
 
 
-
-  
+[^7]: 31 Ugandan languages `Acoli Adhola Alur Bari Chiga Gwere Kumam Karamojong Kakwa Kinyarwanda Konzo Kupsabiny Lango (Uganda) Lugbara Saamia Aringa Ganda Ma'di Masaaba Nyole Nyankole Nyoro Pokangá Gungu Ruuli Amba (Uganda); Swahili (macrolanguage); Teso Talinga-Bwisi Tooro Soga` + English
