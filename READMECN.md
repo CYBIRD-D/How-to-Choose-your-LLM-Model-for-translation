@@ -3,7 +3,7 @@
 This is a post for beginners to choose the LLM Models suit themselves. (Mostly for translation) </br>
 if it helps, pls give a star, thanks!
 
-### 简体中文  | [ENGLISH](README_en.md)
+### 简体中文  | [ENGLISH](README.md)
 此文为了帮助初学者对于LLM model翻译有一个初步的了解，主要场景为翻译visual novel（vn）。当然因为原理相同别的翻译任务也可参考。
 
 在此推荐
