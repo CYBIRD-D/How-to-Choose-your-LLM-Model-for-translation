@@ -131,9 +131,11 @@ It’s still a locally running model—just running on a cloud server and sent r
 
 ### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/tree/main?tab=readme-ov-file#deploying-local-models) 
 Include:
+#### LM Studio
 - [**LM Studio Guide**](https://lmstudio.ai/docs/app/basics)
   - You may search for models directly on [huggingface](https://huggingface.co/models), copy the model name, and then download it in LM Studio.
 
+#### Ollama
 - [**Ollama Github**](https://github.com/ollama/ollama?tab=readme-ov-file)
 - [**Ollama Guide**](https://docs.ollama.com/quickstart)
   - [**API Reference**](https://docs.ollama.com/api/introduction)
