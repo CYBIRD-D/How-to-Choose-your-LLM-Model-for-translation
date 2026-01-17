@@ -25,7 +25,7 @@ These are Questions related to
 - Models & Performance
 - Local VS Online
 - [**Local LLMs Model Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
-- [**Deployment**](#deploying-local-models） & [**GPU Specification**](Nvidia_GPU_Specification.md)
+- **Deployment** & [**GPU Specification**](Nvidia_GPU_Specification.md)
 
 which is a fast **guide** on how to read this article.</br>
 Pls read if you can't find certain chapter you're looking for.
