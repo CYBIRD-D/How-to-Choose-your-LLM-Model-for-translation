@@ -536,7 +536,7 @@ Make fan-patches or translation files</summary>
 </details>    
 
 -----------
-### Deploying local models
+### Deploying Local Models
 Quantized-model deployment example (llama.cpp). </br>
 Below are common, practical platforms:
 
@@ -549,6 +549,7 @@ Below are common, practical platforms:
 
 - [**Ollama**](https://ollama.com/) </br>
   - [**Official Guide**](https://docs.ollama.com/quickstart)
+  - [**Ollama Github**](https://github.com/ollama/ollama?tab=readme-ov-file)
     - [**API Reference**](https://docs.ollama.com/api/introduction)
   - “Docker-for-models” local/LAN runtime and CLI/REST API. Supports Modelfile customization and model management.</br>
   - In 2025, official GUI (Win/mac) lowers the CLI barrier; offers unified cloud + local options.
