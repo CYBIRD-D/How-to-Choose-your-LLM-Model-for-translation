@@ -33,11 +33,11 @@ Pls read if you can't find certain chapter you're looking for.
 
 ------
 ## Table of Contents
-- [**【★】FAQ & Fast guide**](#faq-frequent-ask-questions--fast-guide)
+- [**【★】FAQ & Fast Guide**](#faq-frequent-ask-questions--fast-guide)
 - [What are LLMs good at?](#what-are-llms-good-at)
 - [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
   - [Online models (Closed-source models)](#online-models-closed-source-models)
-  - [Local models (Open-weight / Open-source)](#local-models-open-weight--open-source)
+  - [Local Models (Open-weight / Open-source)](#local-models-open-weight--open-source)
   - [Optimize local model speed（single page)](Model_Speed_EN.md)
   - [**【★】Deploying Local Models**](#deploying-local-models)
 - [**【★】Local LLM Models Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
