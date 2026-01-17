@@ -2,6 +2,8 @@
 - Time Spy performance (only laptop/mobile version): </br>
 [SOCPK-Laptopgpucurve](https://socpk.com/laptopgpucurve/)
 - [**LLM VRAM Usage Table**](OtherModels_gguf.md)
+- [**Local LLMs Collection For Translation**](https://github.com/CYBIRD-D/Local-LLMs-Collection-For-Translation)
+- [**Deploy Local Models**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation?tab=readme-ov-file#deploying-local-models)
 
 
 ### Destop GeForce RTX 30 Series (PC)
