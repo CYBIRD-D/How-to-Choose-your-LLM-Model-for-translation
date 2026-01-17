@@ -543,7 +543,7 @@ Below are common, practical platforms:
 **Possible platforms** 
 - [**LM Studio**](https://lmstudio.ai/)  </br>
   - [**Official Guide**](https://lmstudio.ai/docs/app/basics)
-  - All-in-one: local desktop app + OpenAI-compatible local server; easy setup (“install and go”). </br>
+  - **All-in-one**: local desktop app + OpenAI-compatible local server; **easy setup (“install and go”)**. </br>
   - Built-in model discovery/download (Hugging Face); LAN sharing.</br>
   - Includes RAG, MCP integrations, and multiple GPU runtimes (CUDA/Metal/Vulkan/ROCm). </br>
 
@@ -551,8 +551,8 @@ Below are common, practical platforms:
   - [**Official Guide**](https://docs.ollama.com/quickstart)
   - [**Ollama Github**](https://github.com/ollama/ollama?tab=readme-ov-file)
     - [**API Reference**](https://docs.ollama.com/api/introduction)
-  - “Docker-for-models” local/LAN runtime and CLI/REST API. Supports Modelfile customization and model management.</br>
-  - In 2025, official GUI (Win/mac) lowers the CLI barrier; offers unified cloud + local options.
+  - “Docker-for-models” **local/LAN runtime and CLI/REST API**. Supports Modelfile customization and model management.</br>
+  - In 2025, official **GUI** (Win/mac) released; offers unified cloud + local options.
     - [**Ollama cloud models**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider?tab=readme-ov-file#ollama-)
 
 
