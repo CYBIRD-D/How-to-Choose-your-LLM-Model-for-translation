@@ -129,7 +129,7 @@ It’s still a locally running model—just running on a cloud server and sent r
  How to deploy local/online models; common deployment platforms
 </summary>
 
-### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/README_en.md#deploying-local-models) include:
+### 1. Common [**local deployment platforms**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/tree/main?tab=readme-ov-file#deploying-local-models) include:
 - [**LM Studio Guide**](https://lmstudio.ai/docs/app/basics)
   - You can search for models directly on [huggingface](https://huggingface.co/models), copy the model name, and then download it in LM Studio.
 
