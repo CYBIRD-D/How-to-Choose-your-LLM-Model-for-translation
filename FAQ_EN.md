@@ -140,12 +140,9 @@ It’s still a locally running model—just running on a cloud server and sent r
 -------
 
 ### 2. Common **online deployment platforms**
-- Free? Please see [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
-  - Find the platform; register; and find your api key & endpoint
-
-- **Paid** intermediary platforms
-  -  [Hugging Face](https://huggingface.co/docs/inference-endpoints/index)
-  -  [OpenRouter](https://openrouter.ai/docs/quickstart)
+- [**Free LLM API Provider**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+  - Find the platform; register
+  - Find your api key & endpoint
 
 ### 3. What model size your GPU can support?
 - [**LLM VRAM Usage Table**](OtherModels_gguf.md)
