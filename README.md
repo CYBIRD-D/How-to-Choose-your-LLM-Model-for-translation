@@ -10,11 +10,11 @@ This article gives beginners a first overview of using large language models (LL
 The main example is translating visual novels (VN), but the same ideas work for most other translation tasks.
 
 Recommended tools and resources:
-- [**LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
-- [**Free LLM API Providers**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
-- [**Local LLMs Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
+- [**【★】LunaTranslator**](https://github.com/HIllya51/LunaTranslator)
+- [**【★】Free LLM API Providers**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider)
+- [**【★】Local LLMs Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
 - [PDFMathTranslate](https://github.com/PDFMathTranslate-next/PDFMathTranslate-next)
-- [LinguaGacha](https://github.com/neavo/LinguaGacha)
+- [【★】LinguaGacha](https://github.com/neavo/LinguaGacha)
 
 --------
 
