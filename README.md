@@ -357,7 +357,7 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
   
   - **abliterated**: a style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
     - You’ll also see
-        - ***uncensored*/*NSFW*/*amoral*/*evil*/heretic/**, etc
+        - ***uncensored*/*NSFW*/*amoral*/*evil*/*heretic(heresy)*/**, etc
    
   - **Q8_0 (gguf)**: a llama.cpp quantization type. See the link:
     - [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
@@ -467,8 +467,10 @@ Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8
     - Llama-3-70b-Uncensored
     - Dhanishtha-nsfw
     - amoral-gemma3-12B </br>
-    *Just for example, not really recommendation</br>
-    (Suffixes like abliterated / uncensored / NSFW / amoral indicate de-moderation; others include “evil”, etc.)  
+  *Just for example, not really recommendation</br>
+  
+          Suffixes such as uncensored/abliterated/NSFW/amoral/evil/heretic(heresy)/derestricted, etc. 
+         
     Depending on technique, these may sacrifice some quality.
 
 </details>
