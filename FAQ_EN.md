@@ -11,7 +11,7 @@ Basic concept of Proper Noun。
 </summary>
 
 - **NMT**: Neural Machine Translation
-  - like google translation
+  - e.g. google translation
 
 
 - **(Generative) LLMs**: Large Language Models
