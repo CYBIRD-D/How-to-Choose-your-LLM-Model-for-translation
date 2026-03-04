@@ -33,7 +33,7 @@ Pls read if you can't find certain chapter you're looking for.
 
 ------
 ## Table of Contents
-- [**【★】FAQ & Fast Guide**](#faq-frequent-ask-questions--fast-guide)
+- [**【★】FAQ & Fast Guide**](FAQ_EN.md)
 - [What are LLMs good at?](#what-are-llms-good-at)
 - [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
   - [Online models (Closed-source models)](#online-models-closed-source-models)
