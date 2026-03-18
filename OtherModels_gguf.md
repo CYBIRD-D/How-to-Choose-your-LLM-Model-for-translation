@@ -4,7 +4,8 @@
 - [**Nvidia GPU Specification**](Nvidia_GPU_Specification.md)
 
 > Note: Some finetune models may have different size compared to their base models. </br>
-> For translation task, quantizations above `Q5` usually no noticing quality loss. 
+> For translation task, quantizations above `Q5` usually no noticing quality loss.
+> For llama.cpp, some visual models are seperated as **two gguf file**, you may block the visual one to save vram.
 
 # LLM VRAM USAGE LISTS <br> LLM 显存使用表 
 > 小模型一般对于**CPU有优化**，可以查看具体模型卡页面是否有优化/纯用CPU跑试试 </br>
