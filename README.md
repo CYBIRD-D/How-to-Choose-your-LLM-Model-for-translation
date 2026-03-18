@@ -38,6 +38,7 @@ Pls read if you can't find certain chapter you're looking for.
 - [How to choose an LLM? Online vs Local](#how-to-choose-an-llm-online-vs-local)
   - [Online models (Closed-source models)](#online-models-closed-source-models)
   - [Local Models (Open-weight / Open-source)](#local-models-open-weight--open-source)
+    - [**【★】LLM VRAM USAGE LIST**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/OtherModels_gguf.md)
   - [Optimize local model speed（single page)](Model_Speed_EN.md)
   - [**【★】Deploying Local Models**](#deploying-local-models)
 - [**【★】Local LLM Models Collection**](https://github.com/CYBIRD-D/Local-LLM-Models-Collection-For-Translation/tree/main)
