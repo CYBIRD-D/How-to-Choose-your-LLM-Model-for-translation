@@ -558,6 +558,7 @@ Below are common, practical platforms:
   - Beyond text, includes TTS/ASR and Stable Diffusion image generation; multiple compatible APIs (OpenAI/Ollama compatible).</br>
   - Provides OpenAI/Ollama/Kobold compatible endpoints.</br>
 
+[**Other Platform**](https://github.com/ggml-org#use-cases)
 
 **Model size / quantization spec choices**  </br>
 See [**LLM VRAM USAGE LISTS**](OtherModels_gguf.md) 
