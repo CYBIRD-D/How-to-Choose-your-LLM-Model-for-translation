@@ -282,7 +282,8 @@ Leading closed-source models are typically strong across languages</summary>
 | Model | Verifiable count | Basis (scope) | Notes |
 |---|---:|---|---|
 | **xAI Grok-3~4.3** <br> | **27** </br> - | Official language list (model) </br> - | Vendor-listed supported text languages. <br> **Undisclosed**. |
-| **OpenAI GPT-4** <br> **GPT-4o** <br> **GPT-5~5.5** | **26** <br> **More than GPT-4** <br> **60** | Evaluation coverage (translated MMLU) <br> Official statement <br> *ChatGPT currently supports the following languages: 60 | Eval includes 26 languages; eval ≠ upper bound. |
+| **OpenAI GPT-4** <br> **GPT-4o** | **26** <br> **More than GPT-4**| Evaluation coverage (translated MMLU) <br> **Official statement** | Eval includes 26 languages; eval ≠ upper bound. |
+| **OpenAI GPT-5~5.5** | **60** | *ChatGPT currently supports the following languages: 60 | 59 + English |
 | **Google Gemini 2.5 Pro** </br> **Gemini 3+** | **37** / **40+** <Br> **109** | Dev prompt languages / Web app UI </br> **Offical statement** | Two counts: dev list 37; Web UI “40+”. |
 | **Anthropic Claude 3.7 / 4 / 4.1** <br> **Claude Sonnet 4.6** | **15** / **11** <br> 42 | Official eval coverage / Product/UI languages <Br> Claude Sonnet 4.6 System Card | Eval: English + 14 non-English (15 total); UI languages: 11 <Br> GMMLU |
 
