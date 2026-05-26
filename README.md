@@ -411,7 +411,11 @@ See more examples for different sizes here | [**LLM VRAM USAGE LISTS**](OtherMod
 </details>
 
 <details> 
-  <summary>GGUF quantization types & relative quality</summary> 
+  <summary> GGUF quantization types & relative quality
+    
+[**Link**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/OtherModels_gguf.md#gguf-quantization-types--relative-quality)   
+  
+  </summary> 
 
 > Note: “Quality” here is an **experience-based** tiering of overall closeness to FP16 + common community metrics (e.g., perplexity/objective evals). The same quant level can vary by model/task. `_K` denotes newer K-quant; `_S/_M` are mixed strategies—`_M` is usually higher quality than `_S`.
 
@@ -426,7 +430,9 @@ See more examples for different sizes here | [**LLM VRAM USAGE LISTS**](OtherMod
 | **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
 | **Q3_K_M** | 3.4375 | Low | Extreme memory/edge devices | Noticeable degradation; not recommended |
 
-Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+Further reading: 
+> [GGUF Test](https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9) <Br>
+> [Unsloth Dynamic 2.0 GGUFs](https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs) <Br>
 
 \* *bpw (bits per weight) are approximate/official numbers; some legacy formats (Q4_0/Q5_0) have extra overhead not precisely specified—shown as “≈”.*</br>
 \* *Special case: Gemma 3 12B Instruct QAT is q4_0, but quantization-aware training (QAT) makes its quality/speed far above typical q4.*</br> 
