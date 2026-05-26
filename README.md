@@ -231,20 +231,8 @@ In theory, this means better whole-document translation when long-range context 
   <summary>Price & Free API</br>
 Different models have different prices</summary>  
 
-Using a $10 usage budget on Gemini official API as a quick estimate:
-
-| Feature       | 2.5 Pro | 2.5 Flash | 2.5 Flash-Lite |
-| :----------- | :-----: | :-------: | :------------: |
-| Input limit (or) | ~8M | ~33.3M | ~100M |
-| Output limit | ~1M | ~4M | ~25M |
-| Cost = input tokens * unit price + output tokens * unit price |
-
-1. Thinking tokens not included here  
-2. 100 tokens ≈ 75 English words  
-3. Or assume a small chat-style call ≈ 1,000 input + 500 output tokens per call.</br>
-2.5 Pro: ≈ 1,600 calls</br>
-2.5 Flash: ≈ 6,450 calls</br>
-2.5 Flash-Lite or 2.0 Flash: ≈ 33,000 calls</br>
+- Cost = input tokens * unit price + output tokens (+thinking tokens) * unit price + (cache*unit price)
+    - 100 tokens ≈ 75 English words  
 
 > Google provides a [**free-tier API**](https://github.com/CYBIRD-D/FREE-LLM-API-Provider) (check details in the link).  
 > But it’s limited by:
@@ -256,7 +244,7 @@ Using a $10 usage budget on Gemini official API as a quick estimate:
 
 Check the above link for rate limit details.
 
-\* AI Studio vs API: AI Studio usage is “free forever,” but its UI quotas don’t always match the API docs exactly; Google adjusts them periodically (e.g., 2.5 Flash RPD observed dropping from 500 to 250).
+\* AI Studio vs API: AI Studio usage is “free forever,” but its UI quotas don’t always match the API docs exactly; Google adjusts them periodically.
 </details>
   
 <details> 
@@ -265,12 +253,12 @@ New closed-source models outperform open models in many areas</summary>
 
 Check [**Timeline**](https://github.com/CYBIRD-D/How-to-Choose-your-LLM-Model-for-translation/blob/main/TIMELINE%201.jpg) here
   
-Representatives (as of 2025/11):
-  - xAI (Grok-4/4.1)
-  - OpenAI (GPT-5/5.1 Thinking)
-  - Google (Gemini 2.5 Pro/3 Pro)
-  - Anthropic (Claude 4/4.1)</br>
-  Within a family, larger models are stronger (Gemini 2.5 Pro > Flash > Lite).
+Representatives (as of 2026/05):
+  - xAI (Grok-4.2/4.3)
+  - OpenAI (GPT-5.5 Thinking)
+  - Google (Gemini 3/3.1 Pro/3.5 Flash)
+  - Anthropic (Claude 4.6/4.7)</br>
+  Within the same generation of family, larger models are usually stronger (Gemini 3 Pro > Flash > Lite).
 
 See various benchmarks on [Kaggle](https://www.kaggle.com/benchmarks).
 </details>
@@ -280,8 +268,8 @@ See various benchmarks on [Kaggle](https://www.kaggle.com/benchmarks).
 Closed-source models generally implement stricter safety moderation (which is reasonable)</summary> 
 
 **Rough moderation strictness (weaker → stronger):**</br>
-Grok-3/4 (easier to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 series < OpenAI third-party APIs <<< OpenAI (newer the model, harder the bypass)
-1. Gemini 2.5 free tier appears stricter.
+Grok-3/4 (easier to bypass) ≤ Claude 3.7 ≤ Gemini 2.0 series < Gemini 2.5 series < Gemini 3 series <<< OpenAI (newer the model, harder the bypass)
+1. Gemini free tier appears stricter.
 2. Web/client Chat versions are stricter than APIs.
 3. Third-party hosting tends to be less strict than official APIs.
 
@@ -293,13 +281,10 @@ Leading closed-source models are typically strong across languages</summary>
 
 | Model | Verifiable count | Basis (scope) | Notes |
 |---|---:|---|---|
-| **xAI Grok-3** | **27** | Official language list (model) | Vendor-listed supported text languages. |
-| **xAI Grok-4** | — | — | **Undisclosed**. |
-| **OpenAI GPT-4** | **26** | Evaluation coverage (translated MMLU) | Eval includes 26 languages; eval ≠ upper bound. |
-| **OpenAI GPT-4o** | **More than GPT-4** | Official statement |   |
-| **OpenAI GPT-5** | — | — | **Undisclosed**. |
-| **Google Gemini 2.5 Pro** | **37** / **40+** | Dev prompt languages / Web app UI | Two counts: dev list 37; Web UI “40+”. |
-| **Anthropic Claude 3.7 / 4 / 4.1** | **15** / **11** | Official eval coverage / Product/UI languages | Eval: English + 14 non-English (15 total); UI languages: 11. |
+| **xAI Grok-3~4.3** <br> | **27** </br> - | Official language list (model) </br> - | Vendor-listed supported text languages. <br> **Undisclosed**. |
+| **OpenAI GPT-4** <br> **GPT-4o** <br> **GPT-5~5.5** | **26** <br> **More than GPT-4** <br> **60** | Evaluation coverage (translated MMLU) <br> Official statement <br> *ChatGPT currently supports the following languages: 60 | Eval includes 26 languages; eval ≠ upper bound. |
+| **Google Gemini 2.5 Pro** </br> **Gemini 3+** | **37** / **40+** <Br> **109** | Dev prompt languages / Web app UI </br> **Offical statement** | Two counts: dev list 37; Web UI “40+”. |
+| **Anthropic Claude 3.7 / 4 / 4.1** <br> **Claude Sonnet 4.6** | **15** / **11** <br> 42 | Official eval coverage / Product/UI languages <Br> Claude Sonnet 4.6 System Card | Eval: English + 14 non-English (15 total); UI languages: 11 <Br> GMMLU |
 
 <details> 
   <summary>Grok-3</summary> 
@@ -309,15 +294,16 @@ Leading closed-source models are typically strong across languages</summary>
 </details>
 
 <details> 
-  <summary>GPT-4</summary> 
+  <summary>GPT-5~5.5</summary> 
   
-> English, Italian, Afrikaans, Spanish, German, French, Indonesian, Russian, Polish, Ukrainian, Greek, Latvian, Mandarin (Chinese), Arabic, Turkish, Japanese, Swahili, Welsh, Korean, Icelandic, Bengali, Urdu, Nepali, Thai, Punjabi, Marathi, Telugu </br>
+> English, Albanian, Amharic, Arabic, Armenian, Bengali, Bosnian, Bulgarian, Burmese, Catalan, Chinese, Croatian, Czech, Danish, Dutch, Estonian, Finnish, French, Georgian, German, Greek, Gujarati, Hindi, Hungarian, Icelandic, Indonesian, Italian, Japanese, Kannada, Kazakh, Korean, Latvian, Lithuanian, Macedonian, Malay, Malayalam, Marathi, Mongolian, Norwegian, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Serbian, Slovak, Slovenian, Somali, Spanish, Swahili, Swedish, Tagalog, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Vietnamese </br>
 </details>
 
 <details> 
-  <summary>Gemini</summary>  
-> Arabic, Bengali, Bulgarian, Chinese (Simplified/Traditional), Croatian, Czech, Danish, Dutch, English, Estonian, Persian, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kannada, Korean, Latvian, Lithuanian, Malayalam, Marathi, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Vietnamese
+  <summary>Gemini 3+/summary>  
+> Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Basque, Belarusian, Bengali, Bosnian, Bulgarian, Catalan, Cebuano, Chinese (Simplified and Traditional), Corsican, Croatian, Czech, Danish, Dhivehi, Dutch, English, Esperanto, Estonian, Filipino (Tagalog), Finnish, French, Frisian, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hawaiian, Hebrew, Hindi, Hmong, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Krio, Kurdish, Kyrgyz, Lao, Latin, Latvian, Lithuanian, Luxembourgish, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi, Meiteilon (Manipuri), Mongolian, Myanmar (Burmese), Nepali, Norwegian, Nyanja (Chichewa), Odia (Oriya), Pashto, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Samoan, Scots Gaelic, Serbian, Sesotho, Shona, Sindhi, Sinhala (Sinhalese), Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tajik, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Uyghur, Uzbek, Vietnamese, Welsh, Xhosa, Yiddish, Yoruba, Zulu
 </details>
+
 
 <details> 
   <summary>Claude</summary> 
@@ -354,7 +340,7 @@ Example: **Qwen3-8B-Thinking-2507-abliterated-Q8_0-gguf** </br>
       
   - **Thinking**: indicates a thinking-mode model (not all such models are labeled).
   
-  - **2507**: time tag (2025/07), often minor updates.
+  - **2507**: time tag (2025/07), often small updates.
   
   - **abliterated**: a style of “**de-safety-filtered**” fine-tune; typically means moderation is reduced or removed.
     - You’ll also see
