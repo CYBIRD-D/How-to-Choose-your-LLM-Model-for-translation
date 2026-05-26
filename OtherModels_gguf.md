@@ -185,7 +185,9 @@
 | **Q4_0** | ≈ 4.0 | 中等—较低 | 仅做兼容/对比用途 | 旧法（legacy），质量较低，通常不再推荐* |
 | **Q3_K_M** | 3.4375 | 较低 | 极限内存或边缘设备权衡 | 质量明显劣化，不推荐 |
 
-具体技术文章 https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9
+具体技术文章
+> [**GGUF 测试**](https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9) <Br>
+> [**Unsloth Dynamic 2.0 GGUFs**](https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs) <Br>
 
 \* *bpw（bits per weight）为官方/文档给出的近似或精确数值；部分旧法（如 Q4_0/Q5_0）不明确给出额外开销，表中以“≈”表示。*</br>
 \* *特殊情况：Gemma 3 12B Instruct QAT 虽为q4_0量化，但量化感知训练（Quantization-Aware Training, QAT）使其质量和速度远超q4档位</br> 
@@ -210,8 +212,10 @@
 | **Q4_0** | ≈ 4.0 | Medium–Low | Compatibility/contrast only | Legacy; generally not recommended* |
 | **Q3_K_M** | 3.4375 | Low | Low memory/edge devices | Noticeable degradation; not recommended |
 
-Further reading: https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9</br>
-Unsloth dynamic GGUF: https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs
+
+Further reading: 
+> [**GGUF Test**](https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9) <Br>
+> [**Unsloth Dynamic 2.0 GGUFs**](https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs) <Br>
 
 \* *bpw (bits per weight) are approximate/official numbers; some legacy formats (Q4_0/Q5_0) have extra overhead not precisely specified—shown as “≈”.*</br>
 \* *Special case: Gemma 3 12B Instruct QAT is q4_0, but quantization-aware training (QAT) makes its quality/speed far above typical q4.*</br> 
