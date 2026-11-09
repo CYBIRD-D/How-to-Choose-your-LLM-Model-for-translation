@@ -8,6 +8,29 @@
 > For translation task, quantizations above `Q5` usually no noticing quality loss. </br>
 > For llama.cpp, some visual models are seperated as **two gguf file**, you may block the visual one to save vram.
 
+
+```mermaid
+flowchart TD
+    A["Backend & Model Compatibility"] --> B{"Inference Mode"}
+
+    B --> C["Full GPU Offload"]
+    B --> D["CPU + GPU Hybrid"]
+    B --> E["Unified Memory"]
+
+    C --> C1["VRAM Capacity"]
+    C1 --> C2["VRAM Bandwidth + GPU Compute"]
+    C2 --> C3["RAM / CPU: Secondary"]
+
+    D --> D1["VRAM + RAM Capacity"]
+    D1 --> D2["RAM Bandwidth + CPU/GPU Compute"]
+    D2 --> D3["PCIe / Interconnect"]
+
+    E --> E1["Usable Memory Capacity"]
+    E1 --> E2["Memory Bandwidth + GPU Compute"]
+    E2 --> E3["Backend Optimisation"]
+```
+
+
 # LLM VRAM USAGE LISTS <br> LLM 显存使用表 
 > 小模型一般对于**CPU有优化**，可以查看具体模型卡页面是否有优化/纯用CPU跑试试 </br>
  Small models are generally **optimized for the CPU**, check official model card/try offload to cpu to test speed.
